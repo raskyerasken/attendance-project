@@ -22,7 +22,7 @@
       <Button layoutX="158.0" layoutY="361.0" mnemonicParsing="false" text="Delete Student" />
       <ImageView fitHeight="94.0" fitWidth="163.0" layoutX="22.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Desktop/ea-sydvest-logo_orig.png" />
+            <Image url="@../Image/28081877_10215708726930432_1395245353_o.png" />
          </image>
       </ImageView>
       <Label layoutX="285.0" layoutY="116.0" text="Most skipped day" />

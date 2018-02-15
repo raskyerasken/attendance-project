@@ -27,7 +27,7 @@
                   <Button layoutX="65.0" layoutY="362.0" mnemonicParsing="false" onAction="#btnCPR" text="Attending" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="65.0" />
                   <ImageView fitHeight="84.0" fitWidth="200.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../../Desktop/ea-sydvest-logo_orig.png" />
+                        <Image url="@../Image/28081877_10215708726930432_1395245353_o.png" />
                      </image>
                   </ImageView>
                </children>
