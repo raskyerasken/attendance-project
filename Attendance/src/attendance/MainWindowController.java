@@ -29,6 +29,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
@@ -59,8 +61,15 @@ public class MainWindowController implements Initializable {
          Students stud=new Students();
           private final ObservableList<Students> studentsList
             = FXCollections.observableArrayList();
-    @FXML
     private Label lblpic;
+    @FXML
+    private Label nameLabel;
+    @FXML
+    private Label ageLabel;
+    @FXML
+    private Label attendanceLabel;
+    @FXML
+    private ImageView studentPhotoView;
     /**
      * Initializes the controller class.
      */
@@ -84,6 +93,14 @@ public class MainWindowController implements Initializable {
         stud3.setName("Sofie");
         studentsList.add(stud3);
         tblviewStudens.setItems(studentsList);
+         txtCPR.textProperty().addListener(e->{
+        if(txtCPR.getText().length() == 10){
+                txtCPR.setStyle("-fx-text-fill: green");}
+            else
+                txtCPR.setStyle("-fx-text-fill: red");
+        
+        });
+    
         // TODO
     }
   

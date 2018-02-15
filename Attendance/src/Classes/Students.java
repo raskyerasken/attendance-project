@@ -5,6 +5,7 @@
  */
 package Classes;
 
+import java.util.Date;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -15,6 +16,26 @@ import javafx.beans.property.StringProperty;
 public class Students {
 
     private final StringProperty familyName = new SimpleStringProperty();
+
+    private Date attence;
+
+    /**
+     * Get the value of attence
+     *
+     * @return the value of attence
+     */
+    public Date getAttence() {
+        return attence;
+    }
+
+    /**
+     * Set the value of attence
+     *
+     * @param attence new value of attence
+     */
+    public void setAttence(Date attence) {
+        this.attence = attence;
+    }
 
     public String getFamilyName() {
         return familyName.get();
