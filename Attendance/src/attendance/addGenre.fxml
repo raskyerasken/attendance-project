@@ -15,6 +15,6 @@
         </columns>
       </TableView>
       <Button layoutX="14.0" layoutY="361.0" mnemonicParsing="false" onAction="#returnStudentView" text="Return View" />
-      <Button layoutX="109.0" layoutY="361.0" mnemonicParsing="false" text="Delete Naughty Student" />
+      <Button layoutX="109.0" layoutY="361.0" mnemonicParsing="false" text="Delete Student" />
    </children>
 </AnchorPane>
