@@ -125,9 +125,9 @@ public class MainWindowController implements Initializable {
       void newAddGenreView() throws IOException
     {
         Stage newStage = new Stage();
-        FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("addGenre.fxml"));
+        FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("TeacherView.fxml"));
         Parent root = fxLoader.load();
-        AddGenreController controller= fxLoader.getController();
+        TeacherViewController controller= fxLoader.getController();
   
         Scene scene = new Scene(root);
         newStage.setScene(scene);
@@ -142,7 +142,7 @@ public class MainWindowController implements Initializable {
     @FXML
     private void openNew(ActionEvent event) throws IOException {
        // newAddGenreView();
-        AnchorPane pane =FXMLLoader.load(getClass().getResource("addGenre.fxml"));
+        AnchorPane pane =FXMLLoader.load(getClass().getResource("TeacherView.fxml"));
         hey.getChildren().setAll(pane);
         
     }
