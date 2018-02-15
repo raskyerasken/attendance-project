@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" fx:id="lol" prefHeight="400.0" prefWidth="426.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="attendance.AddGenreController">
+   <children>
+      <TableView layoutX="22.0" layoutY="49.0" prefHeight="306.0" prefWidth="245.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Name" />
+          <TableColumn prefWidth="75.0" text="Last Name" />
+            <TableColumn prefWidth="93.0" text="Attendance" />
+        </columns>
+      </TableView>
+      <Button layoutX="22.0" layoutY="361.0" mnemonicParsing="false" onAction="#returnStudentView" text="Student View" />
+      <Button layoutX="158.0" layoutY="361.0" mnemonicParsing="false" text="Delete Student" />
+      <ImageView fitHeight="94.0" fitWidth="163.0" layoutX="22.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Desktop/ea-sydvest-logo_orig.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="285.0" layoutY="116.0" text="Most skipped day" />
+      <Label fx:id="skippedDayLabel" layoutX="304.0" layoutY="139.0" prefHeight="17.0" prefWidth="71.0" />
+      <ChoiceBox fx:id="classPicker" layoutX="273.0" layoutY="69.0" prefHeight="27.0" prefWidth="134.0" />
+      <Label layoutX="304.0" layoutY="48.0" text="Pick class" />
+   </children>
+</AnchorPane>
