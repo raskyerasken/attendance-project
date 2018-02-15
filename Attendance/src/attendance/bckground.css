@@ -13,3 +13,8 @@ and open the template in the editor.
     -fx-background-image: url("http://www.troldtekt.com/~/media/Case%20Images/Education/EASV%20Esbjerg/Troldtekt_EASV_Esbjerg_10.jpg");
     -fx-background-size: stretch
 }
+
+.jfx-button
+{
+    -fx-background-color: whitesmoke;
+}
