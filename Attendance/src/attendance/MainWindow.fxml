@@ -23,8 +23,8 @@
                       <TableColumn fx:id="clFamilyName" prefWidth="107.0" text="Family name" />
                     </columns>
                   </TableView>
-                  <TextField fx:id="txtCPR" layoutX="77.0" layoutY="332.0" prefHeight="27.0" prefWidth="117.0" promptText="Input Student ID" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="14.0" />
-                  <Button layoutX="14.0" layoutY="332.0" mnemonicParsing="false" onAction="#btnCPR" text="OK" AnchorPane.bottomAnchor="40.0" AnchorPane.rightAnchor="139.0" />
+                  <TextField fx:id="txtCPR" layoutX="46.0" layoutY="330.0" prefHeight="27.0" prefWidth="117.0" promptText="Input Student ID" AnchorPane.bottomAnchor="46.0" AnchorPane.rightAnchor="45.0" />
+                  <Button layoutX="65.0" layoutY="362.0" mnemonicParsing="false" onAction="#btnCPR" text="Attending" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="65.0" />
                   <ImageView fitHeight="84.0" fitWidth="200.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../../../../../Desktop/ea-sydvest-logo_orig.png" />
@@ -39,7 +39,7 @@
                   <Label fx:id="nameLabel" layoutX="37.0" layoutY="49.0" prefHeight="17.0" prefWidth="167.0" />
                   <Label fx:id="ageLabel" layoutX="37.0" layoutY="77.0" prefHeight="17.0" prefWidth="167.0" />
                   <Label fx:id="attendanceLabel" layoutX="37.0" layoutY="105.0" prefHeight="17.0" prefWidth="167.0" />
-                  <ImageView fx:id="studentPhotoView" fitHeight="150.0" fitWidth="200.0" layoutX="56.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="studentPhotoView" fitHeight="178.0" fitWidth="200.0" layoutX="56.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
         </items>

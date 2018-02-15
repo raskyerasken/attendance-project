@@ -12,6 +12,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -23,6 +25,10 @@ public class AddGenreController implements Initializable {
 
     @FXML
     private AnchorPane lol;
+    @FXML
+    private Label skippedDayLabel;
+    @FXML
+    private ChoiceBox<?> classPicker;
 
     /**
      * Initializes the controller class.
@@ -39,5 +45,13 @@ public class AddGenreController implements Initializable {
                 
         lol.getChildren().setAll(pane);
     }
+    
+    
+    private void skippedDayLabel()
+    {
+        skippedDayLabel.setText("Monday");
+    }
+    
+    
     
 }
