@@ -62,6 +62,11 @@ public class Students {
     public StringProperty nameProperty() {
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "Students{" + "familyName=" + familyName + ", attence=" + attence + ", name=" + name + '}';
+    }
     
 
     

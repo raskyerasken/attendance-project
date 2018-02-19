@@ -61,6 +61,7 @@ public class TeacherViewController implements Initializable {
         
         colAttence.setCellValueFactory(
         new PropertyValueFactory("attence"));
+       
         
         
     }    
@@ -109,7 +110,10 @@ public class TeacherViewController implements Initializable {
         Parent root = fxLoader.load();
         EditAttedenceController controller= fxLoader.getController();
         controller.setModel(model);
-        controller.setStudent(tblStudents.getSelectionModel().getSelectedItem() );
+        if (!tblStudents.getSelectionModel().isEmpty())
+       controller.setStudent(tblStudents.getSelectionModel().getSelectedItem(),tblStudents.getSelectionModel().getFocusedIndex() );
+        else
+            controller.noStudent();
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.show();

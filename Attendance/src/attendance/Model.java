@@ -26,13 +26,8 @@ public class Model {
      
     }
 
-    void delete(int index) {
-    attence.remove(index);
-    }
 
-    void delete() {
-        for (Students students : attence) {
-            
-        }
-}
+    void delete(int index) {
+       attence.remove(index);
+ }
 }

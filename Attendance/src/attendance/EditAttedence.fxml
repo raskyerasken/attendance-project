@@ -9,19 +9,19 @@
 
 <AnchorPane id="AnchorPane" prefHeight="219.0" prefWidth="298.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="attendance.EditAttedenceController">
    <children>
-      <TextField fx:id="lblName" layoutX="118.0" layoutY="46.0" promptText="Name" />
+      <TextField fx:id="lblName" layoutX="118.0" layoutY="46.0" promptText="Name" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="46.0" />
       <TextField fx:id="lblLastName" layoutX="118.0" layoutY="85.0" promptText="Last name" />
-      <TextField fx:id="lblDate" layoutX="118.0" layoutY="125.0" promptText="yyyy-mm-dd" />
-      <Label layoutX="106.0" text="Attence" textFill="WHITE">
+      <TextField fx:id="lblDate" layoutX="118.0" layoutY="125.0" promptText="yyyy-mm-dd" AnchorPane.bottomAnchor="69.0" AnchorPane.rightAnchor="31.0" />
+      <Label layoutX="106.0" text="Attence" textFill="WHITE" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font size="31.0" />
          </font>
       </Label>
-      <Label layoutX="30.0" layoutY="50.0" text="Name" textFill="WHITE" />
-      <Label layoutX="30.0" layoutY="89.0" text="LastName" textFill="WHITE" />
-      <Label layoutX="30.0" layoutY="129.0" text="Date" textFill="WHITE" />
-      <Button layoutX="29.0" layoutY="172.0" mnemonicParsing="false" onAction="#saveAttence" text="save" />
-      <Button layoutX="92.0" layoutY="172.0" mnemonicParsing="false" onAction="#deleteAttendence" text="Delete" />
+      <Label layoutX="31.0" layoutY="50.0" text="Name" textFill="WHITE" AnchorPane.leftAnchor="31.0" AnchorPane.topAnchor="50.0" />
+      <Label layoutX="30.0" layoutY="89.0" text="LastName" textFill="WHITE" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="89.0" />
+      <Label layoutX="31.0" layoutY="129.0" text="Date" textFill="WHITE" AnchorPane.leftAnchor="31.0" />
+      <Button layoutX="29.0" layoutY="172.0" mnemonicParsing="false" onAction="#saveAttence" text="save" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="92.0" />
+      <Button layoutX="31.0" layoutY="172.0" mnemonicParsing="false" onAction="#deleteAttendence" text="Delete" AnchorPane.bottomAnchor="22.0" AnchorPane.rightAnchor="216.0" />
    </children>
    <stylesheets>
       <URL value="@../../../../move/school/first%20semester/sco/Attendance/src/attendance/Attences.css" />

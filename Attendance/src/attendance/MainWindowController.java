@@ -157,6 +157,7 @@ public class MainWindowController implements Initializable {
     @FXML
     private void changeNAme(MouseEvent event) throws IOException 
     {
+        
         lblpic.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName());
     }
 

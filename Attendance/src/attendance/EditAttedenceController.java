@@ -32,7 +32,8 @@ Students studd= new Students();
     private TextField lblLastName;
     @FXML
     private TextField lblDate;
-
+    boolean newAttendence =false;
+    int index;
     /**
      * Initializes the controller class.
      */
@@ -45,36 +46,50 @@ Students studd= new Students();
     this.model= model;
     }
 
-    void setStudent(Students selectedItem) {
+    void setStudent(Students selectedItem, int index) {
       lblName.setText(selectedItem.getName());
         lblLastName.setText(selectedItem.getFamilyName());
         lblDate.setText(""+selectedItem.getAttence());
+        newAttendence= true;
+        this.index=index;
     }
 
     @FXML
     private void saveAttence(ActionEvent event) throws ParseException {
-//        getStudent();
-//        model.add(studd);
-//         Stage stage = (Stage) lblName.getScene().getWindow();
-//                        stage.close();
+        getStudent();
+        model.add(studd);
+        System.out.println(model.getAttence());
+        if(newAttendence)
+        {
+        model.delete(index);
+        }
+         Stage stage = (Stage) lblName.getScene().getWindow();
+                        stage.close();
  }
    void getStudent() throws ParseException
     {
-//     studd.setFamilyName(lblLastName.getText());
-//        studd.setName(lblName.getText()); String str_date=lblDate.getText();
-//        DateFormat formatter ; 
-//        Date date ; 
-//        formatter = new SimpleDateFormat("yy-MM-dd");
-//        date = formatter.parse(str_date);
-//        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-//        studd.setAttence(sqlDate);
+     studd.setFamilyName(lblLastName.getText());
+        studd.setName(lblName.getText()); String str_date=lblDate.getText();
+        DateFormat formatter ; 
+        Date date ; 
+        formatter = new SimpleDateFormat("yy-MM-dd");
+        date = formatter.parse(str_date);
+        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+        studd.setAttence(sqlDate);
         
     }
 
     @FXML
     private void deleteAttendence(ActionEvent event) throws ParseException {
-//        getStudent();
-//        model.delete();
+      if(newAttendence)
+        {
+        model.delete(index);
+        }
     }
+
+    void noStudent() {
+    newAttendence=false;
+    
+            }
     
 }
