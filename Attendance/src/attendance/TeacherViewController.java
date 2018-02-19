@@ -61,20 +61,13 @@ public class TeacherViewController implements Initializable {
         
         
         colAttence.setCellValueFactory(
-<<<<<<< HEAD
         new PropertyValueFactory("attence"));
-       
+    }
         
-        
-    }    
-     void mainWindow() throws IOException
-=======
-        new PropertyValueFactory("attence")); 
-    }   
+      
     
     
     void mainWindow() throws IOException
->>>>>>> 5e463af56c1e35b10c52044be4e098b7d2b31720
     {
         Stage newStage = new Stage();
         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));

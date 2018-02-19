@@ -23,6 +23,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -53,8 +54,6 @@ public class MainWindowController implements Initializable
     private final ObservableList<Students> studentsList
             = FXCollections.observableArrayList();
     @FXML
-    private Label lblpic;
-    @FXML
     private Label nameLabel;
     @FXML
     private Label ageLabel;
@@ -65,6 +64,8 @@ public class MainWindowController implements Initializable
     Model model = new Model();
     @FXML
     private Label studentName;
+    @FXML
+    private ImageView picture;
 
     /**
      * Initializes the controller class.
@@ -134,7 +135,8 @@ public class MainWindowController implements Initializable
         alert.showAndWait();
     }
 
-    void teacherWindow() throws IOException {
+    void teacherWindow() throws IOException 
+    {
         Stage newStage = new Stage();
         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("TeacherView.fxml"));
         Parent root = fxLoader.load();
@@ -146,21 +148,24 @@ public class MainWindowController implements Initializable
         Stage stage = (Stage) label.getScene().getWindow();
         stage.close();
     }
+    
+    private void newImageStudent(String pic)
+    {
+        Image image= new Image(getClass().getResourceAsStream(pic));
+        picture.setImage(image);
+    }
 
     @FXML
     private void changeNAme(MouseEvent event) throws IOException 
-    {
-<<<<<<< HEAD
+    {        
         
-        lblpic.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName());
-=======
-        if(tblviewStudens.getSelectionModel().isEmpty())
+        if(!tblviewStudens.getSelectionModel().isEmpty())
         {
-            nameLabel.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName());
+            nameLabel.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName()+ " "+tblviewStudens.getSelectionModel().getSelectedItem().getFamilyName());
+            newImageStudent("/happy.png");
         }
         else
             nameLabel.setText(" ");
->>>>>>> 5e463af56c1e35b10c52044be4e098b7d2b31720
     }
 
     @FXML
