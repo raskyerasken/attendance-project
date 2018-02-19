@@ -9,11 +9,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="500.0" prefWidth="500.0" stylesheets="@bckground.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="attendance.MainWindowController">
     <children>
         <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
-      <SplitPane id="AnchorPane" dividerPositions="0.4015151515151515" prefHeight="405.0" prefWidth="530.0" stylesheets="@bckground.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <SplitPane id="AnchorPane" dividerPositions="0.41967871485943775" prefHeight="405.0" prefWidth="530.0" stylesheets="@bckground.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
           <AnchorPane fx:id="hey" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
@@ -23,23 +24,43 @@
                       <TableColumn fx:id="clFamilyName" prefWidth="107.0" text="Family name" />
                     </columns>
                   </TableView>
-                  <TextField fx:id="txtCPR" layoutX="46.0" layoutY="330.0" prefHeight="27.0" prefWidth="117.0" promptText="Input Student ID" AnchorPane.bottomAnchor="46.0" AnchorPane.rightAnchor="45.0" />
+                  <TextField fx:id="txtCPR" layoutY="449.0" prefHeight="27.0" prefWidth="117.0" promptText="Input Student ID" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" />
                   <ImageView fitHeight="84.0" fitWidth="200.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Image/28081877_10215708726930432_1395245353_o.png" />
                      </image>
                   </ImageView>
-                  <JFXButton buttonType="RAISED" layoutX="61.0" layoutY="364.0" onAction="#btnCPR" ripplerFill="BLACK" text="Attending" AnchorPane.leftAnchor="61.0" AnchorPane.topAnchor="364.0" />
+                  <JFXButton buttonType="RAISED" layoutX="118.0" layoutY="449.0" onAction="#btnCPR" ripplerFill="BLACK" text="Attending" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="1.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TextField layoutX="21.0" layoutY="364.0" prefHeight="27.0" prefWidth="135.0" promptText="Insert Password" />
+                  <TextField layoutX="14.0" layoutY="449.0" prefHeight="27.0" prefWidth="135.0" promptText="Insert Password" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="14.0" />
                   <Label fx:id="nameLabel" layoutX="37.0" layoutY="49.0" prefHeight="17.0" prefWidth="167.0" />
                   <Label fx:id="ageLabel" layoutX="37.0" layoutY="77.0" prefHeight="17.0" prefWidth="167.0" />
                   <Label fx:id="attendanceLabel" layoutX="37.0" layoutY="105.0" prefHeight="17.0" prefWidth="167.0" />
                   <ImageView fx:id="studentPhotoView" fitHeight="178.0" fitWidth="200.0" layoutX="56.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true" />
-                  <JFXButton buttonType="RAISED" layoutX="168.0" layoutY="364.0" onAction="#openNew" ripplerFill="BLACK" text="Teacher Console" AnchorPane.leftAnchor="168.0" AnchorPane.topAnchor="364.0" />
+                  <JFXButton buttonType="RAISED" layoutX="156.0" layoutY="449.0" onAction="#openNew" ripplerFill="BLACK" text="Teacher Console" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="-1.0" />
+                  <Label graphicTextGap="5.0" layoutX="20.0" layoutY="14.0" text="Name: " textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="14.0">
+                     <font>
+                        <Font name="BN Machine" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label graphicTextGap="5.0" layoutX="20.0" layoutY="104.0" text="Name: " textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
+                     <font>
+                        <Font name="BN Machine" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label graphicTextGap="5.0" layoutX="20.0" layoutY="48.0" text="Name: " textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
+                     <font>
+                        <Font name="BN Machine" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="studentName" graphicTextGap="5.0" layoutX="82.0" layoutY="14.0" text=" " textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
+                     <font>
+                        <Font name="BN Machine" size="18.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
         </items>

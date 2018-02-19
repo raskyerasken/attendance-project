@@ -47,7 +47,7 @@ public class MainWindowController implements Initializable {
 
     @FXML
     private AnchorPane hey;
- 
+
     @FXML
     private Label label;
     @FXML
@@ -57,9 +57,9 @@ public class MainWindowController implements Initializable {
     @FXML
     private TableColumn<Students, String> clSurname;
     @FXML
-    private TableColumn<Students, String > clFamilyName;
-         Students stud=new Students();
-          private final ObservableList<Students> studentsList
+    private TableColumn<Students, String> clFamilyName;
+    Students stud = new Students();
+    private final ObservableList<Students> studentsList
             = FXCollections.observableArrayList();
     private Label lblpic;
     @FXML
@@ -70,67 +70,68 @@ public class MainWindowController implements Initializable {
     private Label attendanceLabel;
     @FXML
     private ImageView studentPhotoView;
-    Model model = new Model();  
+    Model model = new Model();
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-       
-         clSurname.setCellValueFactory(
-        new PropertyValueFactory("name"));
-        
+
+        clSurname.setCellValueFactory(
+                new PropertyValueFactory("name"));
+
         clFamilyName.setCellValueFactory(
-        new PropertyValueFactory("familyName"));
+                new PropertyValueFactory("familyName"));
         stud.setFamilyName("Hansen");
         stud.setName("Jeppe");
         studentsList.add(stud);
-        Students stud2=new Students();
-       stud2.setFamilyName("Jensen");
+        Students stud2 = new Students();
+        stud2.setFamilyName("Jensen");
         stud2.setName("Karl");
         studentsList.add(stud2);
-    Students stud3=new Students();
-       stud3.setFamilyName("Søresen");
+        Students stud3 = new Students();
+        stud3.setFamilyName("Søresen");
         stud3.setName("Sofie");
         studentsList.add(stud3);
         tblviewStudens.setItems(studentsList);
-         txtCPR.textProperty().addListener(e->{
-        if(txtCPR.getText().length() == 10){
-                txtCPR.setStyle("-fx-text-fill: green");}
-            else
+        txtCPR.textProperty().addListener(e -> {
+            if (txtCPR.getText().length() == 10) {
+                txtCPR.setStyle("-fx-text-fill: green");
+            } else {
                 txtCPR.setStyle("-fx-text-fill: red");
-        
+            }
+
         });
-    
+
         // TODO
     }
-  
 
-
-    private void setit(ActionEvent event) {
-        Stage stage =(Stage) hey.getScene().getWindow();
+    private void setit(ActionEvent event) 
+    {
+        Stage stage = (Stage) hey.getScene().getWindow();
         stage.setMinWidth(400);
-    stage.setMinHeight(400);
+        stage.setMinHeight(400);
     }
 
     @FXML
-    private void btnCPR(ActionEvent event) {
-      try{
-        int rate = Integer.parseInt(txtCPR.getText());
-        if(txtCPR.getText().length()==10 &&!tblviewStudens.getSelectionModel().isEmpty())
-        {
-            System.out.println("10numbers ");
-        }
-        else 
-        {
-          showErrorDialog("Not a cpr", null, "Input a danish CPR number");
-        }
-         } catch (NumberFormatException e) {
-                    showErrorDialog("Not a cpr or not selected a person", null, "Input a danish CPR number and select person");
-                }
-    }
-        private void showErrorDialog(String title, String header, String message)
+    private void btnCPR(ActionEvent event) 
     {
+        try {
+            int rate = Integer.parseInt(txtCPR.getText());
+            if (txtCPR.getText().length() == 10 && !tblviewStudens.getSelectionModel().isEmpty()) {
+                System.out.println("10numbers ");
+            } 
+            else 
+            {
+                showErrorDialog("Not a cpr", null, "Input a danish CPR number");
+            }
+        } catch (NumberFormatException e) {
+            showErrorDialog("Not a cpr or not selected a person", null, "Input a danish CPR number and select person");
+        }
+    }
+
+    private void showErrorDialog(String title, String header, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText(header);
@@ -138,14 +139,11 @@ public class MainWindowController implements Initializable {
         alert.showAndWait();
     }
 
-   
-
-      void teacherWindow() throws IOException
-    {
+    void teacherWindow() throws IOException {
         Stage newStage = new Stage();
         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("TeacherView.fxml"));
         Parent root = fxLoader.load();
-        TeacherViewController controller= fxLoader.getController();
+        TeacherViewController controller = fxLoader.getController();
         controller.setModel(model);
         Scene scene = new Scene(root);
         newStage.setScene(scene);
@@ -155,19 +153,16 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
-    private void changeNAme(MouseEvent event) throws IOException {
-    lblpic.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName());
+    private void changeNAme(MouseEvent event) throws IOException 
+    {
+        lblpic.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName());
     }
 
     @FXML
     private void openNew(ActionEvent event) throws IOException {
-       // newAddGenreView();
-       teacherWindow();
-       
-        
-    }
+        // newAddGenreView();
+        teacherWindow();
 
     }
-    
-    
 
+}
