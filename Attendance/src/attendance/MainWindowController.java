@@ -71,6 +71,8 @@ public class MainWindowController implements Initializable {
     @FXML
     private ImageView studentPhotoView;
     Model model = new Model();
+    @FXML
+    private Label studentName;
 
     /**
      * Initializes the controller class.
@@ -163,17 +165,10 @@ public class MainWindowController implements Initializable {
         // newAddGenreView();
         teacherWindow();
 
-<<<<<<< HEAD
-
-    void setModel(Model model) {
-    this.model=model; }
+   
 }
-
-    
-    
-    
-=======
+ void setModel(Model model) {
+    this.model=model; 
     }
->>>>>>> 4794fa14c725ef11008893fcd274a0375cdcc5b9
 
 }
