@@ -24,7 +24,8 @@ public class Students {
      *
      * @return the value of attence
      */
-    public Date getAttence() {
+    public Date getAttence() 
+    {
         return attence;
     }
 
@@ -61,11 +62,6 @@ public class Students {
 
     public StringProperty nameProperty() {
         return name;
-    }
-
-    @Override
-    public String toString() {
-        return "Students{" + "familyName=" + familyName + ", attence=" + attence + ", name=" + name + '}';
     }
     
 

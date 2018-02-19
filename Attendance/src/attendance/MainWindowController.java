@@ -162,10 +162,13 @@ public class MainWindowController implements Initializable
         if(!tblviewStudens.getSelectionModel().isEmpty())
         {
             nameLabel.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName()+ " "+tblviewStudens.getSelectionModel().getSelectedItem().getFamilyName());
-            newImageStudent("/happy.png");
+            newImageStudent("/Image/sadface.png");
         }
         else
+        {
             nameLabel.setText(" ");
+            newImageStudent("/Image/happy.png");
+        }
     }
 
     @FXML
