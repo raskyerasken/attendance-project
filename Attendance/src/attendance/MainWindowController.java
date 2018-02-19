@@ -9,6 +9,8 @@ import Classes.Students;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -66,6 +68,8 @@ public class MainWindowController implements Initializable
     private Label studentName;
     @FXML
     private ImageView picture;
+    @FXML
+    private TextField pwTeacher;
 
     /**
      * Initializes the controller class.
@@ -90,16 +94,33 @@ public class MainWindowController implements Initializable
         stud3.setName("Sofie");
         studentsList.add(stud3);
         tblviewStudens.setItems(studentsList);
-        txtCPR.textProperty().addListener(e -> {
-            if (txtCPR.getText().length() == 10) {
-                txtCPR.setStyle("-fx-text-fill: green");
-            } else {
-                txtCPR.setStyle("-fx-text-fill: red");
+        
+        
+        txtCPR.textProperty().addListener(new InvalidationListener() 
+        {
+            @Override
+            public void invalidated(Observable e) {
+                if (txtCPR.getText().length() == 10) {
+                    txtCPR.setStyle("-fx-text-fill: green");
+                } else {
+                    txtCPR.setStyle("-fx-text-fill: red");
+                }
             }
-
+        });
+        
+        pwTeacher.textProperty().addListener(new InvalidationListener() 
+        {
+            @Override
+            public void invalidated(Observable e) {
+                if (pwTeacher.getText().length() == 10) {
+                    pwTeacher.setStyle("-fx-text-fill: green");
+                } else {
+                    pwTeacher.setStyle("-fx-text-fill: red");
+                }
+            }
         });
 
-        // TODO
+        
     }
     
     
@@ -114,8 +135,9 @@ public class MainWindowController implements Initializable
     private void btnCPR(ActionEvent event) 
     {
         try {
-            int rate = Integer.parseInt(txtCPR.getText());
-            if (txtCPR.getText().length() == 10 && !tblviewStudens.getSelectionModel().isEmpty()) {
+            //int rate = Integer.parseInt(txtCPR.getText());
+            int rate = 10;
+            if (txtCPR.getText().length() == rate && !tblviewStudens.getSelectionModel().isEmpty()) {
                 System.out.println("10numbers ");
             } 
             else 
@@ -124,6 +146,20 @@ public class MainWindowController implements Initializable
             }
         } catch (NumberFormatException e) {
             showErrorDialog("Not a cpr or not selected a person", null, "Input a danish CPR number and select person");
+        }
+    }
+    
+    @FXML
+    private void openTeacher(ActionEvent event) throws IOException 
+    {
+        if (pwTeacher.getText().length() == 10) 
+        {
+            System.out.println("10numbers ");
+            teacherWindow();
+        } 
+        else 
+        {
+            showErrorDialog("Not a cpr", null, "Input a danish CPR number");
         }
     }
 
@@ -170,13 +206,8 @@ public class MainWindowController implements Initializable
             newImageStudent("/Image/happy.png");
         }
     }
+    
 
-    @FXML
-    private void openNew(ActionEvent event) throws IOException 
-    {
-        // newAddGenreView();
-        teacherWindow();
-    }
     
     void setModel(Model model) 
     {
