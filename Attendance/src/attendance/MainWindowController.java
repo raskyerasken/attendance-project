@@ -17,6 +17,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Point2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -94,6 +95,8 @@ public class MainWindowController implements Initializable
         stud3.setName("Sofie");
         studentsList.add(stud3);
         tblviewStudens.setItems(studentsList);
+        
+        newImageStudent("/Image/happy.png");
         
         
         txtCPR.textProperty().addListener(new InvalidationListener() 
@@ -197,14 +200,13 @@ public class MainWindowController implements Initializable
         
         if(!tblviewStudens.getSelectionModel().isEmpty())
         {
-            nameLabel.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName()+ " "+tblviewStudens.getSelectionModel().getSelectedItem().getFamilyName());
+            nameLabel.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName() 
+                    + " " + tblviewStudens.getSelectionModel().getSelectedItem().getFamilyName());
             newImageStudent("/Image/sadface.png");
         }
-        else
-        {
-            nameLabel.setText(" ");
-            newImageStudent("/Image/happy.png");
-        }
+        
+        
+
     }
     
 
