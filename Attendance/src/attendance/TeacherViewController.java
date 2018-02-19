@@ -50,9 +50,10 @@ public class TeacherViewController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) 
+    {
         // TODO
-          colFirstName.setCellValueFactory(
+        colFirstName.setCellValueFactory(
         new PropertyValueFactory("name"));
         
         colLastName.setCellValueFactory(
@@ -60,12 +61,20 @@ public class TeacherViewController implements Initializable {
         
         
         colAttence.setCellValueFactory(
+<<<<<<< HEAD
         new PropertyValueFactory("attence"));
        
         
         
     }    
      void mainWindow() throws IOException
+=======
+        new PropertyValueFactory("attence")); 
+    }   
+    
+    
+    void mainWindow() throws IOException
+>>>>>>> 5e463af56c1e35b10c52044be4e098b7d2b31720
     {
         Stage newStage = new Stage();
         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
@@ -80,9 +89,9 @@ public class TeacherViewController implements Initializable {
     @FXML
     private void returnStudentView(ActionEvent event) throws IOException 
     {
-                mainWindow();
-                Stage stage = (Stage) tblStudents.getScene().getWindow();
-                stage.close();
+        mainWindow();
+        Stage stage = (Stage) tblStudents.getScene().getWindow();
+        stage.close();
     }
     
     
@@ -93,13 +102,15 @@ public class TeacherViewController implements Initializable {
     
     
     
-    void setModel(Model model) {
-    this.model=model;
-       tblStudents.setItems(model.getAttence());
+    void setModel(Model model) 
+    {
+        this.model=model;
+        tblStudents.setItems(model.getAttence());
     }
 
     @FXML
-    private void ChangeAttence(ActionEvent event) throws IOException {
+    private void ChangeAttence(ActionEvent event) throws IOException 
+    {
         editAttence();
     }
     

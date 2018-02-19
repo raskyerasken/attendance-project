@@ -8,27 +8,34 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="lol" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="431.0" prefWidth="476.0" stylesheets="@bckground.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="attendance.TeacherViewController">
    <children>
-      <TableView fx:id="tblStudents" layoutX="22.0" layoutY="49.0" prefHeight="306.0" prefWidth="245.0">
+      <TableView fx:id="tblStudents" layoutX="9.0" layoutY="49.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="306.0" prefWidth="245.0" AnchorPane.bottomAnchor="76.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="222.0" AnchorPane.topAnchor="49.0">
         <columns>
           <TableColumn fx:id="colFirstName" prefWidth="75.0" text="Name" />
           <TableColumn fx:id="colLastName" prefWidth="75.0" text="Last Name" />
             <TableColumn fx:id="colAttence" prefWidth="93.0" text="Attendance" />
         </columns>
       </TableView>
-      <ImageView fitHeight="94.0" fitWidth="163.0" layoutX="22.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="94.0" fitWidth="163.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../Image/28081877_10215708726930432_1395245353_o.png" />
          </image>
       </ImageView>
-      <Label layoutX="285.0" layoutY="116.0" text="Most skipped day" />
+      <Label layoutX="267.0" layoutY="108.0" text="Most skipped day" textFill="#ededff" AnchorPane.rightAnchor="34.0" AnchorPane.topAnchor="108.0">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font></Label>
       <Label fx:id="skippedDayLabel" layoutX="304.0" layoutY="139.0" prefHeight="17.0" prefWidth="71.0" />
-      <ChoiceBox fx:id="classPicker" layoutX="273.0" layoutY="69.0" prefHeight="27.0" prefWidth="134.0" />
-      <Label layoutX="304.0" layoutY="48.0" text="Pick class" />
-      <JFXButton layoutX="153.0" layoutY="361.0" text="Terminate Student" />
-      <JFXButton layoutX="22.0" layoutY="361.0" onAction="#returnStudentView" prefHeight="25.0" prefWidth="94.0" text="Student View" />
-      <JFXButton layoutX="22.0" layoutY="392.0" onAction="#ChangeAttence" prefHeight="25.0" prefWidth="245.0" text="Change attandence" />
+      <ChoiceBox fx:id="classPicker" layoutX="273.0" layoutY="69.0" prefHeight="27.0" prefWidth="134.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="69.0" />
+      <Label layoutX="273.0" layoutY="41.0" text="Pick class" AnchorPane.rightAnchor="119.0" AnchorPane.topAnchor="41.0">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font></Label>
+      <JFXButton layoutX="111.0" layoutY="361.0" maxWidth="1.7976931348623157E308" text="Terminate Student" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="111.0" AnchorPane.rightAnchor="222.0" />
+      <JFXButton layoutX="9.0" layoutY="361.0" onAction="#returnStudentView" prefHeight="25.0" prefWidth="94.0" text="Student View" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="9.0" />
+      <JFXButton layoutX="9.0" layoutY="397.0" maxWidth="1.7976931348623157E308" onAction="#ChangeAttence" prefHeight="25.0" prefWidth="245.0" text="Change attandence" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="222.0" />
    </children>
 </AnchorPane>

@@ -8,42 +8,33 @@ package attendance;
 import Classes.Students;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
  *
  * @author jacob
  */
-public class MainWindowController implements Initializable {
+public class MainWindowController implements Initializable 
+{
 
     @FXML
     private AnchorPane hey;
@@ -61,6 +52,7 @@ public class MainWindowController implements Initializable {
     Students stud = new Students();
     private final ObservableList<Students> studentsList
             = FXCollections.observableArrayList();
+    @FXML
     private Label lblpic;
     @FXML
     private Label nameLabel;
@@ -108,7 +100,8 @@ public class MainWindowController implements Initializable {
 
         // TODO
     }
-
+    
+    
     private void setit(ActionEvent event) 
     {
         Stage stage = (Stage) hey.getScene().getWindow();
@@ -157,19 +150,28 @@ public class MainWindowController implements Initializable {
     @FXML
     private void changeNAme(MouseEvent event) throws IOException 
     {
+<<<<<<< HEAD
         
         lblpic.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName());
+=======
+        if(tblviewStudens.getSelectionModel().isEmpty())
+        {
+            nameLabel.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName());
+        }
+        else
+            nameLabel.setText(" ");
+>>>>>>> 5e463af56c1e35b10c52044be4e098b7d2b31720
     }
 
     @FXML
-    private void openNew(ActionEvent event) throws IOException {
+    private void openNew(ActionEvent event) throws IOException 
+    {
         // newAddGenreView();
         teacherWindow();
-
-   
-}
- void setModel(Model model) {
-    this.model=model; 
     }
-
+    
+    void setModel(Model model) 
+    {
+        this.model=model; 
+    }
 }
