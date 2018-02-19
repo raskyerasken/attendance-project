@@ -14,12 +14,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -61,13 +64,24 @@ public class TeacherViewController implements Initializable {
         
         
     }    
+     void mainWindow() throws IOException
+    {
+        Stage newStage = new Stage();
+        FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
+        Parent root = fxLoader.load();
+        MainWindowController controller= fxLoader.getController();
+        controller.setModel(model);
+        Scene scene = new Scene(root);
+        newStage.setScene(scene);
+        newStage.show();
+    }
 
     @FXML
     private void returnStudentView(ActionEvent event) throws IOException 
     {
-                AnchorPane pane =FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
-                
-        lol.getChildren().setAll(pane);
+                mainWindow();
+                Stage stage = (Stage) tblStudents.getScene().getWindow();
+                stage.close();
     }
     
     
@@ -81,6 +95,24 @@ public class TeacherViewController implements Initializable {
     void setModel(Model model) {
     this.model=model;
        tblStudents.setItems(model.getAttence());
+    }
+
+    @FXML
+    private void ChangeAttence(ActionEvent event) throws IOException {
+        editAttence();
+    }
+    
+    void editAttence() throws IOException
+    {
+        Stage newStage = new Stage();
+        FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("EditAttedence.fxml"));
+        Parent root = fxLoader.load();
+        EditAttedenceController controller= fxLoader.getController();
+        controller.setModel(model);
+        controller.setStudent(tblStudents.getSelectionModel().getSelectedItem() );
+        Scene scene = new Scene(root);
+        newStage.setScene(scene);
+        newStage.show();
     }
     
     

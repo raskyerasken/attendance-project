@@ -9,7 +9,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="lol" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="400.0" prefWidth="426.0" stylesheets="@bckground.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="attendance.TeacherViewController">
+<AnchorPane id="AnchorPane" fx:id="lol" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="431.0" prefWidth="476.0" stylesheets="@bckground.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="attendance.TeacherViewController">
    <children>
       <TableView fx:id="tblStudents" layoutX="22.0" layoutY="49.0" prefHeight="306.0" prefWidth="245.0">
         <columns>
@@ -27,7 +27,8 @@
       <Label fx:id="skippedDayLabel" layoutX="304.0" layoutY="139.0" prefHeight="17.0" prefWidth="71.0" />
       <ChoiceBox fx:id="classPicker" layoutX="273.0" layoutY="69.0" prefHeight="27.0" prefWidth="134.0" />
       <Label layoutX="304.0" layoutY="48.0" text="Pick class" />
-      <JFXButton layoutX="124.0" layoutY="361.0" text="Terminate Student" />
-      <JFXButton layoutX="22.0" layoutY="361.0" onAction="#returnStudentView" text="Student View" />
+      <JFXButton layoutX="153.0" layoutY="361.0" text="Terminate Student" />
+      <JFXButton layoutX="22.0" layoutY="361.0" onAction="#returnStudentView" prefHeight="25.0" prefWidth="94.0" text="Student View" />
+      <JFXButton layoutX="22.0" layoutY="392.0" onAction="#ChangeAttence" prefHeight="25.0" prefWidth="245.0" text="Change attandence" />
    </children>
 </AnchorPane>

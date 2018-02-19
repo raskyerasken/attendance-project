@@ -167,7 +167,12 @@ public class MainWindowController implements Initializable {
         
     }
 
-    }
+
+    void setModel(Model model) {
+    this.model=model; }
+}
+
+    
     
     
 
