@@ -70,6 +70,7 @@ public class MainWindowController implements Initializable {
     private Label attendanceLabel;
     @FXML
     private ImageView studentPhotoView;
+    Model model = new Model();  
     /**
      * Initializes the controller class.
      */
@@ -145,7 +146,7 @@ public class MainWindowController implements Initializable {
         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("TeacherView.fxml"));
         Parent root = fxLoader.load();
         TeacherViewController controller= fxLoader.getController();
-  
+        controller.setModel(model);
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.show();
@@ -159,8 +160,8 @@ public class MainWindowController implements Initializable {
     @FXML
     private void openNew(ActionEvent event) throws IOException {
        // newAddGenreView();
-        AnchorPane pane =FXMLLoader.load(getClass().getResource("TeacherView.fxml"));
-        hey.getChildren().setAll(pane);
+       newAddGenreView();
+       
         
     }
 
