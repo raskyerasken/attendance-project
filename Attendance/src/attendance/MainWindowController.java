@@ -8,35 +8,25 @@ package attendance;
 import Classes.Students;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
-import java.text.ParseException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -159,21 +149,14 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
-    private void openNew(ActionEvent event) throws IOException {
+    private void openNew(ActionEvent event) throws IOException 
+    {
         // newAddGenreView();
         teacherWindow();
-
-<<<<<<< HEAD
-
-    void setModel(Model model) {
-    this.model=model; }
-}
-
-    
-    
-    
-=======
     }
->>>>>>> 4794fa14c725ef11008893fcd274a0375cdcc5b9
-
+    
+    void setModel(Model model) 
+    {
+        this.model=model; 
+    }
 }
