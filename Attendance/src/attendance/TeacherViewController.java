@@ -53,7 +53,7 @@ public class TeacherViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) 
     {
         // TODO
-          colFirstName.setCellValueFactory(
+        colFirstName.setCellValueFactory(
         new PropertyValueFactory("name"));
         
         colLastName.setCellValueFactory(

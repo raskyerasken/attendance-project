@@ -33,7 +33,8 @@ import javafx.stage.Stage;
  *
  * @author jacob
  */
-public class MainWindowController implements Initializable {
+public class MainWindowController implements Initializable 
+{
 
     @FXML
     private AnchorPane hey;
@@ -51,6 +52,7 @@ public class MainWindowController implements Initializable {
     Students stud = new Students();
     private final ObservableList<Students> studentsList
             = FXCollections.observableArrayList();
+    @FXML
     private Label lblpic;
     @FXML
     private Label nameLabel;
@@ -61,6 +63,8 @@ public class MainWindowController implements Initializable {
     @FXML
     private ImageView studentPhotoView;
     Model model = new Model();
+    @FXML
+    private Label studentName;
 
     /**
      * Initializes the controller class.
@@ -96,7 +100,8 @@ public class MainWindowController implements Initializable {
 
         // TODO
     }
-
+    
+    
     private void setit(ActionEvent event) 
     {
         Stage stage = (Stage) hey.getScene().getWindow();
@@ -145,7 +150,12 @@ public class MainWindowController implements Initializable {
     @FXML
     private void changeNAme(MouseEvent event) throws IOException 
     {
-        lblpic.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName());
+        if(tblviewStudens.getSelectionModel().isEmpty())
+        {
+            nameLabel.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName());
+        }
+        else
+            nameLabel.setText(" ");
     }
 
     @FXML
