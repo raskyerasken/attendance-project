@@ -13,57 +13,51 @@ import javafx.beans.property.StringProperty;
  *
  * @author jacob
  */
-public class Students {
+public class Students 
+{
 
     private final StringProperty familyName = new SimpleStringProperty();
-
     private Date attence;
-
-    /**
-     * Get the value of attence
-     *
-     * @return the value of attence
-     */
+    
     public Date getAttence() 
     {
         return attence;
     }
-
-    /**
-     * Set the value of attence
-     *
-     * @param attence new value of attence
-     */
-    public void setAttence(Date attence) {
+    
+    public void setAttence(Date attence) 
+    {
         this.attence = attence;
     }
 
-    public String getFamilyName() {
+    public String getFamilyName() 
+    {
         return familyName.get();
     }
 
-    public void setFamilyName(String value) {
+    public void setFamilyName(String value) 
+    {
         familyName.set(value);
     }
 
-    public StringProperty familyNameProperty() {
+    public StringProperty familyNameProperty() 
+    {
         return familyName;
     }
 
     private final StringProperty name = new SimpleStringProperty();
 
-    public String getName() {
+    public String getName() 
+    {
         return name.get();
     }
 
-    public void setName(String value) {
+    public void setName(String value) 
+    {
         name.set(value);
     }
 
-    public StringProperty nameProperty() {
+    public StringProperty nameProperty() 
+    {
         return name;
     }
-    
-
-    
 }

@@ -83,20 +83,30 @@ public class MainWindowController implements Initializable
 
         clFamilyName.setCellValueFactory(
                 new PropertyValueFactory("familyName"));
+        
         stud.setFamilyName("Hansen");
         stud.setName("Jeppe");
         studentsList.add(stud);
+        
         Students stud2 = new Students();
         stud2.setFamilyName("Jensen");
         stud2.setName("Karl");
         studentsList.add(stud2);
+        
         Students stud3 = new Students();
         stud3.setFamilyName("Søresen");
         stud3.setName("Sofie");
         studentsList.add(stud3);
-        tblviewStudens.setItems(studentsList);
         
-        newImageStudent("/Image/happy.png");
+        tblviewStudens.setItems(studentsList);
+
+//        if (!tblviewStudens.getSelectionModel().getSelectedItem().equals(stud2))
+//        {
+//            newImageStudent("/Image/happy.png");
+//        }
+        
+        //newImageStudent("/Image/happy.png");
+        
         
         
         txtCPR.textProperty().addListener(new InvalidationListener() 
@@ -137,9 +147,10 @@ public class MainWindowController implements Initializable
     @FXML
     private void btnCPR(ActionEvent event) 
     {
-        try {
+        try 
+        {
             //int rate = Integer.parseInt(txtCPR.getText());
-            int rate = 10;
+            Integer rate = 10;
             if (txtCPR.getText().length() == rate && !tblviewStudens.getSelectionModel().isEmpty()) {
                 System.out.println("10numbers ");
             } 
@@ -147,7 +158,9 @@ public class MainWindowController implements Initializable
             {
                 showErrorDialog("Not a cpr", null, "Input a danish CPR number");
             }
-        } catch (NumberFormatException e) {
+        } 
+        catch (NumberFormatException e) 
+        {
             showErrorDialog("Not a cpr or not selected a person", null, "Input a danish CPR number and select person");
         }
     }
@@ -196,20 +209,14 @@ public class MainWindowController implements Initializable
 
     @FXML
     private void changeNAme(MouseEvent event) throws IOException 
-    {        
-        
+    {      
         if(!tblviewStudens.getSelectionModel().isEmpty())
         {
             nameLabel.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName() 
                     + " " + tblviewStudens.getSelectionModel().getSelectedItem().getFamilyName());
             newImageStudent("/Image/sadface.png");
         }
-        
-        
-
     }
-    
-
     
     void setModel(Model model) 
     {
