@@ -88,6 +88,7 @@ public class MainWindowController implements Initializable
         
         stud.setFamilyName("Hansen");
         stud.setName("Jeppe");
+        stud.setStudPic("/Image/surprised.png");
         studentsList.add(stud);
         
         Students stud2 = new Students();
@@ -99,17 +100,33 @@ public class MainWindowController implements Initializable
         Students stud3 = new Students();
         stud3.setFamilyName("Søresen");
         stud3.setName("Sofie");
+        stud3.setStudPic("/Image/angry.png");
         studentsList.add(stud3);
         
+        Students stud4 = new Students();
+        stud4.setFamilyName("Rask");
+        stud4.setName("Kasper");
+        stud4.setStudPic("/Image/sadface.png");
+        studentsList.add(stud4);
         
+        Students stud5 = new Students();
+        stud5.setFamilyName("Søresen");
+        stud5.setName("Jacob");
+        stud5.setStudPic("/Image/happy.png");
+        studentsList.add(stud5);
         
-//        newImageStudent("/Image/happy.png");
-//        if(tblviewStudens.getSelectionModel().getSelectedItem().getFamilyName().contentEquals("Hansen"))
-//        {
-//            newImageStudent("/Image/happy.png");
-//        }
+        Students stud6 = new Students();
+        stud6.setFamilyName("Andersen");
+        stud6.setName("Kristofer");
+        stud6.setStudPic("/Image/surprised.png");
+        studentsList.add(stud6);
         
-
+        Students stud7 = new Students();
+        stud7.setFamilyName("Moniz");
+        stud7.setName("Fabio");
+        stud7.setStudPic("/Image/happy.png");
+        studentsList.add(stud7);
+        
         textChangeCPR();
         textChangerTeacher();
     }
@@ -186,7 +203,7 @@ public class MainWindowController implements Initializable
     {
         if (pwTeacher.getText().length() == 10) 
         {
-            System.out.println("10numbers ");
+            System.out.println("Password Correct ");
             teacherWindow();
         } 
         else 
@@ -221,17 +238,20 @@ public class MainWindowController implements Initializable
     {
         Image image= new Image(getClass().getResourceAsStream(pic));
         picture.setImage(image);
-        
     }
+    
+    
 
     @FXML
     private void changeNAme(MouseEvent event) throws IOException 
     {      
+        Students student = tblviewStudens.getSelectionModel().getSelectedItem();
+        
         if(!tblviewStudens.getSelectionModel().isEmpty())
         {
-            nameLabel.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName() 
-                    + " " + tblviewStudens.getSelectionModel().getSelectedItem().getFamilyName());
-            newImageStudent(tblviewStudens.getSelectionModel().getSelectedItem().getStudPic());
+            nameLabel.setText(student.getName() 
+                    + " " + student.getFamilyName());
+            newImageStudent(student.getStudPic());
         }
     }
     
