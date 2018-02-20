@@ -18,6 +18,13 @@ public class Students
 
     private final StringProperty studPic = new SimpleStringProperty();
 
+    public Students() 
+    {
+        setStudPic("/Image/sadface.png");
+    }
+    
+    
+
     public String getStudPic()
     {
         return studPic.get();

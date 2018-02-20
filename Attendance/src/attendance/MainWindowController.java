@@ -231,7 +231,7 @@ public class MainWindowController implements Initializable
         {
             nameLabel.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName() 
                     + " " + tblviewStudens.getSelectionModel().getSelectedItem().getFamilyName());
-            newImageStudent("/Image/sadface.png");
+            newImageStudent(tblviewStudens.getSelectionModel().getSelectedItem().getStudPic());
         }
     }
     
