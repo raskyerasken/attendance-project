@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.SelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -104,6 +105,7 @@ public class TeacherViewController implements Initializable {
     @FXML
     private void ChangeAttence(ActionEvent event) throws IOException 
     {
+        
         editAttence();
     }
     
@@ -114,10 +116,11 @@ public class TeacherViewController implements Initializable {
         Parent root = fxLoader.load();
         EditAttedenceController controller= fxLoader.getController();
         controller.setModel(model);
-        if (!tblStudents.getSelectionModel().isEmpty())
-       controller.setStudent(tblStudents.getSelectionModel().getSelectedItem(),tblStudents.getSelectionModel().getFocusedIndex() );
+        SelectionModel select = tblStudents.getSelectionModel();
+        if (!select.isEmpty())
+       controller.setStudent((Students) select.getSelectedItem(),select.getSelectedIndex() );
         else
-            controller.noStudent();
+        controller.noStudent();
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.show();

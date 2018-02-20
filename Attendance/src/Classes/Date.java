@@ -5,6 +5,7 @@
  */
 package Classes;
 
+<<<<<<< HEAD
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -15,5 +16,12 @@ import javafx.beans.property.StringProperty;
 public class Date 
 {
 
+=======
+/**
+ *
+ * @author jacob
+ */
+public class Date {
+>>>>>>> 8928e10cf2ac6cf5c6cae110c0d18b0827d81853
     
 }

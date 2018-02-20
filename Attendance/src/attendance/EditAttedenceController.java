@@ -39,6 +39,9 @@ Students studd= new Students();
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+        lblDate.setText(""+sqlDate);
         // TODO
     }    
 

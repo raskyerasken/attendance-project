@@ -8,7 +8,15 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+<<<<<<< HEAD
     <jar href="Attendance.jar" size="4670076" download="eager" />
+=======
+<<<<<<< HEAD
+    <jar href="Attendance.jar" size="3351984" download="eager" />
+=======
+    <jar href="Attendance.jar" size="3755180" download="eager" />
+>>>>>>> d1fc6b200c14a172c2208472c9174396300b2d75
+>>>>>>> 8928e10cf2ac6cf5c6cae110c0d18b0827d81853
     <jar href="lib\jfoenix-8.0.1.jar" size="2405715" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Attendance" >
