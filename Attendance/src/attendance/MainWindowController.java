@@ -39,7 +39,6 @@ import javafx.stage.Stage;
  */
 public class MainWindowController implements Initializable 
 {
-
     @FXML
     private AnchorPane hey;
 
@@ -86,39 +85,39 @@ public class MainWindowController implements Initializable
         clFamilyName.setCellValueFactory(
                 new PropertyValueFactory("familyName"));
         
-        stud.setFamilyName("Hansen");
-        stud.setName("Jeppe");
-        stud.setStudPic("/Image/surprised.png");
+        stud.setFamilyName("Nikolov");
+        stud.setName("Marin");
+        stud.setStudPic("/Image/sadface.png");
         studentsList.add(stud);
         
         Students stud2 = new Students();
-        stud2.setFamilyName("Jensen");
-        stud2.setName("Karl");
-        stud2.setStudPic("/Image/happy.png");
+        stud2.setFamilyName("Trump");
+        stud2.setName("Donald");
+        stud2.setStudPic("/Image/poop.png");
         studentsList.add(stud2);
         
         Students stud3 = new Students();
-        stud3.setFamilyName("Søresen");
-        stud3.setName("Sofie");
-        stud3.setStudPic("/Image/angry.png");
+        stud3.setFamilyName("Enevoldsen");
+        stud3.setName("Anni");
+        stud3.setStudPic("/Image/girl.png");
         studentsList.add(stud3);
         
         Students stud4 = new Students();
         stud4.setFamilyName("Rask");
         stud4.setName("Kasper");
-        stud4.setStudPic("/Image/sadface.png");
+        stud4.setStudPic("/Image/polser.png");
         studentsList.add(stud4);
         
         Students stud5 = new Students();
         stud5.setFamilyName("Søresen");
         stud5.setName("Jacob");
-        stud5.setStudPic("/Image/happy.png");
+        stud5.setStudPic("/Image/devil.png");
         studentsList.add(stud5);
         
         Students stud6 = new Students();
         stud6.setFamilyName("Andersen");
         stud6.setName("Kristofer");
-        stud6.setStudPic("/Image/surprised.png");
+        stud6.setStudPic("/Image/cool.png");
         studentsList.add(stud6);
         
         Students stud7 = new Students();
@@ -259,7 +258,7 @@ public class MainWindowController implements Initializable
     {      
         Students student = tblviewStudens.getSelectionModel().getSelectedItem();
         
-        if(!tblviewStudens.getSelectionModel().isEmpty())
+        if(!student.equals(null))
         {
             nameLabel.setText(student.getName() 
                     + " " + student.getFamilyName());
