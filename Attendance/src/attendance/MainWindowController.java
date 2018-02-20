@@ -37,8 +37,8 @@ import javafx.stage.Stage;
  *
  * @author jacob
  */
-public class MainWindowController implements Initializable {
-
+public class MainWindowController implements Initializable 
+{
     @FXML
     private AnchorPane hey;
 
@@ -75,7 +75,12 @@ public class MainWindowController implements Initializable {
      * Initializes the controller class.
      */
     @Override
+<<<<<<< HEAD
     public void initialize(URL url, ResourceBundle rb) {
+=======
+    public void initialize(URL url, ResourceBundle rb) 
+    {
+>>>>>>> 82ecec56469744ea2547dc80f8abca4f866d4115
         tblviewStudens.setItems(model.getAttence());
 
         clSurname.setCellValueFactory(
@@ -83,6 +88,7 @@ public class MainWindowController implements Initializable {
 
         clFamilyName.setCellValueFactory(
                 new PropertyValueFactory("familyName"));
+<<<<<<< HEAD
         MockStudents ms= new MockStudents();
         ms.addStudents(model);
         stud.setFamilyName("Hansen");
@@ -139,6 +145,14 @@ public class MainWindowController implements Initializable {
         stud9.setStudPic("/Image/scared.png");
         studentsList.add(stud9);
         
+=======
+        
+        MockData md = new MockData();
+        md.add(model);
+        
+
+
+>>>>>>> 82ecec56469744ea2547dc80f8abca4f866d4115
         textChangeCPR();
         textChangerTeacher();
     }
@@ -155,6 +169,8 @@ public class MainWindowController implements Initializable {
             }
         });
     }
+    
+    
 
     private void textChangeCPR() {
         txtCPR.textProperty().addListener(new InvalidationListener() {
@@ -191,12 +207,20 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
+<<<<<<< HEAD
     private void openTeacher(ActionEvent event) throws IOException {
       
         if (pwTeacher.getText().length() == 10) 
         {
             System.out.println("Password Correct ");
 
+=======
+    private void openTeacher(ActionEvent event) throws IOException 
+    {
+        if (pwTeacher.getText().length() == 10) 
+        {
+            System.out.println("Password Correct ");
+>>>>>>> 82ecec56469744ea2547dc80f8abca4f866d4115
             teacherWindow();
         } else {
             showErrorDialog("Not a cpr", null, "Input a danish CPR number");
@@ -229,6 +253,7 @@ public class MainWindowController implements Initializable {
         picture.setImage(image);
     }
     
+<<<<<<< HEAD
      @FXML
      private void changeNAme(MouseEvent event) throws IOException {
         Student student = tblviewStudens.getSelectionModel().getSelectedItem();
@@ -236,10 +261,25 @@ public class MainWindowController implements Initializable {
             nameLabel.setText(student.getName()
             + " " + student.getFamilyName());
      newImageStudent(student.getStudPic());
+=======
+    
+
+    @FXML
+    private void changeNAme(MouseEvent event) throws IOException 
+    {      
+        Students student = tblviewStudens.getSelectionModel().getSelectedItem();
+        
+        if(!student.equals(null))
+        {
+            nameLabel.setText(student.getName() 
+                    + " " + student.getFamilyName());
+            newImageStudent(student.getStudPic());
+>>>>>>> 82ecec56469744ea2547dc80f8abca4f866d4115
         }
     }
 
-    void setModel(Model model) {
+    void setModel(Model model) 
+    {
         this.model = model;
     }
 }

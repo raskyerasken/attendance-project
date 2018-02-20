@@ -63,7 +63,13 @@ public class TeacherViewController implements Initializable {
         
         
         colAttence.setCellValueFactory(
+<<<<<<< HEAD
         new PropertyValueFactory("date"));
+=======
+        new PropertyValueFactory("attence"));
+        
+        
+>>>>>>> 82ecec56469744ea2547dc80f8abca4f866d4115
     }
         
       
