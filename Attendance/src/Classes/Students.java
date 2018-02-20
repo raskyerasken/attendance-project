@@ -16,6 +16,24 @@ import javafx.beans.property.StringProperty;
 public class Students 
 {
 
+    private final StringProperty studPic = new SimpleStringProperty();
+
+    public String getStudPic()
+    {
+        return studPic.get();
+    }
+
+    public void setStudPic(String value) 
+    {
+        studPic.set(value);
+    }
+
+    public StringProperty studPicProperty() 
+    {
+        return studPic;
+    }
+    
+    
     private final StringProperty familyName = new SimpleStringProperty();
     private Date attence;
     

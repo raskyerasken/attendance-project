@@ -76,8 +76,10 @@ public class MainWindowController implements Initializable
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
+    public void initialize(URL url, ResourceBundle rb) 
+    {
+        tblviewStudens.setItems(studentsList);
+        
         clSurname.setCellValueFactory(
                 new PropertyValueFactory("name"));
 
@@ -91,6 +93,7 @@ public class MainWindowController implements Initializable
         Students stud2 = new Students();
         stud2.setFamilyName("Jensen");
         stud2.setName("Karl");
+        stud2.setStudPic("/Image/happy.png");
         studentsList.add(stud2);
         
         Students stud3 = new Students();
@@ -98,42 +101,55 @@ public class MainWindowController implements Initializable
         stud3.setName("Sofie");
         studentsList.add(stud3);
         
-        tblviewStudens.setItems(studentsList);
-
-//        if (!tblviewStudens.getSelectionModel().getSelectedItem().equals(stud2))
+        
+        
+//        newImageStudent("/Image/happy.png");
+//        if(tblviewStudens.getSelectionModel().getSelectedItem().getFamilyName().contentEquals("Hansen"))
 //        {
 //            newImageStudent("/Image/happy.png");
 //        }
         
-        //newImageStudent("/Image/happy.png");
-        
-        
-        
-        txtCPR.textProperty().addListener(new InvalidationListener() 
-        {
-            @Override
-            public void invalidated(Observable e) {
-                if (txtCPR.getText().length() == 10) {
-                    txtCPR.setStyle("-fx-text-fill: green");
-                } else {
-                    txtCPR.setStyle("-fx-text-fill: red");
-                }
-            }
-        });
-        
+
+        textChangeCPR();
+        textChangerTeacher();
+    }
+    
+    private void textChangerTeacher()
+    {
         pwTeacher.textProperty().addListener(new InvalidationListener() 
         {
             @Override
-            public void invalidated(Observable e) {
-                if (pwTeacher.getText().length() == 10) {
+            public void invalidated(Observable e) 
+            {
+                if (pwTeacher.getText().length() == 10) 
+                {
                     pwTeacher.setStyle("-fx-text-fill: green");
-                } else {
+                } 
+                else 
+                {
                     pwTeacher.setStyle("-fx-text-fill: red");
                 }
             }
         });
-
-        
+    }
+    
+    private void textChangeCPR()
+    {
+        txtCPR.textProperty().addListener(new InvalidationListener() 
+        {
+            @Override
+            public void invalidated(Observable e) 
+            {
+                if (txtCPR.getText().length() == 10) 
+                {
+                    txtCPR.setStyle("-fx-text-fill: green");
+                } 
+                else 
+                {
+                    txtCPR.setStyle("-fx-text-fill: red");
+                }
+            }
+        });
     }
     
     
@@ -205,6 +221,7 @@ public class MainWindowController implements Initializable
     {
         Image image= new Image(getClass().getResourceAsStream(pic));
         picture.setImage(image);
+        
     }
 
     @FXML
