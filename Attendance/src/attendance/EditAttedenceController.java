@@ -97,6 +97,8 @@ Student studd= new Student();
         {
         model.delete(index);
         }
+      Stage stage = (Stage) student.getScene().getWindow();
+                        stage.close();
     }
 
     void noStudent() {

@@ -17,7 +17,7 @@ import javafx.collections.ObservableList;
 public class Model {
     private final ObservableList<Student> students
             = FXCollections.observableArrayList();
-<<<<<<< HEAD
+
   private final ObservableList<DateOfPresent> attence
             = FXCollections.observableArrayList();
     void add(Student studd) {
@@ -39,22 +39,7 @@ public class Model {
 
     void addAttence(DateOfPresent dop) {
          attence.add(dop);
-=======
+    }
     
-    void add(Students studd) 
-    {
-        attence.add(studd);
-    }
 
-    ObservableList<Students> getAttence() 
-    {
-        return attence;
-    }
-
-
-    void delete(int index) 
-    {
-       attence.remove(index);
->>>>>>> 82ecec56469744ea2547dc80f8abca4f866d4115
-    }
 }
