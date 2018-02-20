@@ -16,18 +16,20 @@ import javafx.collections.ObservableList;
 public class Model {
     private final ObservableList<Students> attence
             = FXCollections.observableArrayList();
-
-    void add(Students studd) {
-     attence.add(studd);
+    
+    void add(Students studd) 
+    {
+        attence.add(studd);
     }
 
-    ObservableList<Students> getAttence() {
-     return attence;
-     
+    ObservableList<Students> getAttence() 
+    {
+        return attence;
     }
 
 
-    void delete(int index) {
+    void delete(int index) 
+    {
        attence.remove(index);
- }
+    }
 }
