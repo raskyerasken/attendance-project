@@ -127,6 +127,18 @@ public class MainWindowController implements Initializable
         stud7.setStudPic("/Image/happy.png");
         studentsList.add(stud7);
         
+        Students stud8 = new Students();
+        stud8.setFamilyName("Sim");
+        stud8.setName("Skomandas");
+        stud8.setStudPic("/Image/tired.png");
+        studentsList.add(stud8);
+        
+        Students stud9 = new Students();
+        stud9.setFamilyName("Armando");
+        stud9.setName("Gionathan");
+        stud9.setStudPic("/Image/scared.png");
+        studentsList.add(stud9);
+        
         textChangeCPR();
         textChangerTeacher();
     }
