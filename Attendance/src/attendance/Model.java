@@ -5,7 +5,8 @@
  */
 package attendance;
 
-import Classes.Students;
+import Classes.DateOfPresent;
+import Classes.Student;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -14,20 +15,28 @@ import javafx.collections.ObservableList;
  * @author jacob
  */
 public class Model {
-    private final ObservableList<Students> attence
+    private final ObservableList<Student> students
             = FXCollections.observableArrayList();
-
-    void add(Students studd) {
-     attence.add(studd);
+  private final ObservableList<DateOfPresent> attence
+            = FXCollections.observableArrayList();
+    void add(Student studd) {
+     students.add(studd);
     }
 
-    ObservableList<Students> getAttence() {
+    ObservableList<Student> getAttence() {
+     return students;
+     
+    }
+ ObservableList<DateOfPresent> getAttenceDay() {
      return attence;
      
     }
 
-
     void delete(int index) {
        attence.remove(index);
  }
+
+    void addAttence(DateOfPresent dop) {
+         attence.add(dop);
+    }
 }

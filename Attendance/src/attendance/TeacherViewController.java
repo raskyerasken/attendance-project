@@ -5,7 +5,8 @@
  */
 package attendance;
 
-import Classes.Students;
+import Classes.DateOfPresent;
+import Classes.Student;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
@@ -39,13 +40,13 @@ public class TeacherViewController implements Initializable {
     @FXML
     private ChoiceBox<?> classPicker;
     @FXML
-    private TableView<Students> tblStudents;
+    private TableView<DateOfPresent> tblStudents;
     @FXML
-    private TableColumn<Students, String> colFirstName;
+    private TableColumn<DateOfPresent, String> colFirstName;
     @FXML
-    private TableColumn<Students, String> colLastName;
+    private TableColumn<DateOfPresent, String> colLastName;
     @FXML
-    private TableColumn<Students, Date> colAttence;
+    private TableColumn<DateOfPresent, Date> colAttence;
  Model model;
     /**
      * Initializes the controller class.
@@ -55,14 +56,14 @@ public class TeacherViewController implements Initializable {
     {
         // TODO
         colFirstName.setCellValueFactory(
-        new PropertyValueFactory("name"));
+        new PropertyValueFactory("firstName"));
         
         colLastName.setCellValueFactory(
-        new PropertyValueFactory("familyName"));
+        new PropertyValueFactory("lastName"));
         
         
         colAttence.setCellValueFactory(
-        new PropertyValueFactory("attence"));
+        new PropertyValueFactory("date"));
     }
         
       
@@ -99,7 +100,7 @@ public class TeacherViewController implements Initializable {
     void setModel(Model model) 
     {
         this.model=model;
-        tblStudents.setItems(model.getAttence());
+        tblStudents.setItems(model.getAttenceDay());
     }
 
     @FXML
@@ -118,7 +119,7 @@ public class TeacherViewController implements Initializable {
         controller.setModel(model);
         SelectionModel select = tblStudents.getSelectionModel();
         if (!select.isEmpty())
-       controller.setStudent((Students) select.getSelectedItem(),select.getSelectedIndex() );
+       controller.setStudent((DateOfPresent) select.getSelectedItem(),select.getSelectedIndex() );
         else
         controller.noStudent();
         Scene scene = new Scene(root);

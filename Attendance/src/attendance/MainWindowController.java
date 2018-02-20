@@ -5,7 +5,7 @@
  */
 package attendance;
 
-import Classes.Students;
+import Classes.Student;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -47,13 +47,13 @@ public class MainWindowController implements Initializable {
     @FXML
     private TextField txtCPR;
     @FXML
-    private TableView<Students> tblviewStudens;
+    private TableView<Student> tblviewStudens;
     @FXML
-    private TableColumn<Students, String> clSurname;
+    private TableColumn<Student, String> clSurname;
     @FXML
-    private TableColumn<Students, String> clFamilyName;
-    Students stud = new Students();
-    private final ObservableList<Students> studentsList
+    private TableColumn<Student, String> clFamilyName;
+    Student stud = new Student();
+    private final ObservableList<Student> studentsList
             = FXCollections.observableArrayList();
     @FXML
     private Label nameLabel;
@@ -76,76 +76,69 @@ public class MainWindowController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        tblviewStudens.setItems(studentsList);
+        tblviewStudens.setItems(model.getAttence());
 
         clSurname.setCellValueFactory(
                 new PropertyValueFactory("name"));
 
         clFamilyName.setCellValueFactory(
                 new PropertyValueFactory("familyName"));
-
+        MockStudents ms= new MockStudents();
+        ms.addStudents(model);
         stud.setFamilyName("Hansen");
         stud.setName("Jeppe");
         stud.setStudPic("/Image/surprised.png");
         studentsList.add(stud);
 
-        Students stud2 = new Students();
+        Student stud2 = new Student();
         stud2.setFamilyName("Jensen");
         stud2.setName("Karl");
         stud2.setStudPic("/Image/happy.png");
         studentsList.add(stud2);
 
-        Students stud3 = new Students();
+        Student stud3 = new Student();
         stud3.setFamilyName("Søresen");
         stud3.setName("Sofie");
         stud3.setStudPic("/Image/angry.png");
         studentsList.add(stud3);
-<<<<<<< HEAD
 
-//        newImageStudent("/Image/happy.png");
-//        if(tblviewStudens.getSelectionModel().getSelectedItem().getFamilyName().contentEquals("Hansen"))
-//        {
-//            newImageStudent("/Image/happy.png");
-//        }
-=======
         
-        Students stud4 = new Students();
+        Student stud4 = new Student();
         stud4.setFamilyName("Rask");
         stud4.setName("Kasper");
-        stud4.setStudPic("/Image/sadface.png");
+        stud4.setStudPic("/Image/kasper.jpg");
         studentsList.add(stud4);
         
-        Students stud5 = new Students();
+        Student stud5 = new Student();
         stud5.setFamilyName("Søresen");
         stud5.setName("Jacob");
         stud5.setStudPic("/Image/happy.png");
         studentsList.add(stud5);
         
-        Students stud6 = new Students();
+        Student stud6 = new Student();
         stud6.setFamilyName("Andersen");
         stud6.setName("Kristofer");
         stud6.setStudPic("/Image/surprised.png");
         studentsList.add(stud6);
         
-        Students stud7 = new Students();
+        Student stud7 = new Student();
         stud7.setFamilyName("Moniz");
         stud7.setName("Fabio");
         stud7.setStudPic("/Image/happy.png");
         studentsList.add(stud7);
         
-        Students stud8 = new Students();
+        Student stud8 = new Student();
         stud8.setFamilyName("Sim");
         stud8.setName("Skomandas");
         stud8.setStudPic("/Image/tired.png");
         studentsList.add(stud8);
         
-        Students stud9 = new Students();
+        Student stud9 = new Student();
         stud9.setFamilyName("Armando");
         stud9.setName("Gionathan");
         stud9.setStudPic("/Image/scared.png");
         studentsList.add(stud9);
         
->>>>>>> d1fc6b200c14a172c2208472c9174396300b2d75
         textChangeCPR();
         textChangerTeacher();
     }
@@ -198,17 +191,12 @@ public class MainWindowController implements Initializable {
     }
 
     @FXML
-<<<<<<< HEAD
     private void openTeacher(ActionEvent event) throws IOException {
-        if (pwTeacher.getText().length() == 10) {
-            System.out.println("10numbers ");
-=======
-    private void openTeacher(ActionEvent event) throws IOException 
-    {
+      
         if (pwTeacher.getText().length() == 10) 
         {
             System.out.println("Password Correct ");
->>>>>>> d1fc6b200c14a172c2208472c9174396300b2d75
+
             teacherWindow();
         } else {
             showErrorDialog("Not a cpr", null, "Input a danish CPR number");
@@ -239,32 +227,15 @@ public class MainWindowController implements Initializable {
     private void newImageStudent(String pic) {
         Image image = new Image(getClass().getResourceAsStream(pic));
         picture.setImage(image);
-<<<<<<< HEAD
-
-=======
->>>>>>> d1fc6b200c14a172c2208472c9174396300b2d75
     }
     
-    
-
-    @FXML
-<<<<<<< HEAD
-    private void changeNAme(MouseEvent event) throws IOException {
-        Students student = tblviewStudens.getSelectionModel().getSelectedItem();
+     @FXML
+     private void changeNAme(MouseEvent event) throws IOException {
+        Student student = tblviewStudens.getSelectionModel().getSelectedItem();
         if (!student.equals(null)) {
             nameLabel.setText(student.getName()
-                              + " " + student.getFamilyName());
-=======
-    private void changeNAme(MouseEvent event) throws IOException 
-    {      
-        Students student = tblviewStudens.getSelectionModel().getSelectedItem();
-        
-        if(!tblviewStudens.getSelectionModel().isEmpty())
-        {
-            nameLabel.setText(student.getName() 
-                    + " " + student.getFamilyName());
->>>>>>> d1fc6b200c14a172c2208472c9174396300b2d75
-            newImageStudent(student.getStudPic());
+            + " " + student.getFamilyName());
+     newImageStudent(student.getStudPic());
         }
     }
 

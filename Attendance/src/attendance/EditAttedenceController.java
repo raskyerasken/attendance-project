@@ -5,7 +5,8 @@
  */
 package attendance;
 
-import Classes.Students;
+import Classes.DateOfPresent;
+import Classes.Student;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -15,6 +16,7 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -25,15 +27,16 @@ import javafx.stage.Stage;
  */
 public class EditAttedenceController implements Initializable {
 Model model;
-Students studd= new Students();
- @FXML
+Student studd= new Student();
+    DateOfPresent dop= new DateOfPresent();
     private TextField lblName;
-    @FXML
     private TextField lblLastName;
     @FXML
     private TextField lblDate;
     boolean newAttendence =false;
     int index;
+    @FXML
+    private ComboBox<String> student;
     /**
      * Initializes the controller class.
      */
@@ -43,16 +46,20 @@ Students studd= new Students();
         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
         lblDate.setText(""+sqlDate);
         // TODO
+        
     }    
 
     void setModel(Model model) {
     this.model= model;
+        for (Student student1 : model.getAttence()) {
+           student.getItems().add(student1.getName()+" "+student1.getFamilyName());
+        }
+    
     }
 
-    void setStudent(Students selectedItem, int index) {
-      lblName.setText(selectedItem.getName());
-        lblLastName.setText(selectedItem.getFamilyName());
-        lblDate.setText(""+selectedItem.getAttence());
+    void setStudent(DateOfPresent selectedItem, int index) {
+        student.getSelectionModel().select(selectedItem.getFirstName()+" "+selectedItem.getLastName());
+        lblDate.setText(""+selectedItem.getDate());
         newAttendence= true;
         this.index=index;
     }
@@ -60,25 +67,27 @@ Students studd= new Students();
     @FXML
     private void saveAttence(ActionEvent event) throws ParseException {
         getStudent();
-        model.add(studd);
+        model.addAttence(dop);
         System.out.println(model.getAttence());
         if(newAttendence)
         {
         model.delete(index);
         }
-         Stage stage = (Stage) lblName.getScene().getWindow();
+         Stage stage = (Stage) student.getScene().getWindow();
                         stage.close();
  }
    void getStudent() throws ParseException
     {
-     studd.setFamilyName(lblLastName.getText());
-        studd.setName(lblName.getText()); String str_date=lblDate.getText();
+        String[] splitStr = student.getSelectionModel().getSelectedItem().split("\\s+");
+        dop.setFirstName(splitStr[0]);
+        dop.setLastName(splitStr[1]);
+        String str_date=lblDate.getText();
         DateFormat formatter ; 
         Date date ; 
         formatter = new SimpleDateFormat("yy-MM-dd");
         date = formatter.parse(str_date);
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-        studd.setAttence(sqlDate);
+        dop.setDate(sqlDate);
         
     }
 
