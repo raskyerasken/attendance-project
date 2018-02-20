@@ -23,8 +23,6 @@ public class Students
         setStudPic("/Image/sadface.png");
     }
     
-    
-
     public String getStudPic()
     {
         return studPic.get();
