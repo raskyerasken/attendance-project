@@ -37,8 +37,7 @@ import javafx.stage.Stage;
  *
  * @author jacob
  */
-public class MainWindowController implements Initializable 
-{
+public class MainWindowController implements Initializable {
 
     @FXML
     private AnchorPane hey;
@@ -76,121 +75,92 @@ public class MainWindowController implements Initializable
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) 
-    {
+    public void initialize(URL url, ResourceBundle rb) {
         tblviewStudens.setItems(studentsList);
-        
+
         clSurname.setCellValueFactory(
                 new PropertyValueFactory("name"));
 
         clFamilyName.setCellValueFactory(
                 new PropertyValueFactory("familyName"));
-        
+
         stud.setFamilyName("Hansen");
         stud.setName("Jeppe");
         studentsList.add(stud);
-        
+
         Students stud2 = new Students();
         stud2.setFamilyName("Jensen");
         stud2.setName("Karl");
         stud2.setStudPic("/Image/happy.png");
         studentsList.add(stud2);
-        
+
         Students stud3 = new Students();
         stud3.setFamilyName("Søresen");
         stud3.setName("Sofie");
         studentsList.add(stud3);
-        
-        
-        
+
 //        newImageStudent("/Image/happy.png");
 //        if(tblviewStudens.getSelectionModel().getSelectedItem().getFamilyName().contentEquals("Hansen"))
 //        {
 //            newImageStudent("/Image/happy.png");
 //        }
-        
-
         textChangeCPR();
         textChangerTeacher();
     }
-    
-    private void textChangerTeacher()
-    {
-        pwTeacher.textProperty().addListener(new InvalidationListener() 
-        {
+
+    private void textChangerTeacher() {
+        pwTeacher.textProperty().addListener(new InvalidationListener() {
             @Override
-            public void invalidated(Observable e) 
-            {
-                if (pwTeacher.getText().length() == 10) 
-                {
+            public void invalidated(Observable e) {
+                if (pwTeacher.getText().length() == 10) {
                     pwTeacher.setStyle("-fx-text-fill: green");
-                } 
-                else 
-                {
+                } else {
                     pwTeacher.setStyle("-fx-text-fill: red");
                 }
             }
         });
     }
-    
-    private void textChangeCPR()
-    {
-        txtCPR.textProperty().addListener(new InvalidationListener() 
-        {
+
+    private void textChangeCPR() {
+        txtCPR.textProperty().addListener(new InvalidationListener() {
             @Override
-            public void invalidated(Observable e) 
-            {
-                if (txtCPR.getText().length() == 10) 
-                {
+            public void invalidated(Observable e) {
+                if (txtCPR.getText().length() == 10) {
                     txtCPR.setStyle("-fx-text-fill: green");
-                } 
-                else 
-                {
+                } else {
                     txtCPR.setStyle("-fx-text-fill: red");
                 }
             }
         });
     }
-    
-    
-    private void setit(ActionEvent event) 
-    {
+
+    private void setit(ActionEvent event) {
         Stage stage = (Stage) hey.getScene().getWindow();
         stage.setMinWidth(400);
         stage.setMinHeight(400);
     }
 
     @FXML
-    private void btnCPR(ActionEvent event) 
-    {
-        try 
-        {
+    private void btnCPR(ActionEvent event) {
+        try {
             //int rate = Integer.parseInt(txtCPR.getText());
             Integer rate = 10;
             if (txtCPR.getText().length() == rate && !tblviewStudens.getSelectionModel().isEmpty()) {
                 System.out.println("10numbers ");
-            } 
-            else 
-            {
+            } else {
                 showErrorDialog("Not a cpr", null, "Input a danish CPR number");
             }
-        } 
-        catch (NumberFormatException e) 
-        {
+        } catch (NumberFormatException e) {
             showErrorDialog("Not a cpr or not selected a person", null, "Input a danish CPR number and select person");
         }
     }
-    
+
     @FXML
-    private void openTeacher(ActionEvent event) throws IOException 
-    {
-        if (pwTeacher.getText().length() == 10) 
-        {
+    private void openTeacher(ActionEvent event) throws IOException {
+        if (pwTeacher.getText().length() == 10) {
             System.out.println("10numbers ");
             teacherWindow();
-        } 
-        else 
-        {
+        } else {
             showErrorDialog("Not a cpr", null, "Input a danish CPR number");
         }
     }
@@ -203,8 +173,7 @@ public class MainWindowController implements Initializable
         alert.showAndWait();
     }
 
-    void teacherWindow() throws IOException 
-    {
+    void teacherWindow() throws IOException {
         Stage newStage = new Stage();
         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("TeacherView.fxml"));
         Parent root = fxLoader.load();
@@ -216,27 +185,24 @@ public class MainWindowController implements Initializable
         Stage stage = (Stage) label.getScene().getWindow();
         stage.close();
     }
-    
-    private void newImageStudent(String pic)
-    {
-        Image image= new Image(getClass().getResourceAsStream(pic));
+
+    private void newImageStudent(String pic) {
+        Image image = new Image(getClass().getResourceAsStream(pic));
         picture.setImage(image);
-        
+
     }
 
     @FXML
-    private void changeNAme(MouseEvent event) throws IOException 
-    {      
-        if(!tblviewStudens.getSelectionModel().isEmpty())
-        {
-            nameLabel.setText(tblviewStudens.getSelectionModel().getSelectedItem().getName() 
-                    + " " + tblviewStudens.getSelectionModel().getSelectedItem().getFamilyName());
-            newImageStudent(tblviewStudens.getSelectionModel().getSelectedItem().getStudPic());
+    private void changeNAme(MouseEvent event) throws IOException {
+        Students student = tblviewStudens.getSelectionModel().getSelectedItem();
+        if (!student.equals(null)) {
+            nameLabel.setText(student.getName()
+                              + " " + student.getFamilyName());
+            newImageStudent(student.getStudPic());
         }
     }
-    
-    void setModel(Model model) 
-    {
-        this.model=model; 
+
+    void setModel(Model model) {
+        this.model = model;
     }
 }
