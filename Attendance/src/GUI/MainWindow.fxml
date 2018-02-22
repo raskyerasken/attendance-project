@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -24,19 +24,17 @@
                       <TableColumn fx:id="clFamilyName" prefWidth="107.0" text="Family name" />
                     </columns>
                   </TableView>
-                  <TextField fx:id="txtCPR" layoutY="449.0" prefHeight="27.0" prefWidth="117.0" promptText="Input Student ID" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="0.0" />
                   <ImageView fitHeight="84.0" fitWidth="200.0" layoutX="4.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Image/28081877_10215708726930432_1395245353_o.png" />
                      </image>
                   </ImageView>
                   <JFXButton buttonType="RAISED" layoutX="118.0" layoutY="449.0" onAction="#btnCPR" ripplerFill="BLACK" text="Attending" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="1.0" />
-                  <JFXButton layoutX="14.0" layoutY="428.0" onAction="#StudentView" text="StudentView" />
+                  <JFXPasswordField fx:id="txtCPR" layoutX="4.0" layoutY="449.0" prefHeight="31.0" prefWidth="104.0" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TextField fx:id="pwTeacher" layoutX="14.0" layoutY="449.0" prefHeight="27.0" prefWidth="135.0" promptText="Insert Password" AnchorPane.bottomAnchor="18.0" AnchorPane.leftAnchor="14.0" />
                   <Label fx:id="ageLabel" layoutX="37.0" layoutY="77.0" prefHeight="17.0" prefWidth="167.0" />
                   <Label fx:id="attendanceLabel" layoutX="37.0" layoutY="105.0" prefHeight="17.0" prefWidth="167.0" />
                   <ImageView fx:id="studentPhotoView" fitHeight="178.0" fitWidth="200.0" layoutX="56.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true" />
@@ -57,6 +55,8 @@
                      </font>
                   </Label>
                   <ImageView fx:id="picture" fitHeight="150.0" fitWidth="200.0" layoutX="21.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXPasswordField fx:id="pwTeacher" layoutX="14.0" layoutY="449.0" prefHeight="31.0" prefWidth="104.0" />
+                  <JFXButton layoutX="22.0" layoutY="283.0" onAction="#StudentView" text="StudentView" />
                </children>
             </AnchorPane>
         </items>

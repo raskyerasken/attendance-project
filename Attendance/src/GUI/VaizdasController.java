@@ -7,15 +7,22 @@ package GUI;
 
 import BE.DateOfPresent;
 import BE.Student;
+import com.jfoenix.controls.JFXButton;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Date;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -38,17 +45,28 @@ Model model;
     private TableColumn<DateOfPresent, String> colcpr;
 
 
-   void setModel(Model model, Student SelectStudent) {
-      this.model= model; 
-       for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
-           if(dateOfPresent.getFirstName().equals(SelectStudent.getName()) && 
+    void setModel(Model model, Student SelectStudent) 
+    {
+        this.model= model; 
+        for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
+            if(dateOfPresent.getFirstName().equals(SelectStudent.getName()) && 
                    dateOfPresent.getLastName().equals(SelectStudent.getFamilyName()))
-           tblviewAttendence.getItems().add(dateOfPresent);
+                    tblviewAttendence.getItems().add(dateOfPresent);
        }
       //tblviewAttendence.setItems(model.getAttenceDay());
     }
 
-
+   void backToMain() throws IOException
+   {
+        Stage newStage = new Stage();
+        FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
+        Parent root = fxLoader.load();
+        MainWindowController controller= fxLoader.getController();
+        controller.setModel(model);
+        Scene scene = new Scene(root);
+        newStage.setScene(scene);
+        newStage.show();
+   }
    
     /**
      * Initializes the controller class.
@@ -65,5 +83,13 @@ Model model;
                 new PropertyValueFactory("course"));
        
     }    
+
+    @FXML
+    private void mainWindow(ActionEvent event) throws IOException 
+    {
+        backToMain();
+        Stage stage = (Stage) tblviewAttendence.getScene().getWindow();
+        stage.close();
+    }
 
 }

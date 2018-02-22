@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -14,5 +15,6 @@
             <TableColumn fx:id="colClass" minWidth="0.0" prefWidth="161.0" text="Class" />
         </columns>
       </TableView>
+      <JFXButton layoutX="14.0" layoutY="114.0" onAction="#mainWindow" prefHeight="31.0" prefWidth="103.0" text="Back" />
    </children>
 </AnchorPane>
