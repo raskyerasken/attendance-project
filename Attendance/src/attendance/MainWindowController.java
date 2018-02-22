@@ -8,7 +8,10 @@ package attendance;
 import Classes.Student;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.collections.FXCollections;
@@ -87,9 +90,14 @@ public void initialize(URL url, ResourceBundle rb) {
 
         MockData md = new MockData();
         md.add(model);
-        
+        try {
+            md.addAttence(model);
+        } catch (ParseException ex) {
+            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         textChangeCPR();
         textChangerTeacher();
+        
     }
 
     private void textChangerTeacher() {
@@ -118,12 +126,6 @@ public void initialize(URL url, ResourceBundle rb) {
                 }
             }
         });
-    }
-
-    private void setit(ActionEvent event) {
-        Stage stage = (Stage) hey.getScene().getWindow();
-        stage.setMinWidth(400);
-        stage.setMinHeight(400);
     }
 
     @FXML
@@ -204,7 +206,7 @@ public void initialize(URL url, ResourceBundle rb) {
         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("Vaizdas.fxml"));
         Parent root = fxLoader.load();
         VaizdasController controller = fxLoader.getController();
-       
+       controller.setModel(model,tblviewStudens.getSelectionModel().getSelectedItem());
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.show();

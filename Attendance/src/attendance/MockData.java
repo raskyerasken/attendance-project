@@ -5,7 +5,11 @@
  */
 package attendance;
 
+import Classes.DateOfPresent;
 import Classes.Student;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 /**
  *
@@ -13,6 +17,8 @@ import Classes.Student;
  */
 public class MockData 
 {
+
+    
     void add(Model stud) 
     {
         Student stud1 = new Student();
@@ -40,7 +46,7 @@ public class MockData
         stud.add(stud4);
         
         Student stud5 = new Student();
-        stud5.setFamilyName("Søresen");
+        stud5.setFamilyName("Sørensen");
         stud5.setName("Jacob");
         stud5.setStudPic("/Image/devil.png");
         stud.add(stud5);
@@ -75,5 +81,37 @@ public class MockData
         stud10.setStudPic("/Image/surprised.png");
         stud.add(stud10);
     }
+    void addAttence(Model model) throws ParseException 
+    {
+        DateOfPresent date = new DateOfPresent();
+        date.setCourse("SDE");
+        date.setFirstName("Jacob");
+        date.setLastName("Sørensen");
+          DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
+        java.sql.Date sqlDate = new java.sql.Date(formatter.parse("2015-11-11").getTime());
+        date.setDate(sqlDate);
+        model.addAttence(date);
+        
+        DateOfPresent date2 = new DateOfPresent();
+        date2.setCourse("SDE");
+        date2.setFirstName("Jacob");
+        date2.setLastName("Sørensen");
+        DateFormat formatter2= new SimpleDateFormat("yy-MM-dd");
+        java.sql.Date  sqlDate2 = new java.sql.Date(formatter2.parse("2015-11-12").getTime());
+        date2.setDate(sqlDate2);
+        model.addAttence(date2);
+        
+        DateOfPresent date3 = new DateOfPresent();
+        date3.setCourse("SDO");
+        date3.setFirstName("Kasper");
+        date3.setLastName("Rask");
+        DateFormat formatter3= new SimpleDateFormat("yy-MM-dd");
+        java.sql.Date  sqlDate3 = new java.sql.Date(formatter3.parse("2015-11-13").getTime());
+        date3.setDate(sqlDate3);
+        model.addAttence(date3);
+        
+    
+    }
+   
     
 }

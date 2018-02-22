@@ -4,15 +4,14 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@bckground.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="attendance.VaizdasController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@bckground.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="attendance.VaizdasController">
    <children>
-      <TableView layoutX="14.0" layoutY="14.0" prefHeight="92.0" prefWidth="569.0">
+      <TableView fx:id="tblviewAttendence" layoutX="14.0" layoutY="14.0" prefHeight="92.0" prefWidth="569.0">
         <columns>
-          <TableColumn prefWidth="139.0" text="Name" />
-          <TableColumn minWidth="0.0" prefWidth="148.0" text="Date" />
-            <TableColumn minWidth="0.0" prefWidth="120.0" text="Cpr" />
-            <TableColumn minWidth="0.0" prefWidth="161.0" text="Class" />
+          <TableColumn fx:id="colName" prefWidth="139.0" text="Name" />
+          <TableColumn fx:id="colDate" minWidth="0.0" prefWidth="148.0" text="Date" />
+            <TableColumn fx:id="colcpr" minWidth="0.0" prefWidth="120.0" text="Cpr" />
+            <TableColumn fx:id="colClass" minWidth="0.0" prefWidth="161.0" text="Class" />
         </columns>
       </TableView>
    </children>

@@ -37,6 +37,8 @@ Student studd= new Student();
     int index;
     @FXML
     private ComboBox<String> student;
+    @FXML
+    private TextField txtClass;
     /**
      * Initializes the controller class.
      */
@@ -88,6 +90,7 @@ Student studd= new Student();
         date = formatter.parse(str_date);
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
         dop.setDate(sqlDate);
+        dop.setCourse(txtClass.getText());
         
     }
 
