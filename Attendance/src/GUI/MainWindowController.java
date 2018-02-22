@@ -5,12 +5,16 @@
  */
 package GUI;
 
+import BE.DateOfPresent;
 import DAL.MockData;
 import BE.Student;
 import BLL.BLLManager;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -115,6 +119,7 @@ public void initialize(URL url, ResourceBundle rb) {
     
 
     private void textChangeCPR() {
+        
         txtCPR.textProperty().addListener(new InvalidationListener() {
             @Override
             public void invalidated(Observable e) {
@@ -125,22 +130,27 @@ public void initialize(URL url, ResourceBundle rb) {
                 }
             }
         });
+        
     }
 
     @FXML
     private void btnCPR(ActionEvent event) {
-        try {
-            //int rate = Integer.parseInt(txtCPR.getText());
-            Integer rate = 10;
-            if (txtCPR.getText().length() == rate && !tblviewStudens.getSelectionModel().isEmpty()) {
-                System.out.println("10numbers ");
-            } else {
-                showErrorDialog("Not a cpr", null, "Input a danish CPR number");
-            }
-        } catch (NumberFormatException e) {
-            showErrorDialog("Not a cpr or not selected a person", null, "Input a danish CPR number and select person");
+      if (!tblviewStudens.getSelectionModel().isEmpty()) 
+        {
+        Student stud = tblviewStudens.getSelectionModel().getSelectedItem();
+        DateOfPresent dop= new DateOfPresent();
+       dop.setFirstName(stud.getName());
+        dop.setLastName(stud.getFamilyName());
+        java.util.Date utilDate = new java.util.Date();
+        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+        dop.setDate(sqlDate);
+        dop.setCourse("SDE");
+        model.addAttence(dop);
         }
+        else 
+            showErrorDialog("Selection Error", null, "Please select a student");
     }
+    
 
     @FXML
 
@@ -183,7 +193,8 @@ public void initialize(URL url, ResourceBundle rb) {
    
     @FXML
     private void changeNAme(MouseEvent event) throws IOException 
-    {      
+    {     if (!tblviewStudens.getSelectionModel().isEmpty()) 
+        { 
         Student student = tblviewStudens.getSelectionModel().getSelectedItem();
         
         if(!student.equals(null))
@@ -191,7 +202,7 @@ public void initialize(URL url, ResourceBundle rb) {
             nameLabel.setText(student.getName() 
                     + " " + student.getFamilyName());
             newImageStudent(student.getStudPic());
-        }
+        }}
     }
 
     void setModel(Model model) 

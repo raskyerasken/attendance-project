@@ -41,8 +41,6 @@ Model model;
     private TableColumn<DateOfPresent, Date> colDate;
     @FXML
     private TableColumn<DateOfPresent, String> colClass;
-    @FXML
-    private TableColumn<DateOfPresent, String> colcpr;
 
 
     void setModel(Model model, Student SelectStudent) 
