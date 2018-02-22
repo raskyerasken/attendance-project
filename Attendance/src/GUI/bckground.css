@@ -1,0 +1,20 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 15, 2018, 3:26:46 PM
+    Author     : mr.Andersen
+*/
+
+#AnchorPane
+{
+    -fx-background-image: url("http://www.troldtekt.com/~/media/Case%20Images/Education/EASV%20Esbjerg/Troldtekt_EASV_Esbjerg_10.jpg");
+    -fx-background-size: stretch
+}
+
+.jfx-button
+{
+    -fx-background-color: whitesmoke;
+}
