@@ -31,6 +31,7 @@
                      </image>
                   </ImageView>
                   <JFXButton buttonType="RAISED" layoutX="118.0" layoutY="449.0" onAction="#btnCPR" ripplerFill="BLACK" text="Attending" AnchorPane.bottomAnchor="18.0" AnchorPane.rightAnchor="1.0" />
+                  <JFXButton layoutX="14.0" layoutY="428.0" onAction="#StudentView" text="StudentView" />
                </children>
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">

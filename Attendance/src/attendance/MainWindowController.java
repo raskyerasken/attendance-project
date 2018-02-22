@@ -197,4 +197,16 @@ public void initialize(URL url, ResourceBundle rb) {
     {
         this.model = model;
     }
+
+    @FXML
+    private void StudentView(ActionEvent event) throws IOException {
+        Stage newStage = new Stage();
+        FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("Vaizdas.fxml"));
+        Parent root = fxLoader.load();
+        VaizdasController controller = fxLoader.getController();
+       
+        Scene scene = new Scene(root);
+        newStage.setScene(scene);
+        newStage.show();
+    }
 }
