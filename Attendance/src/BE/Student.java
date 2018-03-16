@@ -6,6 +6,8 @@
 package BE;
 
 import java.util.Date;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -17,7 +19,20 @@ public class Student
 {
 
     private final StringProperty studPic = new SimpleStringProperty();
+    private final DoubleProperty Attendance = new SimpleDoubleProperty();
 
+    public Double getAttendance() {
+        return Attendance.get();
+    }
+
+    public void setAttendance(Double value) {
+        Attendance.set(value);
+    }
+
+    public DoubleProperty AttendanceProperty() {
+        return Attendance;
+    }
+    
     public Student() 
     {
         setStudPic("/Image/sadface.png");

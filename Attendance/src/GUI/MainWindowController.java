@@ -100,6 +100,7 @@ public void initialize(URL url, ResourceBundle rb) {
         }
         textChangeCPR();
         textChangerTeacher();
+        CalculateAttendenceProcent cal= new CalculateAttendenceProcent(model);
         
     }
 

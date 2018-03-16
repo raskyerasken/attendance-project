@@ -40,13 +40,13 @@ public class TeacherViewController implements Initializable {
     @FXML
     private ChoiceBox<?> classPicker;
     @FXML
-    private TableView<DateOfPresent> tblStudents;
+    private TableView<Student> tblStudents;
     @FXML
-    private TableColumn<DateOfPresent, String> colFirstName;
+    private TableColumn<Student, String> colFirstName;
     @FXML
-    private TableColumn<DateOfPresent, String> colLastName;
+    private TableColumn<Student, String> colLastName;
     @FXML
-    private TableColumn<DateOfPresent, Date> colAttence;
+    private TableColumn<Student, Date> colAttence;
  Model model;
     /**
      * Initializes the controller class.
@@ -56,14 +56,14 @@ public class TeacherViewController implements Initializable {
     {
         // TODO
         colFirstName.setCellValueFactory(
-        new PropertyValueFactory("firstName"));
+        new PropertyValueFactory("Name"));
         
         colLastName.setCellValueFactory(
-        new PropertyValueFactory("lastName"));
+        new PropertyValueFactory("familyName"));
         
         
         colAttence.setCellValueFactory(
-        new PropertyValueFactory("date"));
+        new PropertyValueFactory("Attendance"));
 
     }
         
@@ -101,7 +101,7 @@ public class TeacherViewController implements Initializable {
     void setModel(Model model) 
     {
         this.model=model;
-        tblStudents.setItems(model.getAttenceDay());
+        tblStudents.setItems(model.getAttence());
     }
 
     @FXML
