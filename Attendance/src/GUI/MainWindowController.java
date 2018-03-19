@@ -114,11 +114,6 @@ public class MainWindowController implements Initializable
     
     private void changeStudentPic()
     {
-<<<<<<< HEAD
-=======
-        
-        
->>>>>>> 1563ff90cce5dc2b2d6b84a33a3ea2838fa7679f
         int studentCount = 0;
         for (Student student : model.getAttence()) 
         {
@@ -127,7 +122,6 @@ public class MainWindowController implements Initializable
             img.setImage(image);
             studentCount++;
         }
-
     }
 
     private void textChangerTeacher() 
