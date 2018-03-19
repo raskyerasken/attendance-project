@@ -83,9 +83,17 @@ public class MainWindowController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-        gridPaneStudentPictures.getChildren().get(0);
-        pictureTest.setImage(newImageStudent());
-       
+        changeStudentPic();
+    }
+    
+    private void changeStudentPic()
+    {
+        
+        Student stud = new Student();
+        Image image; 
+        
+        image = new Image(getClass().getResourceAsStream(stud.getStudPic()));
+        pictureTest.setImage(image);
     }
 
     private void textChangerTeacher() 
