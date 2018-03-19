@@ -75,12 +75,9 @@ public class MainWindowController implements Initializable
     @FXML
     private GridPane gridPaneStudentPictures;
     
-<<<<<<< HEAD
     String[][] board = new String[9][9];
 
-=======
    
->>>>>>> 2376190ac241c23411f20a0fcb5ce5b5b071862f
     String pic;
     @FXML
     private ImageView pictureTest;
@@ -101,7 +98,6 @@ public class MainWindowController implements Initializable
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }
         changeStudentPic();
-        setBoard(String[][] board);
     }
     
     public void setboard(String[][] board)
@@ -119,14 +115,7 @@ public class MainWindowController implements Initializable
     private void changeStudentPic()
     {
         
-<<<<<<< HEAD
-        Student stud = new Student();
-        Image image; 
         
-        image = new Image(getClass().getResourceAsStream(stud.getStudPic()));
-        pictureTest.setImage(image);
-        gridPaneStudentPictures.set
-=======
         int studentCount = 0;
         for (Student student : model.getAttence()) 
         {
@@ -136,7 +125,6 @@ public class MainWindowController implements Initializable
             studentCount++;
         }
 
->>>>>>> 2376190ac241c23411f20a0fcb5ce5b5b071862f
     }
 
     private void textChangerTeacher() 
