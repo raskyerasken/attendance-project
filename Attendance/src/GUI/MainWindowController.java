@@ -75,6 +75,8 @@ public class MainWindowController implements Initializable
     @FXML
     private GridPane gridPaneStudentPictures;
     
+    String[][] board = new String[9][9];
+
    
     String pic;
     @FXML
@@ -98,8 +100,25 @@ public class MainWindowController implements Initializable
         changeStudentPic();
     }
     
+    public void setboard(String[][] board)
+    {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                this.board[i][j] = board[i][j];
+            }
+            String[] strings = board[i];
+            
+        }
+    }
+    
+    
     private void changeStudentPic()
     {
+<<<<<<< HEAD
+=======
+        
+        
+>>>>>>> 1563ff90cce5dc2b2d6b84a33a3ea2838fa7679f
         int studentCount = 0;
         for (Student student : model.getAttence()) 
         {
