@@ -29,6 +29,7 @@ public   void add(Model stud) throws ParseException
         stud1.setAttendance(58.8);
         stud.add(stud1);
         
+        
         Student stud2 = new Student();
         stud2.setFamilyName("Nikolov");
         stud2.setName("Marin");
