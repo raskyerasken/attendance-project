@@ -23,6 +23,8 @@ public class Model {
    public void add(Student studd) {
      students.add(studd);
     }
+   
+   
 
     ObservableList<Student> getAttence() {
      return students;
