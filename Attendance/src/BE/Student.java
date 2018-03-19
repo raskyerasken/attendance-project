@@ -18,6 +18,7 @@ import javafx.scene.image.Image;
  */
 public class Student 
 {
+    
 
     private final StringProperty studPic = new SimpleStringProperty();
     private final DoubleProperty Attendance = new SimpleDoubleProperty();

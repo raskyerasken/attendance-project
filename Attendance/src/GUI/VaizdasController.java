@@ -50,9 +50,10 @@ Model model;
                    dateOfPresent.getLastName().equals(SelectStudent.getFamilyName()))
                     tblviewAttendence.getItems().add(dateOfPresent);
        }
+        
       //tblviewAttendence.setItems(model.getAttenceDay());
     }
-
+  
    void backToMain() throws IOException
    {
         Stage newStage = new Stage();
