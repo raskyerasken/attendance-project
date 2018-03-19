@@ -100,7 +100,6 @@ public class MainWindowController implements Initializable
     
     private void changeStudentPic()
     {
-        
         int studentCount = 0;
         for (Student student : model.getAttence()) 
         {
