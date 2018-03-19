@@ -10,6 +10,7 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.image.Image;
 
 /**
  *
@@ -43,6 +44,7 @@ public class Student
     {
         return studPic.get();
     }
+    
 
     public void setStudPic(String value) 
     {

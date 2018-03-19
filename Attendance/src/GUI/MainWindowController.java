@@ -6,15 +6,11 @@
 package GUI;
 
 import BE.DateOfPresent;
-import DAL.MockData;
 import BE.Student;
 import BLL.BLLManager;
 import java.io.IOException;
 import java.net.URL;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,7 +22,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Point2D;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -39,6 +34,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 /**
@@ -48,18 +44,13 @@ import javafx.stage.Stage;
  */
 public class MainWindowController implements Initializable 
 {
-    @FXML
-    private AnchorPane hey;
 
     @FXML
     private Label label;
     @FXML
     private TextField txtCPR;
-    @FXML
     private TableView<Student> tblviewStudens;
-    @FXML
     private TableColumn<Student, String> clSurname;
-    @FXML
     private TableColumn<Student, String> clFamilyName;
     Student stud = new Student();
     private final ObservableList<Student> studentsList
@@ -80,93 +71,104 @@ public class MainWindowController implements Initializable
     @FXML
     private TextField pwTeacher;
     BLLManager bll = new BLLManager ();
+    @FXML
+    private GridPane gridPaneStudentPictures;
+    
+    String pic;
+    @FXML
+    private ImageView pictureTest;
     /**
      * Initializes the controller class.
      */
     @Override
-public void initialize(URL url, ResourceBundle rb) {
-
-        tblviewStudens.setItems(model.getAttence());
-
-        clSurname.setCellValueFactory(
-                new PropertyValueFactory("name"));
-
-        clFamilyName.setCellValueFactory(
-                new PropertyValueFactory("familyName"));
-        try {
-            bll.add(model);
-        } catch (ParseException ex) {
-            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        textChangeCPR();
-        textChangerTeacher();
-        CalculateAttendenceProcent cal= new CalculateAttendenceProcent(model);
+    public void initialize(URL url, ResourceBundle rb) 
+    {
+        changeStudentPic();
+    }
+    
+    private void changeStudentPic()
+    {
         
+        Student stud = new Student();
+        Image image; 
+        
+        image = new Image(getClass().getResourceAsStream(stud.getStudPic()));
+        pictureTest.setImage(image);
     }
 
-    private void textChangerTeacher() {
-        pwTeacher.textProperty().addListener(new InvalidationListener() {
+    private void textChangerTeacher() 
+    {
+        pwTeacher.textProperty().addListener(new InvalidationListener() 
+        {
             @Override
-            public void invalidated(Observable e) {
-                if (pwTeacher.getText().length() == 10) {
+            public void invalidated(Observable e) 
+            {
+                if (pwTeacher.getText().length() == 10) 
+                {
                     pwTeacher.setStyle("-fx-text-fill: green");
-                } else {
+                } 
+
+                else 
+                {
                     pwTeacher.setStyle("-fx-text-fill: red");
                 }
             }
         });
     }
     
-    
-
-    private void textChangeCPR() {
-        
-        txtCPR.textProperty().addListener(new InvalidationListener() {
+    private void textChangeCPR() 
+    {
+        txtCPR.textProperty().addListener(new InvalidationListener() 
+        {
             @Override
-            public void invalidated(Observable e) {
-                if (txtCPR.getText().length() == 10) {
+            public void invalidated(Observable e) 
+            {
+                if (txtCPR.getText().length() == 10) 
+                {
                     txtCPR.setStyle("-fx-text-fill: green");
-                } else {
+                } 
+                else 
+                {
                     txtCPR.setStyle("-fx-text-fill: red");
                 }
             }
         });
-        
     }
 
     @FXML
-    private void btnCPR(ActionEvent event) {
-      if (!tblviewStudens.getSelectionModel().isEmpty()) 
+    private void btnCPR(ActionEvent event) 
+    {
+        if (!tblviewStudens.getSelectionModel().isEmpty()) 
         {
-        Student stud = tblviewStudens.getSelectionModel().getSelectedItem();
-        DateOfPresent dop= new DateOfPresent();
-       dop.setFirstName(stud.getName());
-        dop.setLastName(stud.getFamilyName());
-        java.util.Date utilDate = new java.util.Date();
-        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-        dop.setDate(sqlDate);
-        dop.setCourse("SDE");
-        model.addAttence(dop);
+            Student stud = tblviewStudens.getSelectionModel().getSelectedItem();
+            DateOfPresent dop= new DateOfPresent();
+            dop.setFirstName(stud.getName());
+            dop.setLastName(stud.getFamilyName());
+            java.util.Date utilDate = new java.util.Date();
+            java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+            dop.setDate(sqlDate);
+            dop.setCourse("SDE");
+            model.addAttence(dop);
         }
         else 
             showErrorDialog("Selection Error", null, "Please select a student");
     }
     
-
-    @FXML
-
     private void openTeacher(ActionEvent event) throws IOException 
     {
         if (pwTeacher.getText().length() == 10) 
         {
             System.out.println("Password Correct ");
             teacherWindow();
-        } else {
+        } 
+        else 
+        {
             showErrorDialog("Not a cpr", null, "Input a danish CPR number");
         }
     }
 
-    private void showErrorDialog(String title, String header, String message) {
+    private void showErrorDialog(String title, String header, String message) 
+    {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText(header);
@@ -174,7 +176,8 @@ public void initialize(URL url, ResourceBundle rb) {
         alert.showAndWait();
     }
 
-    void teacherWindow() throws IOException {
+    void teacherWindow() throws IOException 
+    {
         Stage newStage = new Stage();
         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("TeacherView.fxml"));
         Parent root = fxLoader.load();
@@ -187,23 +190,25 @@ public void initialize(URL url, ResourceBundle rb) {
         stage.close();
     }
 
-    private void newImageStudent(String pic) {
+    private void newImageStudent() 
+    {
         Image image = new Image(getClass().getResourceAsStream(pic));
         picture.setImage(image);
     }
    
-    @FXML
     private void changeNAme(MouseEvent event) throws IOException 
-    {     if (!tblviewStudens.getSelectionModel().isEmpty()) 
+    {     
+        if (!tblviewStudens.getSelectionModel().isEmpty()) 
         { 
-        Student student = tblviewStudens.getSelectionModel().getSelectedItem();
+            Student student = tblviewStudens.getSelectionModel().getSelectedItem();
         
-        if(!student.equals(null))
-        {
-            nameLabel.setText(student.getName() 
-                    + " " + student.getFamilyName());
-            newImageStudent(student.getStudPic());
-        }}
+            if(!student.equals(null))
+            {
+                nameLabel.setText(student.getName() 
+                        + " " + student.getFamilyName());
+                newImageStudent();
+            }
+        }
     }
 
     void setModel(Model model) 
