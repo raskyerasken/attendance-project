@@ -74,6 +74,8 @@ public class MainWindowController implements Initializable
     @FXML
     private GridPane gridPaneStudentPictures;
     
+    String[][] board = new String[9][9];
+
     String pic;
     @FXML
     private ImageView pictureTest;
@@ -84,7 +86,20 @@ public class MainWindowController implements Initializable
     public void initialize(URL url, ResourceBundle rb) 
     {
         changeStudentPic();
+        setBoard(String[][] board);
     }
+    
+    public void setboard(String[][] board)
+    {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
+                this.board[i][j] = board[i][j];
+            }
+            String[] strings = board[i];
+            
+        }
+    }
+    
     
     private void changeStudentPic()
     {
@@ -94,6 +109,7 @@ public class MainWindowController implements Initializable
         
         image = new Image(getClass().getResourceAsStream(stud.getStudPic()));
         pictureTest.setImage(image);
+        gridPaneStudentPictures.set
     }
 
     private void textChangerTeacher() 
