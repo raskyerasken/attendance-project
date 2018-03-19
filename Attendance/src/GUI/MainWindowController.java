@@ -100,7 +100,11 @@ public void initialize(URL url, ResourceBundle rb) {
         }
         textChangeCPR();
         textChangerTeacher();
-        CalculateAttendenceProcent cal= new CalculateAttendenceProcent(model);
+        try {
+            CalculateAttendenceProcent cal= new CalculateAttendenceProcent(model);
+        } catch (ParseException ex) {
+            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="333.0" prefWidth="304.0" stylesheets="@bckground.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainWindowController">
+   <children>
+      <Button layoutX="101.0" layoutY="278.0" mnemonicParsing="false" text="Yes" />
+      <Button layoutX="173.0" layoutY="278.0" mnemonicParsing="false" text="No" />
+      <ImageView fx:id="studentPic" fitHeight="150.0" fitWidth="200.0" layoutX="52.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="121.0" layoutY="233.0" text="Is this you?" />
+   </children>
+</AnchorPane>
