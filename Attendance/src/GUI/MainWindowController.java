@@ -8,6 +8,7 @@ package GUI;
 import BE.DateOfPresent;
 import BE.Student;
 import BLL.BLLManager;
+import DAL.MockData;
 import java.io.IOException;
 import java.net.URL;
 import java.text.ParseException;
@@ -74,6 +75,7 @@ public class MainWindowController implements Initializable
     @FXML
     private GridPane gridPaneStudentPictures;
     
+   
     String pic;
     @FXML
     private ImageView pictureTest;
@@ -83,17 +85,31 @@ public class MainWindowController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+        MockData md = new MockData();
+        try 
+        {
+            md.add(model);
+        } 
+        
+        catch (ParseException ex) 
+        {
+            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         changeStudentPic();
     }
     
     private void changeStudentPic()
     {
         
-        Student stud = new Student();
-        Image image; 
-        
-        image = new Image(getClass().getResourceAsStream(stud.getStudPic()));
-        pictureTest.setImage(image);
+        int studentCount = 0;
+        for (Student student : model.getAttence()) 
+        {
+            ImageView img = (ImageView) gridPaneStudentPictures.getChildren().get(studentCount);
+            Image image = new Image(getClass().getResourceAsStream(student.getStudPic()));
+            img.setImage(image);
+            studentCount++;
+        }
+
     }
 
     private void textChangerTeacher() 

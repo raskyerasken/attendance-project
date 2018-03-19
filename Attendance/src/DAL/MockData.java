@@ -20,7 +20,7 @@ public class MockData
 {
 
     
-public   void add(Model stud) throws ParseException 
+public void add(Model stud) throws ParseException 
     {
         Student stud1 = new Student();
         stud1.setFamilyName("Trump");
