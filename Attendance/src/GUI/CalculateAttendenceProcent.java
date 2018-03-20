@@ -62,7 +62,7 @@ public class CalculateAttendenceProcent {
                 countDaysPresent++;
                 }
             }
-            System.out.println((double)(countDaysPresent/schoolDaysBetween(start,utilDate))*100+"%.2f");
+            System.out.println((double)(countDaysPresent/schoolDaysBetween(start,utilDate))*100);
             stud.setAttendance((double)(countDaysPresent/schoolDaysBetween(start,utilDate))*100);
             
         }

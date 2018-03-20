@@ -114,11 +114,6 @@ public class MainWindowController implements Initializable
     
     private void changeStudentPic()
     {
-<<<<<<< HEAD
-=======
-        
-        
->>>>>>> 1563ff90cce5dc2b2d6b84a33a3ea2838fa7679f
         int studentCount = 0;
         for (Student student : model.getAttence()) 
         {
@@ -188,17 +183,18 @@ public class MainWindowController implements Initializable
             showErrorDialog("Selection Error", null, "Please select a student");
     }
     
+    @FXML
     private void openTeacher(ActionEvent event) throws IOException 
     {
-        if (pwTeacher.getText().length() == 10) 
-        {
+//        if (pwTeacher.getText().length() == 10) 
+//        {
             System.out.println("Password Correct ");
             teacherWindow();
-        } 
-        else 
-        {
-            showErrorDialog("Not a cpr", null, "Input a danish CPR number");
-        }
+//        } 
+//        else 
+//        {
+//            showErrorDialog("Not a cpr", null, "Input a danish CPR number");
+//        }
     }
 
     private void showErrorDialog(String title, String header, String message) 

@@ -20,7 +20,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionModel;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -46,7 +48,7 @@ public class TeacherViewController implements Initializable {
     @FXML
     private TableColumn<Student, String> colLastName;
     @FXML
-    private TableColumn<Student, Date> colAttence;
+    private TableColumn<Student, Double> colAttence;
  Model model;
     /**
      * Initializes the controller class.
@@ -57,14 +59,68 @@ public class TeacherViewController implements Initializable {
         // TODO
         colFirstName.setCellValueFactory(
         new PropertyValueFactory("Name"));
+                colFirstName.setCellFactory(param -> new TableCell<Student, String>(){
+    @Override
+    protected void updateItem(String item, boolean empty) {
+        super.updateItem(item, empty);
+        if (empty) {
+            setText(null);
+            setStyle("");
+        } else {
+            setText(item);
+            Student person = getTableView().getItems().get(getIndex());
+            if(person.getAttendance()<50) {
+                setStyle("-fx-background-color: red;");
+            } else {
+                setStyle("");
+            }
+        }
+    }
+});
         
         colLastName.setCellValueFactory(
         new PropertyValueFactory("familyName"));
         
-        
+       
         colAttence.setCellValueFactory(
         new PropertyValueFactory("Attendance"));
-
+     
+             colAttence.setCellFactory(param -> new TableCell<Student, Double>(){
+    @Override
+    protected void updateItem(Double item, boolean empty) {
+        super.updateItem(item, empty);
+        if (empty) {
+            setText(null);
+            setStyle("");
+        } else {
+            setText(item+"");
+            Student person = getTableView().getItems().get(getIndex());
+            if(person.getAttendance()<50) {
+                setStyle("-fx-background-color: red;");
+            } else {
+                setStyle("");
+            }
+        }
+    }
+});
+        colLastName.setCellFactory(param -> new TableCell<Student, String>(){
+    @Override
+    protected void updateItem(String item, boolean empty) {
+        super.updateItem(item, empty);
+        if (empty) {
+            setText(null);
+            setStyle("");
+        } else {
+            setText(item);
+            Student person = getTableView().getItems().get(getIndex());
+            if(person.getAttendance()<50) {
+                setStyle("-fx-background-color: red;");
+            } else {
+                setStyle("");
+            }
+        }
+    }
+});
     }
         
       
