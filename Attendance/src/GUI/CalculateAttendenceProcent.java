@@ -57,7 +57,7 @@ public class CalculateAttendenceProcent {
         for (Student stud : model.getAttence()) {
             float countDaysPresent=0;
             for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
-                if(stud.getName()==dateOfPresent.getFirstName()&&stud.getFamilyName()==dateOfPresent.getLastName())
+                if(stud.getStudentID()==dateOfPresent.getStudentID())
                 {
                 countDaysPresent++;
                 }

@@ -56,6 +56,7 @@ public class TeacherViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+        
         // TODO
         colFirstName.setCellValueFactory(
         new PropertyValueFactory("Name"));
@@ -102,7 +103,8 @@ public class TeacherViewController implements Initializable {
             }
         }
     }
-});
+}); 
+             
         colLastName.setCellFactory(param -> new TableCell<Student, String>(){
     @Override
     protected void updateItem(String item, boolean empty) {
@@ -121,6 +123,7 @@ public class TeacherViewController implements Initializable {
         }
     }
 });
+      
     }
         
       
@@ -157,7 +160,9 @@ public class TeacherViewController implements Initializable {
     void setModel(Model model) 
     {
         this.model=model;
+        
         tblStudents.setItems(model.getAttence());
+        
     }
 
     @FXML

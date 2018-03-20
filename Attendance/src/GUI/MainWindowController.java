@@ -170,8 +170,7 @@ public class MainWindowController implements Initializable
         {
             Student stud = tblviewStudens.getSelectionModel().getSelectedItem();
             DateOfPresent dop= new DateOfPresent();
-            dop.setFirstName(stud.getName());
-            dop.setLastName(stud.getFamilyName());
+            dop.setStudentID(stud.getStudentID());
             java.util.Date utilDate = new java.util.Date();
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             dop.setDate(sqlDate);

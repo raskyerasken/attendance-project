@@ -60,7 +60,7 @@ Student studd= new Student();
     }
 
     void setStudent(DateOfPresent selectedItem, int index) {
-        student.getSelectionModel().select(selectedItem.getFirstName()+" "+selectedItem.getLastName());
+        student.getSelectionModel().select(selectedItem.getStudentID());
         lblDate.setText(""+selectedItem.getDate());
         newAttendence= true;
         this.index=index;
@@ -80,9 +80,7 @@ Student studd= new Student();
  }
    void getStudent() throws ParseException
     {
-        String[] splitStr = student.getSelectionModel().getSelectedItem().split("\\s+");
-        dop.setFirstName(splitStr[0]);
-        dop.setLastName(splitStr[1]);
+       
         String str_date=lblDate.getText();
         DateFormat formatter ; 
         Date date ; 

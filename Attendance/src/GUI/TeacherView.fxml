@@ -16,7 +16,7 @@
         <columns>
           <TableColumn fx:id="colFirstName" prefWidth="75.0" text="Name" />
           <TableColumn fx:id="colLastName" prefWidth="75.0" text="Last Name" />
-            <TableColumn fx:id="colAttence" prefWidth="93.0" text="Attendance" />
+            <TableColumn fx:id="colAttence" prefWidth="93.0" sortType="DESCENDING" text="Attendance" />
         </columns>
       </TableView>
       <ImageView fitHeight="94.0" fitWidth="163.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">

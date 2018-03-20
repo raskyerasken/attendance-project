@@ -6,6 +6,8 @@
 package BE;
 
 import java.util.Date;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -17,7 +19,21 @@ public class DateOfPresent {
 
     
     private Date date;
+    private final StringProperty course = new SimpleStringProperty();
+    private final IntegerProperty StudentID = new SimpleIntegerProperty();
 
+    public int getStudentID() {
+        return StudentID.get();
+    }
+
+    public void setStudentID(int value) {
+        StudentID.set(value);
+    }
+
+    public IntegerProperty StudentIDProperty() {
+        return StudentID;
+    }
+    
     /**
      * Get the value of date
      *
@@ -36,37 +52,9 @@ public class DateOfPresent {
         this.date = date;
     }
 
-    private final StringProperty studentName = new SimpleStringProperty();
-    private final StringProperty firstName = new SimpleStringProperty();
-    private final StringProperty lastName = new SimpleStringProperty();
-
-    public String getLastName() {
-        return lastName.get();
-    }
-
-    public void setLastName(String value) {
-        lastName.set(value);
-    }
-
-    public StringProperty lastNameProperty() {
-        return lastName;
-    }
-
-    public String getFirstName() {
-        return firstName.get();
-    }
-
-    public void setFirstName(String value) {
-        firstName.set(value);
-    }
-
-    public StringProperty firstNameProperty() {
-        return firstName;
-    }
-
     
 
-    private final StringProperty course = new SimpleStringProperty();
+   
 
     public String getCourse() {
         return course.get();
