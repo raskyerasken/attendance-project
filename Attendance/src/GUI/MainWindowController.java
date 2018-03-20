@@ -122,7 +122,6 @@ public class MainWindowController implements Initializable
             img.setImage(image);
             studentCount++;
         }
-
     }
 
     private void textChangerTeacher() 
