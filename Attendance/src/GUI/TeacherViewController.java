@@ -96,15 +96,7 @@ this.startDate.setValue(startDate);
        
         colAttence.setCellValueFactory(
         new PropertyValueFactory("Attendance"));
-        tblStudents.getItems().sort(new Comparator<Student>(){
-            @Override
-            public int compare(Student o1, Student o2) {
-                System.out.println("hey");
-                return o1.getAttendance().compareTo(o2.getAttendance());
-            }
-            
-        });
-        tblStudents.refresh();
+        
         
         tblStudents.setRowFactory((param) -> new TableRow<Student>() {
             
@@ -123,6 +115,14 @@ this.startDate.setValue(startDate);
         }
     }
         });
+        tblStudents.getItems().sort(new Comparator<Student>(){
+            @Override
+            public int compare(Student o1, Student o2) {
+                return o1.getAttendance().compareTo(o2.getAttendance());
+            }
+            
+        });
+        tblStudents.refresh();
       
     }
         
