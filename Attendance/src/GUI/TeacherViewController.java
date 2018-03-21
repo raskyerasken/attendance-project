@@ -70,24 +70,7 @@ public class TeacherViewController implements Initializable {
         // TODO
         colFirstName.setCellValueFactory(
         new PropertyValueFactory("Name"));
-                colFirstName.setCellFactory(param -> new TableCell<Student, String>(){
-    @Override
-    protected void updateItem(String item, boolean empty) {
-        super.updateItem(item, empty);
-        if (empty) {
-            setText(null);
-            setStyle("");
-        } else {
-            setText(item);
-            Student person = getTableView().getItems().get(getIndex());
-            if(person.getAttendance()<50) {
-                setStyle("-fx-background-color: red;");
-            } else {
-                setStyle("");
-            }
-        }
-    }
-});
+
         
         colLastName.setCellValueFactory(
         new PropertyValueFactory("familyName"));
@@ -95,44 +78,24 @@ public class TeacherViewController implements Initializable {
        
         colAttence.setCellValueFactory(
         new PropertyValueFactory("Attendance"));
-     
-             colAttence.setCellFactory(param -> new TableCell<Student, Double>(){
-    @Override
-    protected void updateItem(Double item, boolean empty) {
+ 
+        tblStudents.setRowFactory((param) -> new TableRow<Student>() {
+            
+            protected  void  updateItem(Student item,boolean empty)
+            {
         super.updateItem(item, empty);
         if (empty) {
-            setText(null);
             setStyle("");
         } else {
-            setText(item+"");
             Student person = getTableView().getItems().get(getIndex());
             if(person.getAttendance()<50) {
-                setStyle("-fx-background-color: red;");
+                setStyle("-fx-background-color: green;");
             } else {
                 setStyle("");
             }
         }
     }
-}); 
-             
-        colLastName.setCellFactory(param -> new TableCell<Student, String>(){
-    @Override
-    protected void updateItem(String item, boolean empty) {
-        super.updateItem(item, empty);
-        if (empty) {
-            setText(null);
-            setStyle("");
-        } else {
-            setText(item);
-            Student person = getTableView().getItems().get(getIndex());
-            if(person.getAttendance()<50) {
-                setStyle("-fx-background-color: red;");
-            } else {
-                setStyle("");
-            }
-        }
-    }
-});
+        });
       
     }
         
