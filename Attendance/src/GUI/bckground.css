@@ -21,5 +21,13 @@ and open the template in the editor.
 
 .button
 {
+<<<<<<< HEAD
     -fx-background-radius: 1000 1000 1000 1000;
+=======
+    -fx-background-radius: 10em; 
+    -fx-min-width: 20px;
+    -fx-min-height: 20px;
+    -fx-max-width: 20px;
+    -fx-max-height: 20px;
+>>>>>>> e3791648b6825a8c69f87ec8090499269cb3bdf7
 }
