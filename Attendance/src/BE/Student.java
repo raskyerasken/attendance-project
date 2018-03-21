@@ -7,7 +7,9 @@ package BE;
 
 import java.util.Date;
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
@@ -19,9 +21,24 @@ import javafx.scene.image.Image;
 public class Student 
 {
     
-
+    
     private final StringProperty studPic = new SimpleStringProperty();
     private final DoubleProperty Attendance = new SimpleDoubleProperty();
+     private final StringProperty familyName = new SimpleStringProperty();
+     private final StringProperty name = new SimpleStringProperty();
+    private final IntegerProperty StudentID = new SimpleIntegerProperty();
+
+    public int getStudentID() {
+        return StudentID.get();
+    }
+
+    public void setStudentID(int value) {
+        StudentID.set(value);
+    }
+
+    public IntegerProperty StudentIDProperty() {
+        return StudentID;
+    }
 
     public Double getAttendance() {
         return Attendance.get();
@@ -56,19 +73,7 @@ public class Student
         return studPic;
     }
     
-    
-    private final StringProperty familyName = new SimpleStringProperty();
-    private Date attence;
-    
-    public Date getAttence() 
-    {
-        return attence;
-    }
-    
-    public void setAttence(Date attence) 
-    {
-        this.attence = attence;
-    }
+   
 
     public String getFamilyName() 
     {
@@ -85,7 +90,6 @@ public class Student
         return familyName;
     }
 
-    private final StringProperty name = new SimpleStringProperty();
 
     public String getName() 
     {

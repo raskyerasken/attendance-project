@@ -7,8 +7,13 @@ package GUI;
 
 import BE.DateOfPresent;
 import BE.Student;
+import com.jfoenix.controls.JFXDatePicker;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -20,7 +25,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionModel;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -46,25 +53,50 @@ public class TeacherViewController implements Initializable {
     @FXML
     private TableColumn<Student, String> colLastName;
     @FXML
-    private TableColumn<Student, Date> colAttence;
+    private TableColumn<Student, Double> colAttence;
  Model model;
+    private JFXDatePicker hey;
+    @FXML
+    private JFXDatePicker endDate;
+    @FXML
+    private JFXDatePicker startDate;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+        
         // TODO
         colFirstName.setCellValueFactory(
         new PropertyValueFactory("Name"));
+
         
         colLastName.setCellValueFactory(
         new PropertyValueFactory("familyName"));
         
-        
+       
         colAttence.setCellValueFactory(
         new PropertyValueFactory("Attendance"));
-
+ 
+        tblStudents.setRowFactory((param) -> new TableRow<Student>() {
+            
+            protected  void  updateItem(Student item,boolean empty)
+            {
+        super.updateItem(item, empty);
+        if (empty) {
+            setStyle("");
+        } else {
+            Student person = getTableView().getItems().get(getIndex());
+            if(person.getAttendance()<50) {
+                setStyle("-fx-background-color: green;");
+            } else {
+                setStyle("");
+            }
+        }
+    }
+        });
+      
     }
         
       
@@ -101,7 +133,9 @@ public class TeacherViewController implements Initializable {
     void setModel(Model model) 
     {
         this.model=model;
+        
         tblStudents.setItems(model.getAttence());
+       
     }
 
     @FXML
@@ -126,6 +160,21 @@ public class TeacherViewController implements Initializable {
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.show();
+    }
+
+    @FXML
+    private void StartDate(ActionEvent event) {
+    }
+
+    @FXML
+    private void endDate(ActionEvent event) throws ParseException {
+       CalculateAttendenceProcent calatpro= new CalculateAttendenceProcent(model);
+         DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
+         String hallo = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        java.sql.Date start = new java.sql.Date(formatter.parse(hallo).getTime());
+       String hallo2 = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        java.sql.Date end = new java.sql.Date(formatter.parse(hallo2).getTime());
+        System.out.println(calatpro.schoolDaysBetween(start, end));
     }
     
     

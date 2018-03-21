@@ -161,6 +161,7 @@ public class MainWindowController implements Initializable
                 }
             }
         });
+        
     }
 
     @FXML
@@ -170,8 +171,7 @@ public class MainWindowController implements Initializable
         {
             Student stud = tblviewStudens.getSelectionModel().getSelectedItem();
             DateOfPresent dop= new DateOfPresent();
-            dop.setFirstName(stud.getName());
-            dop.setLastName(stud.getFamilyName());
+            dop.setStudentID(stud.getStudentID());
             java.util.Date utilDate = new java.util.Date();
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             dop.setDate(sqlDate);
@@ -182,17 +182,18 @@ public class MainWindowController implements Initializable
             showErrorDialog("Selection Error", null, "Please select a student");
     }
     
+    @FXML
     private void openTeacher(ActionEvent event) throws IOException 
     {
-        if (pwTeacher.getText().length() == 10) 
-        {
+//        if (pwTeacher.getText().length() == 10) 
+//        {
             System.out.println("Password Correct ");
             teacherWindow();
-        } 
-        else 
-        {
-            showErrorDialog("Not a cpr", null, "Input a danish CPR number");
-        }
+//        } 
+//        else 
+//        {
+//            showErrorDialog("Not a cpr", null, "Input a danish CPR number");
+//        }
     }
 
     private void showErrorDialog(String title, String header, String message) 

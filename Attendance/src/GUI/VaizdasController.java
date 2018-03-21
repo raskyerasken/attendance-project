@@ -35,7 +35,7 @@ Model model;
     @FXML
     private TableView<DateOfPresent> tblviewAttendence;
     @FXML
-    private TableColumn<DateOfPresent, String> colName;
+    private TableColumn<DateOfPresent, Integer> colName;
     @FXML
     private TableColumn<DateOfPresent, Date> colDate;
     @FXML
@@ -46,8 +46,7 @@ Model model;
     {
         this.model= model; 
         for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
-            if(dateOfPresent.getFirstName().equals(SelectStudent.getName()) && 
-                   dateOfPresent.getLastName().equals(SelectStudent.getFamilyName()))
+            if(dateOfPresent.getStudentID()== SelectStudent.getStudentID() )
                     tblviewAttendence.getItems().add(dateOfPresent);
        }
         
@@ -73,7 +72,7 @@ Model model;
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
          colName.setCellValueFactory(
-                new PropertyValueFactory("firstName"));
+                new PropertyValueFactory("StudentID"));
 
         colDate.setCellValueFactory(
                 new PropertyValueFactory("date"));

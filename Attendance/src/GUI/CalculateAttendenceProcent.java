@@ -29,11 +29,10 @@ public class CalculateAttendenceProcent {
 
     public CalculateAttendenceProcent(Model model) throws ParseException  { 
         
-        start = new java.sql.Date(formatter.parse("2018-03-05").getTime());
+//        start = new java.sql.Date(formatter.parse("2018-03-05").getTime());
         this.model = model;
-        
-        System.out.println(schoolDaysBetween(start, utilDate));
-        setAttendenceProcent();
+//        System.out.println(schoolDaysBetween(start, utilDate));
+      
     }
       public int schoolDaysBetween(Date d1, Date d2)
     {
@@ -57,12 +56,12 @@ public class CalculateAttendenceProcent {
         for (Student stud : model.getAttence()) {
             float countDaysPresent=0;
             for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
-                if(stud.getName()==dateOfPresent.getFirstName()&&stud.getFamilyName()==dateOfPresent.getLastName())
+                if(stud.getStudentID()==dateOfPresent.getStudentID())
                 {
                 countDaysPresent++;
                 }
             }
-            System.out.println((double)(countDaysPresent/schoolDaysBetween(start,utilDate))*100+"%.2f");
+            System.out.println((double)(countDaysPresent/schoolDaysBetween(start,utilDate))*100);
             stud.setAttendance((double)(countDaysPresent/schoolDaysBetween(start,utilDate))*100);
             
         }
