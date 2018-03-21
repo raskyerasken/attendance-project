@@ -20,7 +20,14 @@ and open the template in the editor.
     
 }
 
-.button
+.label
+{   
+    -fx-font-family: verdana;
+    -fx-font-weight: bold;
+    -fx-font-size: 25;
+}
+
+#buttonForStudentPicture
 {
     font-weight: bold;
     -fx-background-radius: 10em; 

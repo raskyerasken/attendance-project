@@ -17,6 +17,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -28,8 +29,10 @@ import javafx.stage.Stage;
  *
  * @author Skomantas
  */
-public class VaizdasController implements Initializable {
-Model model; 
+public class VaizdasController implements Initializable 
+{
+    
+    Model model; 
 
 
     @FXML
@@ -40,17 +43,19 @@ Model model;
     private TableColumn<DateOfPresent, Date> colDate;
     @FXML
     private TableColumn<DateOfPresent, String> colClass;
+    @FXML
+    private Label studentName;
 
 
     void setModel(Model model, Student SelectStudent) 
     {
         this.model= model; 
-        for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
+        studentName.setText(SelectStudent.getName()+" " +SelectStudent.getFamilyName());
+        for (DateOfPresent dateOfPresent : model.getAttenceDay()) 
+        {
             if(dateOfPresent.getStudentID()== SelectStudent.getStudentID() )
                     tblviewAttendence.getItems().add(dateOfPresent);
-       }
-        
-      //tblviewAttendence.setItems(model.getAttenceDay());
+        }
     }
   
    void backToMain() throws IOException
@@ -69,16 +74,13 @@ Model model;
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-         colName.setCellValueFactory(
-                new PropertyValueFactory("colName"));
-
+    public void initialize(URL url, ResourceBundle rb) 
+    {
+        
         colDate.setCellValueFactory(
                 new PropertyValueFactory("date"));
         colClass.setCellValueFactory(
                 new PropertyValueFactory("course"));
-       
     }    
 
     @FXML

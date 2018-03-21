@@ -127,6 +127,7 @@ public class MainWindowController implements Initializable
             b.setMinSize(112, 112);
             b.scaleShapeProperty();
             b.setGraphic(imageView);
+            b.setId("buttonForStudentPicture");
             
 //            img.setImage(image);
             b.setOnAction(new EventHandler<ActionEvent>() 
