@@ -212,26 +212,14 @@ this.startDate.setValue(startDate);
      cal.setAttendenceProcent(startsDate, endsDate);
     }
 
-    @FXML
-<<<<<<< HEAD
-    private void endDate(ActionEvent event) throws ParseException {
+    private void endDate(ActionEvent event) throws ParseException 
+    {
       DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
          String start = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
         java.sql.Date startsDate = new java.sql.Date(formatter.parse(start).getTime());
        String end = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
         java.sql.Date endsDate = new java.sql.Date(formatter.parse(end).getTime());
      cal.setAttendenceProcent(startsDate, endsDate);
-=======
-    private void endDate(ActionEvent event) throws ParseException 
-    {
-        CalculateAttendenceProcent calatpro= new CalculateAttendenceProcent(model);
-        DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
-        String hallo = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
-        java.sql.Date start = new java.sql.Date(formatter.parse(hallo).getTime());
-        String hallo2 = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
-        java.sql.Date end = new java.sql.Date(formatter.parse(hallo2).getTime());
-        System.out.println(calatpro.schoolDaysBetween(start, end));
->>>>>>> e3791648b6825a8c69f87ec8090499269cb3bdf7
     }
     
     
