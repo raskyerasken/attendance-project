@@ -190,12 +190,13 @@ this.startDate.setValue(startDate);
     }
 
     @FXML
-    private void endDate(ActionEvent event) throws ParseException {
-       CalculateAttendenceProcent calatpro= new CalculateAttendenceProcent(model);
-         DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
-         String hallo = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
+    private void endDate(ActionEvent event) throws ParseException 
+    {
+        CalculateAttendenceProcent calatpro= new CalculateAttendenceProcent(model);
+        DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
+        String hallo = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
         java.sql.Date start = new java.sql.Date(formatter.parse(hallo).getTime());
-       String hallo2 = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        String hallo2 = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
         java.sql.Date end = new java.sql.Date(formatter.parse(hallo2).getTime());
         System.out.println(calatpro.schoolDaysBetween(start, end));
     }

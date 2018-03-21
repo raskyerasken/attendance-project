@@ -21,5 +21,9 @@ and open the template in the editor.
 
 .button
 {
-    -fx-opacity: 0;
+    -fx-background-radius: 10em; 
+    -fx-min-width: 20px;
+    -fx-min-height: 20px;
+    -fx-max-width: 20px;
+    -fx-max-height: 20px;
 }

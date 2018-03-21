@@ -70,7 +70,6 @@ public class MainWindowController implements Initializable
     Model model = new Model();
     @FXML
     private Label studentName;
-    @FXML
     private ImageView picture;
     @FXML
     private TextField pwTeacher;
@@ -119,6 +118,7 @@ public class MainWindowController implements Initializable
             imageView.setFitWidth(112);
             imageView.setFitHeight(112);
             
+            
             Button b = new Button();
             b.setUserData(student);
             b.setMinSize(112, 112);
@@ -131,13 +131,31 @@ public class MainWindowController implements Initializable
                 @Override
                 public void handle(ActionEvent event) 
                 {
-                    Student student = (Student)((Button)event.getSource()).getUserData();
-                    System.out.println("Student: " + student.getName());
+                    try 
+                    {
+                        Student student = (Student)((Button)event.getSource()).getUserData();
+                        System.out.println("Student: " + student.getName());
+                        Stage newStage = new Stage();
+                        FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("Vaizdas.fxml"));
+                        Parent root = fxLoader.load();
+                        VaizdasController controller = fxLoader.getController();
+                        controller.setModel(model,student);
+                        Scene scene = new Scene(root);
+                        newStage.setScene(scene);
+                        newStage.show();
+                        Stage stage = (Stage) ageLabel.getScene().getWindow();
+                        stage.close();
+                    } 
+                    catch (IOException ex) 
+                    {
+                        Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
             });
             gridPaneStudentPictures.add(b, studentCount%4, studentCount/4);
             studentCount++;
         }
+        
     }
 
     private void textChangerTeacher() 
@@ -282,15 +300,5 @@ public class MainWindowController implements Initializable
         }
         else 
             showErrorDialog("Selection Error", null, "Please select a student");
-    }
-
-    @FXML
-    private void clickStudentPic(MouseEvent event) 
-    {
-//        Node node = (Node) event.getSource();
-//        Integer studCol = GridPane.getColumnIndex(node);
-//        Integer studRow = GridPane.getRowIndex(node);
-//        
-//        System.out.println(studCol +"   "+ studRow);
     }
 }
