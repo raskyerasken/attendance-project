@@ -29,8 +29,10 @@ import javafx.stage.Stage;
  *
  * @author Skomantas
  */
-public class VaizdasController implements Initializable {
-Model model; 
+public class VaizdasController implements Initializable 
+{
+    
+    Model model; 
 
 
     @FXML
@@ -48,6 +50,7 @@ Model model;
     void setModel(Model model, Student SelectStudent) 
     {
         this.model= model; 
+        studentName.setText(SelectStudent.getName()+" " +SelectStudent.getFamilyName());
         for (DateOfPresent dateOfPresent : model.getAttenceDay()) 
         {
             if(dateOfPresent.getStudentID()== SelectStudent.getStudentID() )
@@ -73,7 +76,7 @@ Model model;
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-
+        
         colDate.setCellValueFactory(
                 new PropertyValueFactory("date"));
         colClass.setCellValueFactory(
