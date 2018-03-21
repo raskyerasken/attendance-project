@@ -17,24 +17,27 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
@@ -74,13 +77,8 @@ public class MainWindowController implements Initializable
     BLLManager bll = new BLLManager ();
     @FXML
     private GridPane gridPaneStudentPictures;
-    
-    String[][] board = new String[9][9];
-
-   
     String pic;
-    @FXML
-    private ImageView pictureTest;
+    
     /**
      * Initializes the controller class.
      */
@@ -100,27 +98,26 @@ public class MainWindowController implements Initializable
         changeStudentPic();
     }
     
-    public void setboard(String[][] board)
-    {
-        for (int i = 0; i < 9; i++) {
-            for (int j = 0; j < 9; j++) {
-                this.board[i][j] = board[i][j];
-            }
-            String[] strings = board[i];
-            
-        }
-    }
-    
-    
     private void changeStudentPic()
     {
         int studentCount = 0;
         for (Student student : model.getAttence()) 
         {
-            ImageView img = (ImageView) gridPaneStudentPictures.getChildren().get(studentCount);
+            //ImageView img = (ImageView) gridPaneStudentPictures.getChildren().get(studentCount);
             Image image = new Image(getClass().getResourceAsStream(student.getStudPic()));
-            img.setImage(image);
+            Button b = new Button();
+            b.setUserData(student);
+            b.setGraphic(new ImageView(image));
+//            img.setImage(image);
+            b.setOnAction(new EventHandler<ActionEvent>() {
+                @Override
+                public void handle(ActionEvent event) {
+                    Student student = (Student)((Button)event.getSource()).getUserData();
+                    System.out.println("Student : " + student.getName());
+                }
+            });
             studentCount++;
+            gridPaneStudentPictures.getChildren().add(b);
         }
     }
 
@@ -227,17 +224,18 @@ public class MainWindowController implements Initializable
    
     private void changeNAme(MouseEvent event) throws IOException 
     {     
-        if (!tblviewStudens.getSelectionModel().isEmpty()) 
-        { 
-            Student student = tblviewStudens.getSelectionModel().getSelectedItem();
         
-            if(!student.equals(null))
-            {
-                nameLabel.setText(student.getName() 
-                        + " " + student.getFamilyName());
-                newImageStudent();
-            }
-        }
+//        if (!tblviewStudens.getSelectionModel().isEmpty()) 
+//        { 
+//            Student student = tblviewStudens.getSelectionModel().getSelectedItem();
+//        
+//            if(!student.equals(null))
+//            {
+//                nameLabel.setText(student.getName() 
+//                        + " " + student.getFamilyName());
+//                newImageStudent();
+//            }
+//        }
     }
 
     void setModel(Model model) 
@@ -263,5 +261,15 @@ public class MainWindowController implements Initializable
         }
         else 
             showErrorDialog("Selection Error", null, "Please select a student");
+    }
+
+    @FXML
+    private void clickStudentPic(MouseEvent event) 
+    {
+//        Node node = (Node) event.getSource();
+//        Integer studCol = GridPane.getColumnIndex(node);
+//        Integer studRow = GridPane.getRowIndex(node);
+//        
+//        System.out.println(studCol +"   "+ studRow);
     }
 }
