@@ -17,6 +17,7 @@ and open the template in the editor.
 .jfx-button
 {
     -fx-background-color: whitesmoke;
+    
 }
 
 #OurLabel
@@ -28,6 +29,7 @@ and open the template in the editor.
 
 #buttonForStudentPicture
 {
+    font-weight: bold;
     -fx-background-radius: 10em; 
     -fx-min-width: 20px;
     -fx-min-height: 20px;
