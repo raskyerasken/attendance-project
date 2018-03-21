@@ -56,7 +56,7 @@ public class TeacherViewController implements Initializable {
     private TableColumn<Student, String> colLastName;
     @FXML
     private TableColumn<Student, Double> colAttence;
- Model model;
+    Model model;
     private JFXDatePicker hey;
     @FXML
     private JFXDatePicker endDate;
@@ -64,82 +64,75 @@ public class TeacherViewController implements Initializable {
     private JFXDatePicker startDate;
     java.util.Date utilDate = new java.util.Date();
     java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-    java.sql.Date toDayDate=sqlDate;
-    String startSDate="2015-11-12";
-    String endSDate=sqlDate.toString();
+    java.sql.Date toDayDate = sqlDate;
+    String startSDate = "2015-11-12";
+    String endSDate = sqlDate.toString();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-     DateFormat formattersql= new SimpleDateFormat("yy-MM-dd");
+    DateFormat formattersql = new SimpleDateFormat("yy-MM-dd");
     CalculateAttendenceProcent cal;
+
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) 
-    {
-       
-              LocalDate startDate = LocalDate.parse(startSDate, formatter);
+    public void initialize(URL url, ResourceBundle rb) {
+
+        LocalDate startDate = LocalDate.parse(startSDate, formatter);
         System.out.println("");
-LocalDate endDate = LocalDate.parse(endSDate, formatter);
-this.startDate.setValue(startDate);
- this.endDate.setValue(endDate);   
-        
-        
-        
+        LocalDate endDate = LocalDate.parse(endSDate, formatter);
+        this.startDate.setValue(startDate);
+        this.endDate.setValue(endDate);
+
         // TODO
         colFirstName.setCellValueFactory(
-        new PropertyValueFactory("Name"));
+                new PropertyValueFactory("Name"));
 
-        
         colLastName.setCellValueFactory(
-        new PropertyValueFactory("familyName"));
-        
-       
+                new PropertyValueFactory("familyName"));
+
         colAttence.setCellValueFactory(
-        new PropertyValueFactory("Attendance"));
-        
-        
+                new PropertyValueFactory("Attendance"));
+
         tblStudents.setRowFactory((param) -> new TableRow<Student>() {
-            
-            protected  void  updateItem(Student item,boolean empty)
-            {
-        super.updateItem(item, empty);
-        if (empty) {
-            setStyle("");
-        } else {
-            Student person = getTableView().getItems().get(getIndex());
-            for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
-                
-            if(dateOfPresent.getStudentID()==person.getStudentID()){
-            if(dateOfPresent.getDate().equals(toDayDate)) {
-                setStyle("-fx-background-color: red;");
-            } else {
-                setStyle("");
+
+            protected void updateItem(Student item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setStyle("");
+                } else {
+                    Student person = getTableView().getItems().get(getIndex());
+                    for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
+
+                        if (dateOfPresent.getStudentID() == person.getStudentID()) {
+                            int datePresent= (int) (dateOfPresent.getDate().getTime()/ (1000 * 60 * 60 * 24));
+                            int dateOfTheDate= (int) (toDayDate.getTime()/ (1000 * 60 * 60 * 24));
+                            
+                            if (datePresent==dateOfTheDate){
+                                setStyle("-fx-background-color: green;");
+                            } else {
+                                setStyle("");
+                            }
+                        }
+                    }
+                }
             }
-        }}
-        }
-    }
         });
-        tblStudents.getItems().sort(new Comparator<Student>(){
+        tblStudents.getItems().sort(new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
                 return o1.getAttendance().compareTo(o2.getAttendance());
             }
-            
+
         });
         tblStudents.refresh();
-        
-      
+
     }
-        
-      
-    
-    
-    void mainWindow() throws IOException
-    {
+
+    void mainWindow() throws IOException {
         Stage newStage = new Stage();
         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
         Parent root = fxLoader.load();
-        MainWindowController controller= fxLoader.getController();
+        MainWindowController controller = fxLoader.getController();
         controller.setModel(model);
         Scene scene = new Scene(root);
         newStage.setScene(scene);
@@ -147,86 +140,76 @@ this.startDate.setValue(startDate);
     }
 
     @FXML
-    private void returnStudentView(ActionEvent event) throws IOException 
-    {
+    private void returnStudentView(ActionEvent event) throws IOException {
         mainWindow();
         Stage stage = (Stage) tblStudents.getScene().getWindow();
         stage.close();
     }
-    
-    
-    private void skippedDayLabel()
-    {
+
+    private void skippedDayLabel() {
         skippedDayLabel.setText("Monday");
     }
-    
-    
-    
-    void setModel(Model model) 
-    {
-        this.model=model;
-         try {
-            cal= new CalculateAttendenceProcent(model);
-        } catch (ParseException ex) {
-            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       
+
+    void setModel(Model model) {
+        this.model = model;
         try {
-            cal.setAttendenceProcent(new java.sql.Date(formattersql.parse(startSDate).getTime())
-                    ,sqlDate);
+            cal = new CalculateAttendenceProcent(model);
         } catch (ParseException ex) {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
+        try {
+            cal.setAttendenceProcent(new java.sql.Date(formattersql.parse(startSDate).getTime()),
+                     sqlDate);
+        } catch (ParseException ex) {
+            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         tblStudents.setItems(model.getAttence());
-        
-       
+
     }
 
     @FXML
-    private void ChangeAttence(ActionEvent event) throws IOException 
-    {
-        
+    private void ChangeAttence(ActionEvent event) throws IOException {
+
         editAttence();
     }
-    
-    void editAttence() throws IOException
-    {
+
+    void editAttence() throws IOException {
         Stage newStage = new Stage();
         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("EditAttedence.fxml"));
         Parent root = fxLoader.load();
-        EditAttedenceController controller= fxLoader.getController();
+        EditAttedenceController controller = fxLoader.getController();
         controller.setModel(model);
         SelectionModel select = tblStudents.getSelectionModel();
-        if (!select.isEmpty())
-       controller.setStudent((DateOfPresent) select.getSelectedItem(),select.getSelectedIndex() );
-        else
-        controller.noStudent();
+        if (!select.isEmpty()) {
+            controller.setStudent((DateOfPresent) select.getSelectedItem(), select.getSelectedIndex());
+        } else {
+            controller.noStudent();
+        }
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.show();
     }
 
     @FXML
-    private void StartDate(ActionEvent event) throws ParseException { 
-         DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
-         String start = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
+    private void StartDate(ActionEvent event) throws ParseException {
+        DateFormat formatter = new SimpleDateFormat("yy-MM-dd");
+        String start = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
         java.sql.Date startsDate = new java.sql.Date(formatter.parse(start).getTime());
-       String end = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        String end = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
         java.sql.Date endsDate = new java.sql.Date(formatter.parse(end).getTime());
-     cal.setAttendenceProcent(startsDate, endsDate);
+        cal.setAttendenceProcent(startsDate, endsDate);
     }
 
     @FXML
-    private void endDate(ActionEvent event) throws ParseException 
-    {
-      DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
-         String start = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
+    private void endDate(ActionEvent event) throws ParseException {
+        DateFormat formatter = new SimpleDateFormat("yy-MM-dd");
+        String start = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
         java.sql.Date startsDate = new java.sql.Date(formatter.parse(start).getTime());
-       String end = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        String end = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
         java.sql.Date endsDate = new java.sql.Date(formatter.parse(end).getTime());
-     cal.setAttendenceProcent(startsDate, endsDate);
+        cal.setAttendenceProcent(startsDate, endsDate);
     }
-    
-    
+
 }
