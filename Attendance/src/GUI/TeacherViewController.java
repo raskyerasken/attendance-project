@@ -7,8 +7,13 @@ package GUI;
 
 import BE.DateOfPresent;
 import BE.Student;
+import com.jfoenix.controls.JFXDatePicker;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -50,6 +55,11 @@ public class TeacherViewController implements Initializable {
     @FXML
     private TableColumn<Student, Double> colAttence;
  Model model;
+    private JFXDatePicker hey;
+    @FXML
+    private JFXDatePicker endDate;
+    @FXML
+    private JFXDatePicker startDate;
     /**
      * Initializes the controller class.
      */
@@ -162,7 +172,7 @@ public class TeacherViewController implements Initializable {
         this.model=model;
         
         tblStudents.setItems(model.getAttence());
-        
+       
     }
 
     @FXML
@@ -187,6 +197,21 @@ public class TeacherViewController implements Initializable {
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.show();
+    }
+
+    @FXML
+    private void StartDate(ActionEvent event) {
+    }
+
+    @FXML
+    private void endDate(ActionEvent event) throws ParseException {
+       CalculateAttendenceProcent calatpro= new CalculateAttendenceProcent(model);
+         DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
+         String hallo = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        java.sql.Date start = new java.sql.Date(formatter.parse(hallo).getTime());
+       String hallo2 = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        java.sql.Date end = new java.sql.Date(formatter.parse(hallo2).getTime());
+        System.out.println(calatpro.schoolDaysBetween(start, end));
     }
     
     
