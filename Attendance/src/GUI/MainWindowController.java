@@ -85,9 +85,13 @@ public class MainWindowController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-         try {
+        try 
+        {
             CalculateAttendenceProcent cal = new CalculateAttendenceProcent(model);
-        } catch (ParseException ex) {
+        } 
+        
+        catch (ParseException ex) 
+        {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
          
@@ -111,19 +115,28 @@ public class MainWindowController implements Initializable
         {
             //ImageView img = (ImageView) gridPaneStudentPictures.getChildren().get(studentCount);
             Image image = new Image(getClass().getResourceAsStream(student.getStudPic()));
+            ImageView imageView = new ImageView(image);
+            imageView.setFitWidth(112);
+            imageView.setFitHeight(112);
+            
             Button b = new Button();
             b.setUserData(student);
-            b.setGraphic(new ImageView(image));
+            b.setMinSize(112, 112);
+            b.scaleShapeProperty();
+            b.setGraphic(imageView);
+            
 //            img.setImage(image);
-            b.setOnAction(new EventHandler<ActionEvent>() {
+            b.setOnAction(new EventHandler<ActionEvent>() 
+            {
                 @Override
-                public void handle(ActionEvent event) {
+                public void handle(ActionEvent event) 
+                {
                     Student student = (Student)((Button)event.getSource()).getUserData();
-                    System.out.println("Student : " + student.getName());
+                    System.out.println("Student: " + student.getName());
                 }
             });
+            gridPaneStudentPictures.add(b, studentCount%4, studentCount/4);
             studentCount++;
-            gridPaneStudentPictures.getChildren().add(b);
         }
     }
 
