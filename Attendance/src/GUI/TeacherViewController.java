@@ -212,6 +212,7 @@ this.startDate.setValue(startDate);
      cal.setAttendenceProcent(startsDate, endsDate);
     }
 
+    @FXML
     private void endDate(ActionEvent event) throws ParseException 
     {
       DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
