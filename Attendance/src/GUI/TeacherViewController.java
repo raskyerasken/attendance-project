@@ -64,6 +64,7 @@ public class TeacherViewController implements Initializable {
     private JFXDatePicker startDate;
     java.util.Date utilDate = new java.util.Date();
     java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+    java.sql.Date toDayDate=sqlDate;
     String startSDate="2015-11-12";
     String endSDate=sqlDate.toString();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
@@ -106,11 +107,15 @@ this.startDate.setValue(startDate);
             setStyle("");
         } else {
             Student person = getTableView().getItems().get(getIndex());
-            if(person.getAttendance()<50) {
+            for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
+                
+            if(dateOfPresent.getStudentID()==person.getStudentID()){
+            if(dateOfPresent.getDate().equals(toDayDate)) {
                 setStyle("-fx-background-color: red;");
             } else {
                 setStyle("");
             }
+        }}
         }
     }
         });
