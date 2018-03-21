@@ -11,7 +11,9 @@ import BLL.BLLManager;
 import DAL.MockData;
 import java.io.IOException;
 import java.net.URL;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -136,6 +138,15 @@ public class MainWindowController implements Initializable
                     {
                         Student student = (Student)((Button)event.getSource()).getUserData();
                         System.out.println("Student: " + student.getName());
+                        
+                        DateOfPresent date = new DateOfPresent();
+                        date.setCourse("The Fun Class");
+                        date.setStudentID(student.getStudentID()    );
+                        java.util.Date utilDate = new java.util.Date();
+                        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+                        date.setDate(sqlDate);
+                        model.addAttence(date);
+                        
                         Stage newStage = new Stage();
                         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("Vaizdas.fxml"));
                         Parent root = fxLoader.load();
@@ -144,13 +155,13 @@ public class MainWindowController implements Initializable
                         Scene scene = new Scene(root);
                         newStage.setScene(scene);
                         newStage.show();
-                        Stage stage = (Stage) ageLabel.getScene().getWindow();
-                        stage.close();
+//                        Stage stage = (Stage) ageLabel.getScene().getWindow();
+//                        stage.close();
                     } 
                     catch (IOException ex) 
                     {
                         Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+                    } 
                 }
             });
             gridPaneStudentPictures.add(b, studentCount%4, studentCount/4);

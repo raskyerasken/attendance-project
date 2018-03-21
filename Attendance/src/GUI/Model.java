@@ -14,40 +14,44 @@ import javafx.collections.ObservableList;
  *
  * @author jacob
  */
-public class Model {
+public class Model 
+{
     private final ObservableList<Student> students
             = FXCollections.observableArrayList();
 
-  private final ObservableList<DateOfPresent> attence
+    private final ObservableList<DateOfPresent> attence
             = FXCollections.observableArrayList();
-   public void add(Student studd) {
-     students.add(studd);
+    public void add(Student studd) 
+    {
+        students.add(studd);
     }
    
    
 
-    ObservableList<Student> getAttence() {
+    ObservableList<Student> getAttence() 
+    {
      return students;
      
     }
- ObservableList<DateOfPresent> getAttenceDay() {
-     return attence;
-     
+    ObservableList<DateOfPresent> getAttenceDay() 
+    {
+        return attence;
     }
 
-   public void delete(int index) {
+    public void delete(int index) 
+    {
        attence.remove(index);
- }
-
-  public  void addAttence(DateOfPresent dop) {
-         attence.add(dop);
     }
 
-    void addAll(ObservableList<Student> student) {
+    public  void addAttence(DateOfPresent dop) 
+    {
+        attence.add(dop);
+    }
+
+    void addAll(ObservableList<Student> student) 
+    {
         students.clear();
         System.out.println("sdf");
-    students.setAll(student);
+        students.setAll(student);
     }
-    
-
 }

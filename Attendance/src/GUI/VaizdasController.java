@@ -72,7 +72,7 @@ Model model;
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
          colName.setCellValueFactory(
-                new PropertyValueFactory("StudentID"));
+                new PropertyValueFactory("colName"));
 
         colDate.setCellValueFactory(
                 new PropertyValueFactory("date"));
