@@ -85,6 +85,12 @@ public class MainWindowController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+         try {
+            CalculateAttendenceProcent cal = new CalculateAttendenceProcent(model);
+        } catch (ParseException ex) {
+            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
         MockData md = new MockData();
         try 
         {
@@ -143,6 +149,7 @@ public class MainWindowController implements Initializable
     
     private void textChangeCPR() 
     {
+        
         txtCPR.textProperty().addListener(new InvalidationListener() 
         {
             @Override
@@ -164,6 +171,7 @@ public class MainWindowController implements Initializable
     @FXML
     private void btnCPR(ActionEvent event) 
     {
+        
         if (!tblviewStudens.getSelectionModel().isEmpty()) 
         {
             Student stud = tblviewStudens.getSelectionModel().getSelectedItem();

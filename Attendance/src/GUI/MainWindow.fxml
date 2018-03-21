@@ -2,6 +2,11 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
+<<<<<<< HEAD
+=======
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+>>>>>>> 67328bd8da53227fff879913c09209ea2608c23a
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>

@@ -13,8 +13,16 @@ import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+<<<<<<< HEAD
+=======
+import java.util.Comparator;
+import java.util.Date;
+>>>>>>> 67328bd8da53227fff879913c09209ea2608c23a
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -58,12 +66,25 @@ public class TeacherViewController implements Initializable {
     private JFXDatePicker endDate;
     @FXML
     private JFXDatePicker startDate;
+    java.util.Date utilDate = new java.util.Date();
+    java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+    String startSDate="2018-02-01";
+    String endSDate=sqlDate.toString();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
+       
+              LocalDate startDate = LocalDate.parse(startSDate, formatter);
+        System.out.println("");
+LocalDate endDate = LocalDate.parse(endSDate, formatter);
+this.startDate.setValue(startDate);
+ this.endDate.setValue(endDate);   
+        
+        
         
         // TODO
         colFirstName.setCellValueFactory(
@@ -76,7 +97,8 @@ public class TeacherViewController implements Initializable {
        
         colAttence.setCellValueFactory(
         new PropertyValueFactory("Attendance"));
- 
+        
+        
         tblStudents.setRowFactory((param) -> new TableRow<Student>() {
             
             protected  void  updateItem(Student item,boolean empty)
@@ -87,13 +109,22 @@ public class TeacherViewController implements Initializable {
         } else {
             Student person = getTableView().getItems().get(getIndex());
             if(person.getAttendance()<50) {
-                setStyle("-fx-background-color: green;");
+                setStyle("-fx-background-color: red;");
             } else {
                 setStyle("");
             }
         }
     }
         });
+        tblStudents.getItems().sort(new Comparator<Student>(){
+            @Override
+            public int compare(Student o1, Student o2) {
+                return o1.getAttendance().compareTo(o2.getAttendance());
+            }
+            
+        });
+        tblStudents.refresh();
+        
       
     }
         
