@@ -19,7 +19,7 @@ and open the template in the editor.
     -fx-background-color: whitesmoke;
 }
 
-.label
+#OurLabel
 {   
     -fx-font-family: verdana;
     -fx-font-weight: bold;

@@ -50,6 +50,7 @@ public class VaizdasController implements Initializable
     void setModel(Model model, Student SelectStudent) 
     {
         this.model= model; 
+        studentName.setId("OurLabel");
         studentName.setText(SelectStudent.getName()+" " +SelectStudent.getFamilyName());
         for (DateOfPresent dateOfPresent : model.getAttenceDay()) 
         {
