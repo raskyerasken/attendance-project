@@ -19,7 +19,7 @@ and open the template in the editor.
     -fx-background-color: whitesmoke;
 }
 
-.button
+#buttonForStudentPicture
 {
     -fx-background-radius: 10em; 
     -fx-min-width: 20px;

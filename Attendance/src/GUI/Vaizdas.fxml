@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="475.0" stylesheets="@bckground.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.VaizdasController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="475.0" stylesheets="@bckground.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.VaizdasController">
    <children>
       <TableView fx:id="tblviewAttendence" layoutX="10.0" layoutY="20.0" prefHeight="323.0" prefWidth="456.0">
         <columns>
@@ -15,5 +16,6 @@
         </columns>
       </TableView>
       <JFXButton layoutX="14.0" layoutY="355.0" onAction="#mainWindow" prefHeight="31.0" prefWidth="103.0" text="Back" />
+      <Label fx:id="studentName" layoutX="151.0" layoutY="362.0" prefHeight="18.0" prefWidth="178.0" text="Label" />
    </children>
 </AnchorPane>
