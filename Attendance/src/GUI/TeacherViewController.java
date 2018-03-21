@@ -75,9 +75,8 @@ public class TeacherViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-        
-
-LocalDate startDate = LocalDate.parse(startSDate, formatter);
+       
+              LocalDate startDate = LocalDate.parse(startSDate, formatter);
         System.out.println("");
 LocalDate endDate = LocalDate.parse(endSDate, formatter);
 this.startDate.setValue(startDate);
@@ -123,6 +122,7 @@ this.startDate.setValue(startDate);
             
         });
         tblStudents.refresh();
+        
       
     }
         
