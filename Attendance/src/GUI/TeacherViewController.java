@@ -17,6 +17,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -62,9 +64,11 @@ public class TeacherViewController implements Initializable {
     private JFXDatePicker startDate;
     java.util.Date utilDate = new java.util.Date();
     java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
-    String startSDate="2018-02-01";
+    String startSDate="2015-11-12";
     String endSDate=sqlDate.toString();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+     DateFormat formattersql= new SimpleDateFormat("yy-MM-dd");
+    CalculateAttendenceProcent cal;
     /**
      * Initializes the controller class.
      */
@@ -156,8 +160,21 @@ this.startDate.setValue(startDate);
     void setModel(Model model) 
     {
         this.model=model;
+         try {
+            cal= new CalculateAttendenceProcent(model);
+        } catch (ParseException ex) {
+            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+        try {
+            cal.setAttendenceProcent(new java.sql.Date(formattersql.parse(startSDate).getTime())
+                    ,sqlDate);
+        } catch (ParseException ex) {
+            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         tblStudents.setItems(model.getAttence());
+        
        
     }
 
@@ -186,18 +203,23 @@ this.startDate.setValue(startDate);
     }
 
     @FXML
-    private void StartDate(ActionEvent event) {
+    private void StartDate(ActionEvent event) throws ParseException { 
+         DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
+         String start = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        java.sql.Date startsDate = new java.sql.Date(formatter.parse(start).getTime());
+       String end = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        java.sql.Date endsDate = new java.sql.Date(formatter.parse(end).getTime());
+     cal.setAttendenceProcent(startsDate, endsDate);
     }
 
     @FXML
     private void endDate(ActionEvent event) throws ParseException {
-       CalculateAttendenceProcent calatpro= new CalculateAttendenceProcent(model);
-         DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
-         String hallo = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
-        java.sql.Date start = new java.sql.Date(formatter.parse(hallo).getTime());
-       String hallo2 = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
-        java.sql.Date end = new java.sql.Date(formatter.parse(hallo2).getTime());
-        System.out.println(calatpro.schoolDaysBetween(start, end));
+      DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
+         String start = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        java.sql.Date startsDate = new java.sql.Date(formatter.parse(start).getTime());
+       String end = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        java.sql.Date endsDate = new java.sql.Date(formatter.parse(end).getTime());
+     cal.setAttendenceProcent(startsDate, endsDate);
     }
     
     

@@ -21,5 +21,5 @@ and open the template in the editor.
 
 .button
 {
-    -fx-opacity: 0;
+    -fx-background-radius: 1000 1000 1000 1000;
 }

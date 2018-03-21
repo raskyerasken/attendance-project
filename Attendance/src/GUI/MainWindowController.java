@@ -85,15 +85,7 @@ public class MainWindowController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-        try 
-        {
-            CalculateAttendenceProcent cal = new CalculateAttendenceProcent(model);
-        } 
-        
-        catch (ParseException ex) 
-        {
-            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+       
          
         MockData md = new MockData();
         try 
@@ -105,7 +97,16 @@ public class MainWindowController implements Initializable
         {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        changeStudentPic();
+        changeStudentPic(); 
+        try 
+        {
+            CalculateAttendenceProcent cal = new CalculateAttendenceProcent(model);
+        } 
+        
+        catch (ParseException ex) 
+        {
+            Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     private void changeStudentPic()

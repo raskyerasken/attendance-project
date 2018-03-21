@@ -42,6 +42,12 @@ public class Model {
   public  void addAttence(DateOfPresent dop) {
          attence.add(dop);
     }
+
+    void addAll(ObservableList<Student> student) {
+        students.clear();
+        System.out.println("sdf");
+    students.setAll(student);
+    }
     
 
 }

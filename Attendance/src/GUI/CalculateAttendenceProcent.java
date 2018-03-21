@@ -12,6 +12,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -20,7 +22,8 @@ import java.util.concurrent.TimeUnit;
 public class CalculateAttendenceProcent {
     Model model;
       
-     
+     private final ObservableList<Student> students
+            = FXCollections.observableArrayList();
     Date toDayDate; 
       java.util.Date utilDate = new java.util.Date();
         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
@@ -29,10 +32,10 @@ public class CalculateAttendenceProcent {
 
     public CalculateAttendenceProcent(Model model) throws ParseException  { 
         
-//        start = new java.sql.Date(formatter.parse("2018-03-05").getTime());
-        this.model = model;
-        setAttendenceProcent();
-      
+        start = new java.sql.Date(formatter.parse("2018-02-05").getTime());
+        this.model = model; 
+        
+     
     }
       public int schoolDaysBetween(Date d1, Date d2)
     {
@@ -50,21 +53,27 @@ public class CalculateAttendenceProcent {
     
      }
       
-        void setAttendenceProcent()
+        void setAttendenceProcent(Date d1,Date d2)
     {
-        System.out.println("hey");
+        students.clear();
+       
         for (Student stud : model.getAttence()) {
+            
             float countDaysPresent=0;
             for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
+                if(!dateOfPresent.getDate().before(d1) && 
+                        !dateOfPresent.getDate().after(d2))
                 if(stud.getStudentID()==dateOfPresent.getStudentID())
                 {
                 countDaysPresent++;
                 }
             }
-            System.out.println((double)(countDaysPresent/schoolDaysBetween(start,utilDate))*100);
-            stud.setAttendance((double)(countDaysPresent/schoolDaysBetween(start,utilDate))*100);
-            
+            System.out.println(countDaysPresent);
+            System.out.println((double)(countDaysPresent/schoolDaysBetween(d1,d2))*100);
+            stud.setAttendance((double)(countDaysPresent/schoolDaysBetween(d1,d2))*100);
+            students.add(stud);
         }
+        model.addAll(students);
     }
 
       

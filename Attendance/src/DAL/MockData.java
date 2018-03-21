@@ -108,7 +108,7 @@ public void add(Model stud) throws ParseException
     {
         DateOfPresent date = new DateOfPresent();
         date.setCourse("SDE");
-        date.setStudentID(10);
+        date.setStudentID(1);
           DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
         java.sql.Date sqlDate = new java.sql.Date(formatter.parse("2015-11-11").getTime());
         date.setDate(sqlDate);
@@ -116,7 +116,7 @@ public void add(Model stud) throws ParseException
         
         DateOfPresent date2 = new DateOfPresent();
         date2.setCourse("SDE");
-        date.setStudentID(5);
+        date2.setStudentID(5);
         DateFormat formatter2= new SimpleDateFormat("yy-MM-dd");
         java.sql.Date  sqlDate2 = new java.sql.Date(formatter2.parse("2015-11-12").getTime());
         date2.setDate(sqlDate2);
@@ -124,7 +124,7 @@ public void add(Model stud) throws ParseException
         
         DateOfPresent date3 = new DateOfPresent();
         date3.setCourse("SDO");
-       date.setStudentID(4);
+       date3.setStudentID(1);
         DateFormat formatter3= new SimpleDateFormat("yy-MM-dd");
         java.sql.Date  sqlDate3 = new java.sql.Date(formatter3.parse("2015-11-13").getTime());
         date3.setDate(sqlDate3);
