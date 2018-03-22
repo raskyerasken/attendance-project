@@ -2,7 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDatePicker?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -30,7 +30,6 @@
             <Font name="System Bold" size="21.0" />
          </font></Label>
       <Label fx:id="skippedDayLabel" layoutX="304.0" layoutY="139.0" prefHeight="17.0" prefWidth="71.0" />
-      <ChoiceBox fx:id="classPicker" layoutX="273.0" layoutY="69.0" prefHeight="27.0" prefWidth="134.0" AnchorPane.rightAnchor="69.0" AnchorPane.topAnchor="69.0" />
       <Label layoutX="273.0" layoutY="41.0" text="Pick class" AnchorPane.rightAnchor="119.0" AnchorPane.topAnchor="41.0">
          <font>
             <Font name="System Bold" size="19.0" />
@@ -40,5 +39,6 @@
       <JFXButton layoutX="9.0" layoutY="397.0" maxWidth="1.7976931348623157E308" onAction="#ChangeAttence" prefHeight="25.0" prefWidth="245.0" text="Change attandence" AnchorPane.bottomAnchor="3.0" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="222.0" />
       <JFXDatePicker fx:id="startDate" layoutX="18.0" layoutY="57.0" onAction="#StartDate" />
       <JFXDatePicker fx:id="endDate" layoutX="18.0" layoutY="96.0" onAction="#endDate" />
+      <ComboBox fx:id="classPicker" layoutX="328.0" layoutY="84.0" onAction="#StudentFromThisCourse" prefWidth="150.0" />
    </children>
 </AnchorPane>

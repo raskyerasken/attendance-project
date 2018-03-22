@@ -43,5 +43,11 @@ public class Courses {
     public StringProperty CourseProperty() {
         return Course;
     }
+
+    @Override
+    public String toString() {
+        return ""+Course.getValue();
+    }
+    
     
 }

@@ -25,6 +25,8 @@ public class Model
     
      private final ObservableList<Courses> courses
             = FXCollections.observableArrayList();
+       private final ObservableList<Student> StudentInCourses
+            = FXCollections.observableArrayList();
     public void add(Student studd) 
     {
         students.add(studd);
@@ -65,5 +67,24 @@ public class Model
     public ObservableList<Courses>  getClasses()
     {
     return courses;
+    }
+
+    ObservableList<Student> getStudentInClass(Courses selectedItem) {
+        StudentInCourses.clear();
+        for (Courses course : courses) {
+            if(course.getCourse()==selectedItem.getCourse())
+            {
+                for (Student student : students) {
+                    if(student.getStudentID()==course.getStudentID())
+                    {
+                    StudentInCourses.add(student);
+                    }
+                    
+                }
+            
+            }
+            
+        }
+        return StudentInCourses;
     }
 }
