@@ -39,12 +39,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
         </rowConstraints>
-<<<<<<< HEAD
          <children>
-            <Label fx:id="studentName" text="does it change" GridPane.valignment="BOTTOM" />
          </children>
-=======
->>>>>>> b11bcb77b39da311d538d8f44f70782a4076a283
       </GridPane>
       <JFXButton layoutX="347.0" layoutY="33.0" onAction="#openTeacher" text="Teacher Yo" />
       <ImageView fitHeight="84.0" fitWidth="200.0" layoutX="14.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
