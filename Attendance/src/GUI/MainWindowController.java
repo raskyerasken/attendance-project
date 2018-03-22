@@ -148,10 +148,11 @@ public class MainWindowController implements Initializable
                         date.setDate(sqlDate);
                         model.addAttence(date);
                         
+                        //Loads the StudentView window and saves the info to student
                         Stage newStage = new Stage();
-                        FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("Vaizdas.fxml"));
+                        FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("StudentView.fxml"));
                         Parent root = fxLoader.load();
-                        VaizdasController controller = fxLoader.getController();
+                        StudentViewController controller = fxLoader.getController();
                         controller.setModel(model,student);
                         Scene scene = new Scene(root);
                         newStage.setScene(scene);
@@ -303,7 +304,7 @@ public class MainWindowController implements Initializable
             Stage newStage = new Stage();
             FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("Vaizdas.fxml"));
             Parent root = fxLoader.load();
-            VaizdasController controller = fxLoader.getController();
+            StudentViewController controller = fxLoader.getController();
             controller.setModel(model,tblviewStudens.getSelectionModel().getSelectedItem());
             Scene scene = new Scene(root);
             newStage.setScene(scene);

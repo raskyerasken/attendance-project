@@ -52,7 +52,7 @@ public void add(Model stud) throws ParseException
         stud4.setFamilyName("Rask");
         stud4.setName("Kasper");
         stud4.setAttendance(13.8);
-        stud4.setStudPic("/Image/polser.png");
+        stud4.setStudPic("/Image/kasper.jpg");
         stud.add(stud4);
         
         Student stud5 = new Student();
@@ -102,6 +102,15 @@ public void add(Model stud) throws ParseException
         stud10.setAttendance(23.8);
         stud10.setStudPic("/Image/surprised.png");
         stud.add(stud10);
+        addAttence(stud);
+        
+        Student stud11 = new Student();
+        stud11.setStudentID(10);
+        stud11.setFamilyName("Petersen");
+        stud11.setName("Björn");
+        stud11.setAttendance(23.8);
+        stud11.setStudPic("/Image/confused.jpg");
+        stud.add(stud11);
         addAttence(stud);
     }
     public void addAttence(Model model) throws ParseException 
