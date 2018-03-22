@@ -17,7 +17,6 @@ and open the template in the editor.
 .jfx-button
 {
     -fx-background-color: whitesmoke;
-    
 }
 
 #OurLabel
@@ -47,9 +46,20 @@ and open the template in the editor.
     -fx-max-height: 200px;
 }
 
-#buttonForStudentPictureSelected:pressed:checked
+#buttonForStudentPictureSelected
 {
-    -fx-background-color: blueviolet;
+    -fx-background-color: green;
+    font-weight: bold;
+    -fx-background-radius: 5000em; 
+    -fx-min-width: 200px;
+    -fx-min-height: 200px;
+    -fx-max-width: 200px;
+    -fx-max-height: 200px;
+}
+
+#buttonForStudentPictureSelected:hover
+{
+    -fx-background-color: background;
     font-weight: bold;
     -fx-background-radius: 5000em; 
     -fx-min-width: 200px;
