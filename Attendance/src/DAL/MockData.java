@@ -5,6 +5,7 @@
  */
 package DAL;
 
+import BE.Courses;
 import BE.DateOfPresent;
 import BE.Student;
 import GUI.Model;
@@ -112,6 +113,7 @@ public class MockData
         stud11.setStudPic("/Image/confused.jpg");
         stud.add(stud11);
         addAttence(stud);
+        addCourses(stud);
     }
 
     public void addAttence(Model model) throws ParseException 
@@ -140,4 +142,37 @@ public class MockData
         date3.setDate(sqlDate3);
         model.addAttence(date3);
     }
+
+    private void addCourses(Model stud) {
+        Courses course= new Courses();
+        course.setCourse("The Fun Class");
+        course.setStudentID(1);
+        stud.addStudentInCourses(course);
+        
+         Courses course2= new Courses();
+        course2.setCourse("The Fun Class");
+        course2.setStudentID(2);
+        stud.addStudentInCourses(course2);
+        
+         Courses course3= new Courses();
+        course3.setCourse("The Fun Class");
+        course3.setStudentID(3);
+        stud.addStudentInCourses(course3);
+       
+        
+         Courses course4= new Courses();
+        course4.setCourse("SDE");
+        course4.setStudentID(2);
+        stud.addStudentInCourses(course4);
+        
+         Courses course5= new Courses();
+        course5.setCourse("sco");
+        course5.setStudentID(7);
+        stud.addStudentInCourses(course5);
+        
+         Courses course6= new Courses();
+        course6.setCourse("SDE");
+        course6.setStudentID(6);
+        stud.addStudentInCourses(course6);
+   }
 }

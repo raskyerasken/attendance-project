@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import BE.Courses;
 import BE.DateOfPresent;
 import BE.Student;
 import javafx.collections.FXCollections;
@@ -20,6 +21,9 @@ public class Model
             = FXCollections.observableArrayList();
 
     private final ObservableList<DateOfPresent> attence
+            = FXCollections.observableArrayList();
+    
+     private final ObservableList<Courses> courses
             = FXCollections.observableArrayList();
     public void add(Student studd) 
     {
@@ -53,5 +57,13 @@ public class Model
         students.clear();
         System.out.println("sdf");
         students.setAll(student);
+    }
+
+    public void addStudentInCourses(Courses course) {
+        courses.add(course);
+    }
+    public ObservableList<Courses>  getClasses()
+    {
+    return courses;
     }
 }
