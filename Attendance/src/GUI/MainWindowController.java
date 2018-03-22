@@ -42,6 +42,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -72,6 +73,8 @@ public class MainWindowController implements Initializable
     private GridPane gridPaneStudentPictures;
     String pic;
     private Label studentName;
+    @FXML
+    private GridPane maxPane;
     
     /**
      * Initializes the controller class.
@@ -121,8 +124,8 @@ public class MainWindowController implements Initializable
             
             Label lbl = new Label();
             lbl.setText(student.getName() + " " + student.getFamilyName()); 
-            lbl.alignmentProperty().set(Pos.BOTTOM_RIGHT);
             lbl.setId("OurLabel");
+            lbl.alignmentProperty().set(Pos.BOTTOM_CENTER);
 //            img.setImage(image);
             b.setOnAction(new EventHandler<ActionEvent>() 
             {
@@ -161,7 +164,7 @@ public class MainWindowController implements Initializable
                 }
             });
             gridPaneStudentPictures.add(b, studentCount%4, studentCount/4);
-           // gridPaneStudentPictures.add(lbl, studentCount%4, studentCount/4);
+            maxPane.add(lbl, studentCount%4, studentCount/4);
             studentCount++;
         }
         
