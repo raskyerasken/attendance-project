@@ -37,10 +37,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 /**
@@ -59,17 +61,19 @@ public class MainWindowController implements Initializable
     Student stud = new Student();
     private final ObservableList<Student> studentsList
             = FXCollections.observableArrayList();
+    @FXML
     private Label ageLabel;
     @FXML
     private ImageView studentPhotoView;
     Model model = new Model();
     private ImageView picture;
-    @FXML
     private TextField pwTeacher;
     BLLManager bll = new BLLManager ();
     @FXML
     private GridPane gridPaneStudentPictures;
     String pic;
+    @FXML
+    private Label studentName;
     
     /**
      * Initializes the controller class.
@@ -77,8 +81,6 @@ public class MainWindowController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-       
-         
         MockData md = new MockData();
         try 
         {
@@ -106,16 +108,16 @@ public class MainWindowController implements Initializable
         int studentCount = 0;
         for (Student student : model.getAttence()) 
         {
+            
             //ImageView img = (ImageView) gridPaneStudentPictures.getChildren().get(studentCount);
             Image image = new Image(getClass().getResourceAsStream(student.getStudPic()));
             ImageView imageView = new ImageView(image);
-            imageView.setFitWidth(190);
-            imageView.setFitHeight(190);
-            
+            imageView.setFitWidth(175);
+            imageView.setFitHeight(175);
             
             Button b = new Button();
             b.setUserData(student);
-            b.setMinSize(190, 190);
+            b.setMinSize(175, 175);
             b.scaleShapeProperty();
             b.setGraphic(imageView);
             b.setId("buttonForStudentPicture");
@@ -151,6 +153,7 @@ public class MainWindowController implements Initializable
                         Stage stage = (Stage) ageLabel.getScene().getWindow();
                         stage.close();
                     } 
+                    
                     catch (IOException ex) 
                     {
                         Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
@@ -219,6 +222,7 @@ public class MainWindowController implements Initializable
             dop.setCourse("SDE");
             model.addAttence(dop);
         }
+        
         else 
             showErrorDialog("Selection Error", null, "Please select a student");
     }
@@ -228,7 +232,7 @@ public class MainWindowController implements Initializable
     {
 //        if (pwTeacher.getText().length() == 10) 
 //        {
-            System.out.println("Password Correct ");
+//            System.out.println("Password Correct ");
             teacherWindow();
 //        } 
 //        else 
@@ -287,7 +291,6 @@ public class MainWindowController implements Initializable
         this.model = model;
     }
 
-    @FXML
     private void StudentView(ActionEvent event) throws IOException 
     {
         if (!tblviewStudens.getSelectionModel().isEmpty()) 
