@@ -28,6 +28,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -62,8 +63,6 @@ public class MainWindowController implements Initializable
     private final ObservableList<Student> studentsList
             = FXCollections.observableArrayList();
     @FXML
-    private Label ageLabel;
-    @FXML
     private ImageView studentPhotoView;
     Model model = new Model();
     private ImageView picture;
@@ -72,7 +71,6 @@ public class MainWindowController implements Initializable
     @FXML
     private GridPane gridPaneStudentPictures;
     String pic;
-    @FXML
     private Label studentName;
     
     /**
@@ -121,6 +119,14 @@ public class MainWindowController implements Initializable
             b.setGraphic(imageView);
             b.setId("buttonForStudentPicture");
             
+            Label lbl = new Label();
+            
+            lbl.setText(student.getName() + " " + student.getFamilyName()); 
+            lbl.alignmentProperty().set(Pos.BOTTOM_RIGHT);
+            lbl.setId("OurLabel");
+            
+
+
 //            img.setImage(image);
             b.setOnAction(new EventHandler<ActionEvent>() 
             {
@@ -131,19 +137,14 @@ public class MainWindowController implements Initializable
                     {
                         Student student = (Student)((Button)event.getSource()).getUserData();
                         System.out.println("Student: " + student.getName());
-                        
                         DateOfPresent date = new DateOfPresent();
                         date.setCourse("The Fun Class");
-                        date.setStudentID(student.getStudentID()    );
+                        date.setStudentID(student.getStudentID());
                         java.util.Date utilDate = new java.util.Date();
                         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
                         date.setDate(sqlDate);
                         model.addAttence(date);
                         
-                        b.setUserData(student);
-                        b.setMinSize(175, 175);
-                        b.scaleShapeProperty();
-                        b.setGraphic(imageView);
                         b.setId("buttonForStudentPictureSelected");
                         
                         //Loads the StudentView window and saves the info to student
@@ -164,6 +165,7 @@ public class MainWindowController implements Initializable
                 }
             });
             gridPaneStudentPictures.add(b, studentCount%4, studentCount/4);
+           // gridPaneStudentPictures.add(lbl, studentCount%4, studentCount/4);
             studentCount++;
         }
         
@@ -263,7 +265,7 @@ public class MainWindowController implements Initializable
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.show();
-        Stage stage = (Stage) ageLabel.getScene().getWindow();
+        Stage stage = (Stage) gridPaneStudentPictures.getScene().getWindow();
         stage.close();
     }
 
@@ -306,7 +308,7 @@ public class MainWindowController implements Initializable
             Scene scene = new Scene(root);
             newStage.setScene(scene);
             newStage.show();
-            Stage stage = (Stage) ageLabel.getScene().getWindow();
+            Stage stage = (Stage) gridPaneStudentPictures.getScene().getWindow();
             stage.close();
         }
         else 

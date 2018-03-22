@@ -57,11 +57,6 @@ public class StudentViewController implements Initializable
         }
     }
   
-   void backToMain() throws IOException
-   {
-
-   }
-   
     /**
      * Initializes the controller class.
      */
@@ -78,7 +73,6 @@ public class StudentViewController implements Initializable
     @FXML
     private void mainWindow(ActionEvent event) throws IOException 
     {
-        backToMain();
         Stage stage = (Stage) tblviewAttendence.getScene().getWindow();
         stage.close();
     }
