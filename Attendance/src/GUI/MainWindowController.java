@@ -260,7 +260,7 @@ public class MainWindowController implements Initializable
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.show();
-        Stage stage = (Stage) label.getScene().getWindow();
+        Stage stage = (Stage) ageLabel.getScene().getWindow();
         stage.close();
     }
 
