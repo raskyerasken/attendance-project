@@ -36,3 +36,24 @@ and open the template in the editor.
     -fx-max-width: 20px;
     -fx-max-height: 20px;
 }
+
+#buttonForStudentPicture:hover
+{
+    font-weight: bold;
+    -fx-background-radius: 5000em; 
+    -fx-min-width: 200px;
+    -fx-min-height: 200px;
+    -fx-max-width: 200px;
+    -fx-max-height: 200px;
+}
+
+#buttonForStudentPictureSelected:pressed:checked
+{
+    -fx-background-color: blueviolet;
+    font-weight: bold;
+    -fx-background-radius: 5000em; 
+    -fx-min-width: 200px;
+    -fx-min-height: 200px;
+    -fx-max-width: 200px;
+    -fx-max-height: 200px;
+}

@@ -16,7 +16,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Comparator;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -132,6 +131,7 @@ public class TeacherViewController implements Initializable {
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.show();
+      
     }
 
     @FXML
