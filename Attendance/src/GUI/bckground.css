@@ -20,7 +20,7 @@ and open the template in the editor.
     
 }
 
-.label
+#OurLabel
 {   
     -fx-font-family: verdana;
     -fx-font-weight: bold;

@@ -29,7 +29,7 @@ import javafx.stage.Stage;
  *
  * @author Skomantas
  */
-public class VaizdasController implements Initializable 
+public class StudentViewController implements Initializable 
 {
     
     Model model; 
@@ -37,8 +37,6 @@ public class VaizdasController implements Initializable
 
     @FXML
     private TableView<DateOfPresent> tblviewAttendence;
-    @FXML
-    private TableColumn<DateOfPresent, Integer> colName;
     @FXML
     private TableColumn<DateOfPresent, Date> colDate;
     @FXML
@@ -50,6 +48,7 @@ public class VaizdasController implements Initializable
     void setModel(Model model, Student SelectStudent) 
     {
         this.model= model; 
+        studentName.setId("OurLabel");
         studentName.setText(SelectStudent.getName()+" " +SelectStudent.getFamilyName());
         for (DateOfPresent dateOfPresent : model.getAttenceDay()) 
         {

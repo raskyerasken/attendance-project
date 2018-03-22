@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package AttendanceMain;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -19,8 +19,9 @@ public class Attendance extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("MainWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/MainWindow.fxml"));
         
+        stage.setResizable(false);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

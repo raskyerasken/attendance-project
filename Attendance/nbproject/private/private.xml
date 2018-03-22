@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/jacob/Desktop/attendance-project/Attendance/src/GUI/bckground.css</file>
             <file>file:/C:/Users/jacob/Desktop/attendance-project/Attendance/src/GUI/TeacherViewController.java</file>
             <file>file:/C:/Users/jacob/Desktop/attendance-project/Attendance/src/BE/Courses.java</file>
@@ -19,6 +20,12 @@
             <file>file:/C:/Users/jacob/Desktop/attendance-project/Attendance/src/Image/abu.png</file>
             <file>file:/C:/Users/jacob/Desktop/attendance-project/Attendance/src/BE/DateOfPresent.java</file>
             <file>file:/C:/Users/jacob/Desktop/attendance-project/Attendance/src/BE/Student.java</file>
+=======
+            <file>file:/C:/Users/Låne-PC/Documents/GitHub/attendance-project/Attendance/src/GUI/TeacherViewController.java</file>
+            <file>file:/C:/Users/Låne-PC/Documents/GitHub/attendance-project/Attendance/src/GUI/MainWindowController.java</file>
+            <file>file:/C:/Users/Låne-PC/Documents/GitHub/attendance-project/Attendance/src/GUI/bckground.css</file>
+            <file>file:/C:/Users/Låne-PC/Documents/GitHub/attendance-project/Attendance/src/GUI/VaizdasController.java</file>
+>>>>>>> d430d632cebf44e3406b2c015c005c24c9f356b6
         </group>
     </open-files>
 </project-private>
