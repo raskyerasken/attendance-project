@@ -230,7 +230,7 @@ public class MainWindowController implements Initializable
     }
     
     @FXML
-    private void openTeacher(ActionEvent event) throws IOException 
+    private void openTeacher(ActionEvent event) throws IOException, ParseException 
     {
 //        if (pwTeacher.getText().length() == 10) 
 //        {
@@ -252,7 +252,7 @@ public class MainWindowController implements Initializable
         alert.showAndWait();
     }
 
-    void teacherWindow() throws IOException 
+    void teacherWindow() throws IOException, ParseException 
     {
         Stage newStage = new Stage();
         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("TeacherView.fxml"));
