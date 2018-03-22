@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import BE.Courses;
 import BE.DateOfPresent;
 import BE.Student;
 import com.jfoenix.controls.JFXDatePicker;
@@ -46,7 +47,7 @@ public class TeacherViewController implements Initializable {
     @FXML
     private Label skippedDayLabel;
     @FXML
-    private ChoiceBox<?> classPicker;
+    private ChoiceBox<Courses> classPicker;
     @FXML
     private TableView<Student> tblStudents;
     @FXML
@@ -116,8 +117,7 @@ public class TeacherViewController implements Initializable {
                 }
             }
         });
-   
-
+  
     }
 
     void mainWindow() throws IOException {
@@ -162,6 +162,11 @@ public class TeacherViewController implements Initializable {
              tblStudents.getItems().sort((o1, o2) -> {
             return o1.getName().compareTo(o2.getName()); //To change body of generated lambdas, choose Tools | Templates.
         });
+             classPicker.getItems().clear();
+        for (Courses classe : model.getClasses()) {
+            classPicker.getItems().add(classe);
+        }
+
 
     }
 
