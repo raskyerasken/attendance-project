@@ -21,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -64,6 +65,9 @@ public class StudentViewController implements Initializable
         Parent root = fxLoader.load();
         MainWindowController controller= fxLoader.getController();
         controller.setModel(model);
+        newStage.setResizable(false);
+        newStage.setFullScreen(true);
+        newStage.fullScreenExitKeyProperty().set(KeyCombination.NO_MATCH);
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.show();

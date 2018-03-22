@@ -51,9 +51,7 @@ import javafx.stage.Stage;
 public class MainWindowController implements Initializable 
 {
 
-    @FXML
     private Label label;
-    @FXML
     private TextField txtCPR;
     private TableView<Student> tblviewStudens;
     private TableColumn<Student, String> clSurname;
@@ -61,17 +59,10 @@ public class MainWindowController implements Initializable
     Student stud = new Student();
     private final ObservableList<Student> studentsList
             = FXCollections.observableArrayList();
-    @FXML
-    private Label nameLabel;
-    @FXML
     private Label ageLabel;
-    @FXML
-    private Label attendanceLabel;
     @FXML
     private ImageView studentPhotoView;
     Model model = new Model();
-    @FXML
-    private Label studentName;
     private ImageView picture;
     @FXML
     private TextField pwTeacher;
@@ -118,13 +109,13 @@ public class MainWindowController implements Initializable
             //ImageView img = (ImageView) gridPaneStudentPictures.getChildren().get(studentCount);
             Image image = new Image(getClass().getResourceAsStream(student.getStudPic()));
             ImageView imageView = new ImageView(image);
-            imageView.setFitWidth(112);
-            imageView.setFitHeight(112);
+            imageView.setFitWidth(190);
+            imageView.setFitHeight(190);
             
             
             Button b = new Button();
             b.setUserData(student);
-            b.setMinSize(112, 112);
+            b.setMinSize(190, 190);
             b.scaleShapeProperty();
             b.setGraphic(imageView);
             b.setId("buttonForStudentPicture");
@@ -157,8 +148,8 @@ public class MainWindowController implements Initializable
                         Scene scene = new Scene(root);
                         newStage.setScene(scene);
                         newStage.show();
-//                        Stage stage = (Stage) ageLabel.getScene().getWindow();
-//                        stage.close();
+                        Stage stage = (Stage) ageLabel.getScene().getWindow();
+                        stage.close();
                     } 
                     catch (IOException ex) 
                     {
