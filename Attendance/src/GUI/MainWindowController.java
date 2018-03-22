@@ -118,6 +118,7 @@ public class MainWindowController implements Initializable
             b.scaleShapeProperty();
             b.setGraphic(imageView);
             b.setId("buttonForStudentPicture");
+<<<<<<< HEAD
             
             Label lbl = new Label();
             
@@ -127,6 +128,8 @@ public class MainWindowController implements Initializable
             
 
 
+=======
+>>>>>>> f07454123dfe067f6790fca1eda3de5d17dd9a94
 //            img.setImage(image);
             b.setOnAction(new EventHandler<ActionEvent>() 
             {

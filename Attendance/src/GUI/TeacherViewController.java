@@ -26,12 +26,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -47,7 +50,7 @@ public class TeacherViewController implements Initializable {
     @FXML
     private Label skippedDayLabel;
     @FXML
-    private ChoiceBox<Courses> classPicker;
+    private ComboBox<Courses> classPicker;
     @FXML
     private TableView<Student> tblStudents;
     @FXML
@@ -78,7 +81,6 @@ public class TeacherViewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
 
         LocalDate startDate = LocalDate.parse(startSDate, formatter);
-        System.out.println("");
         LocalDate endDate = LocalDate.parse(endSDate, formatter);
         this.startDate.setValue(startDate);
         this.endDate.setValue(endDate);
@@ -164,11 +166,26 @@ public class TeacherViewController implements Initializable {
         });
              classPicker.getItems().clear();
         for (Courses classe : model.getClasses()) {
-            classPicker.getItems().add(classe);
-        }
-
-
+            int first = 0; 
+           
+            for (Courses item : classPicker.getItems()) {
+                if(item.getCourse()==classe.getCourse())
+                {
+                first =1 ;
+                }
+            }
+             if (first==0)
+            {
+            classPicker.getItems().add(classe);}
+        
+            }
+    
     }
+           
+        
+
+
+    
 
     @FXML
     private void ChangeAttence(ActionEvent event) throws IOException {
@@ -211,6 +228,15 @@ public class TeacherViewController implements Initializable {
         String end = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
         java.sql.Date endsDate = new java.sql.Date(formatter.parse(end).getTime());
         cal.setAttendenceProcent(startsDate, endsDate);
+    }
+
+    
+
+    @FXML
+    private void StudentFromThisCourse(ActionEvent event) { 
+    
+        tblStudents.setItems(
+                model.getStudentInClass((Courses) classPicker.getSelectionModel().getSelectedItem()));
     }
 
 }
