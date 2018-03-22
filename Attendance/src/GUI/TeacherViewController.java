@@ -145,7 +145,7 @@ public class TeacherViewController implements Initializable {
         skippedDayLabel.setText("Monday");
     }
 
-    void setModel(Model model) {
+    void setModel(Model model) throws ParseException {
         this.model = model;
         try {
             cal = new CalculateAttendenceProcent(model);
@@ -179,6 +179,12 @@ public class TeacherViewController implements Initializable {
             classPicker.getItems().add(classe);}
         
             }
+        DateFormat formatter = new SimpleDateFormat("yy-MM-dd");
+        String start = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        java.sql.Date startsDate = new java.sql.Date(formatter.parse(start).getTime());
+        String end = endDate.getValue().format(DateTimeFormatter.ISO_DATE);
+        java.sql.Date endsDate = new java.sql.Date(formatter.parse(end).getTime());
+        skippedDayLabel.setText(cal.returnMostSkippedDay(startsDate, endsDate));
     
     }
            

@@ -10,6 +10,7 @@ import BE.Student;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import javafx.collections.FXCollections;
@@ -73,6 +74,40 @@ public class CalculateAttendenceProcent {
         }
         model.addAll(students);
     }
+        String returnMostSkippedDay(Date d1, Date D2)
+        {
+        String days=null;
+        int day=0;
+        int dat=0;
+           int other=0;
+            int[] count={0,0,0,0,0};
+            for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
+                count[dateOfPresent.getDate().getDay()-1]++;
+                System.out.println(dateOfPresent.getDate().getDay()-1);
+            }
+            for (int i : count) {
+                
+                if (dat>i||other==0) {
+                    day=other;
+                    dat=i;
+                }
+                other++;
+            }
+           switch (day) {
+                case 0: days = "Monday";
+                     break;
+                     case 1: days = "Tuesday";
+                     break;
+                     case 2: days = "Wednesday";
+                     break;
+                     case 3: days = "Thursday";
+                     break;
+                     case 4: days = "Friday";
+                     break;
+            }
+                    
+        return days;
+        }
 
       
     

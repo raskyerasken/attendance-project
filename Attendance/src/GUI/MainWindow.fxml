@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="758.0" prefWidth="997.0" stylesheets="@bckground.css" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainWindowController">
+<AnchorPane id="AnchorPane" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="758.0" prefWidth="997.0" stylesheets="@bckground.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MainWindowController">
     <children>
       <GridPane fx:id="maxPane" layoutX="474.0" layoutY="14.0" AnchorPane.bottomAnchor="48.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="12.0" AnchorPane.topAnchor="72.0">
         <columnConstraints>
@@ -39,6 +39,12 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
         </rowConstraints>
+<<<<<<< HEAD
+         <children>
+            <Label fx:id="studentName" text="does it change" GridPane.valignment="BOTTOM" />
+         </children>
+=======
+>>>>>>> b11bcb77b39da311d538d8f44f70782a4076a283
       </GridPane>
       <JFXButton layoutX="347.0" layoutY="33.0" onAction="#openTeacher" text="Teacher Yo" />
       <ImageView fitHeight="84.0" fitWidth="200.0" layoutX="14.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
