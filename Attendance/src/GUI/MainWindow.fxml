@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,11 +21,14 @@
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="BOTTOM" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
         </rowConstraints>
+         <children>
+            <Label fx:id="studentName" text="does it change" />
+         </children>
       </GridPane>
       <JFXButton layoutX="347.0" layoutY="18.0" onAction="#openTeacher" text="Teacher Yo" />
       <ImageView fitHeight="84.0" fitWidth="200.0" layoutX="14.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
@@ -32,5 +36,6 @@
             <Image url="@../Image/28081877_10215708726930432_1395245353_o.png" />
          </image>
       </ImageView>
+      <Label fx:id="ageLabel" layoutX="856.0" layoutY="22.0" prefHeight="18.0" prefWidth="90.0" />
     </children>
 </AnchorPane>
