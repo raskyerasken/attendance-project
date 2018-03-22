@@ -117,14 +117,7 @@ public class TeacherViewController implements Initializable {
                 }
             }
         });
-        tblStudents.getItems().sort(new Comparator<Student>() {
-            @Override
-            public int compare(Student o1, Student o2) {
-                return o1.getAttendance().compareTo(o2.getAttendance());
-            }
-
-        });
-        tblStudents.refresh();
+   
 
     }
 
@@ -166,6 +159,9 @@ public class TeacherViewController implements Initializable {
         }
 
         tblStudents.setItems(model.getAttence());
+             tblStudents.getItems().sort((o1, o2) -> {
+            return o1.getName().compareTo(o2.getName()); //To change body of generated lambdas, choose Tools | Templates.
+        });
 
     }
 
