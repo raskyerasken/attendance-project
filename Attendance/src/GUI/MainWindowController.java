@@ -108,7 +108,6 @@ public class MainWindowController implements Initializable
         int studentCount = 0;
         for (Student student : model.getAttence()) 
         {
-            
             //ImageView img = (ImageView) gridPaneStudentPictures.getChildren().get(studentCount);
             Image image = new Image(getClass().getResourceAsStream(student.getStudPic()));
             ImageView imageView = new ImageView(image);
@@ -141,6 +140,12 @@ public class MainWindowController implements Initializable
                         date.setDate(sqlDate);
                         model.addAttence(date);
                         
+                        b.setUserData(student);
+                        b.setMinSize(175, 175);
+                        b.scaleShapeProperty();
+                        b.setGraphic(imageView);
+                        b.setId("buttonForStudentPictureSelected");
+                        
                         //Loads the StudentView window and saves the info to student
                         Stage newStage = new Stage();
                         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("StudentView.fxml"));
@@ -150,8 +155,6 @@ public class MainWindowController implements Initializable
                         Scene scene = new Scene(root);
                         newStage.setScene(scene);
                         newStage.show();
-                        Stage stage = (Stage) ageLabel.getScene().getWindow();
-                        stage.close();
                     } 
                     
                     catch (IOException ex) 
