@@ -20,7 +20,7 @@ public class MockData
 {
 
     
-public void add(Model stud) throws ParseException 
+    public void add(Model stud) throws ParseException 
     {
         Student stud1 = new Student();
         stud1.setStudentID(1);
@@ -29,8 +29,8 @@ public void add(Model stud) throws ParseException
         stud1.setStudPic("/Image/poop.png");
         stud1.setAttendance(58.8);
         stud.add(stud1);
-        
-        
+
+
         Student stud2 = new Student();
         stud2.setStudentID(2);
         stud2.setFamilyName("Nikolov");
@@ -46,7 +46,7 @@ public void add(Model stud) throws ParseException
         stud3.setAttendance(12.8);
         stud3.setStudPic("/Image/girl.png");
         stud.add(stud3);
-        
+
         Student stud4 = new Student();
         stud4.setStudentID(4);
         stud4.setFamilyName("Rask");
@@ -54,7 +54,7 @@ public void add(Model stud) throws ParseException
         stud4.setAttendance(13.8);
         stud4.setStudPic("/Image/kasper.jpg");
         stud.add(stud4);
-        
+
         Student stud5 = new Student();
         stud5.setStudentID(5);
         stud5.setFamilyName("Sørensen");
@@ -62,7 +62,7 @@ public void add(Model stud) throws ParseException
         stud5.setAttendance(100.8);
         stud5.setStudPic("/Image/devil.png");
         stud.add(stud5);
-        
+
         Student stud6 = new Student();
         stud6.setStudentID(6);
         stud6.setFamilyName("Andersen");
@@ -70,7 +70,7 @@ public void add(Model stud) throws ParseException
         stud6.setAttendance(0.8);
         stud6.setStudPic("/Image/cool.png");
         stud.add(stud6);
-        
+
         Student stud7 = new Student();
         stud7.setStudentID(7);
         stud7.setFamilyName("Moniz");
@@ -78,7 +78,7 @@ public void add(Model stud) throws ParseException
         stud7.setAttendance(0.8);
         stud7.setStudPic("/Image/happy.png");
         stud.add(stud7);
-        
+
         Student stud8 = new Student();
         stud8.setStudentID(8);
         stud8.setFamilyName("Sim");
@@ -86,7 +86,7 @@ public void add(Model stud) throws ParseException
         stud8.setAttendance(78.8);
         stud8.setStudPic("/Image/tired.png");
         stud.add(stud8);
-        
+
         Student stud9 = new Student();
         stud9.setStudentID(9);
         stud9.setFamilyName("Armando");
@@ -94,7 +94,7 @@ public void add(Model stud) throws ParseException
         stud9.setAttendance(28.8);
         stud9.setStudPic("/Image/abu.png");
         stud.add(stud9);
-        
+
         Student stud10 = new Student();
         stud10.setStudentID(10);
         stud10.setFamilyName("Hansen");
@@ -103,7 +103,7 @@ public void add(Model stud) throws ParseException
         stud10.setStudPic("/Image/surprised.png");
         stud.add(stud10);
         addAttence(stud);
-        
+
         Student stud11 = new Student();
         stud11.setStudentID(10);
         stud11.setFamilyName("Petersen");
@@ -113,6 +113,7 @@ public void add(Model stud) throws ParseException
         stud.add(stud11);
         addAttence(stud);
     }
+
     public void addAttence(Model model) throws ParseException 
     {
         DateOfPresent date = new DateOfPresent();
@@ -138,9 +139,5 @@ public void add(Model stud) throws ParseException
         java.sql.Date  sqlDate3 = new java.sql.Date(formatter3.parse("2015-11-13").getTime());
         date3.setDate(sqlDate3);
         model.addAttence(date3);
-        
-    
     }
-   
-    
 }
