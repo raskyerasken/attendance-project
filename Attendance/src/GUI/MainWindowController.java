@@ -264,8 +264,6 @@ public class MainWindowController implements Initializable
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.show();
-        Stage stage = (Stage) gridPaneStudentPictures.getScene().getWindow();
-        stage.close();
     }
 
     private void newImageStudent() 
