@@ -34,6 +34,7 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.InputMethodEvent;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -122,16 +123,10 @@ public class TeacherViewController implements Initializable {
   
     }
 
-    void mainWindow() throws IOException {
-        Stage newStage = new Stage();
-        FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
-        Parent root = fxLoader.load();
-        MainWindowController controller = fxLoader.getController();
-        controller.setModel(model);
-        Scene scene = new Scene(root);
-        newStage.setScene(scene);
-        newStage.show();
-      
+    void mainWindow() throws IOException 
+    {
+        Stage stage = (Stage) lol.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
