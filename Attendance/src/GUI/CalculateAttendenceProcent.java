@@ -62,8 +62,10 @@ public class CalculateAttendenceProcent {
             
             float countDaysPresent=0;
             for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
+                
                 if(!dateOfPresent.getDate().before(d1) && 
-                        !dateOfPresent.getDate().after(d2))
+                        !dateOfPresent.getDate().after(d2)||
+                        (dateOfPresent.getDate().getTime()/ (1000 * 60 * 60 * 24))==(sqlDate.getTime()/ (1000 * 60 * 60 * 24)))
                 if(stud.getStudentID()==dateOfPresent.getStudentID())
                 {
                 countDaysPresent++;
@@ -83,7 +85,6 @@ public class CalculateAttendenceProcent {
             int[] count={0,0,0,0,0};
             for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
                 count[dateOfPresent.getDate().getDay()-1]++;
-                System.out.println(dateOfPresent.getDate().getDay()-1);
             }
             for (int i : count) {
                 

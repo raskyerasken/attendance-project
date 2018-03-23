@@ -68,7 +68,7 @@ public class TeacherViewController implements Initializable {
     java.util.Date utilDate = new java.util.Date();
     java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
     java.sql.Date toDayDate = sqlDate;
-    String startSDate = "2015-11-12";
+    String startSDate = "2018-02-12";
     String endSDate = sqlDate.toString();
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     DateFormat formattersql = new SimpleDateFormat("yy-MM-dd");
