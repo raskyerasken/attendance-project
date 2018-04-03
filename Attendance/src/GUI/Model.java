@@ -8,6 +8,8 @@ package GUI;
 import BE.Courses;
 import BE.DateOfPresent;
 import BE.Student;
+import BLL.BLLManagerStudent;
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -17,6 +19,8 @@ import javafx.collections.ObservableList;
  */
 public class Model 
 {
+    
+ BLLManagerStudent bllStudent= new  BLLManagerStudent();
     private final ObservableList<Student> students
             = FXCollections.observableArrayList();
 
@@ -87,4 +91,9 @@ public class Model
         }
         return StudentInCourses;
     }
+
+    List<Student> getAllStudent() {
+       students.addAll(bllStudent.getAllStudent());
+    return students;
+            }
 }

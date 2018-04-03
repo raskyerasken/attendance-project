@@ -7,10 +7,11 @@ package GUI;
 
 import BE.DateOfPresent;
 import BE.Student;
-import BLL.BLLManager;
+import BLL.BLLManagerStudent;
 import DAL.MockData;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -55,6 +56,8 @@ import javafx.stage.Stage;
 public class MainWindowController implements Initializable 
 {
 
+    public MainWindowController() {
+    }
     private Label label;
     private TextField txtCPR;
     private TableView<Student> tblviewStudens;
@@ -68,7 +71,7 @@ public class MainWindowController implements Initializable
     Model model = new Model();
     private ImageView picture;
     private TextField pwTeacher;
-    BLLManager bll = new BLLManager ();
+    BLLManagerStudent bll = new BLLManagerStudent ();
     @FXML
     private GridPane gridPaneStudentPictures;
     String pic;
@@ -92,7 +95,11 @@ public class MainWindowController implements Initializable
         {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        changeStudentPic(); 
+        try { 
+            changeStudentPic();
+        } catch (SQLException ex) {
+            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         try 
         {
             CalculateAttendenceProcent cal = new CalculateAttendenceProcent(model);
@@ -104,11 +111,12 @@ public class MainWindowController implements Initializable
         }
     }
     
-    private void changeStudentPic()
+    private void changeStudentPic() throws SQLException
     {
         int studentCount = 0;
-        for (Student student : model.getAttence()) 
+        for (Student student : model.getAllStudent()) 
         {
+            
             //ImageView img = (ImageView) gridPaneStudentPictures.getChildren().get(studentCount);
             Image image = new Image(getClass().getResourceAsStream(student.getStudPic()));
             ImageView imageView = new ImageView(image);
