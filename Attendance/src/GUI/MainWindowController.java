@@ -5,8 +5,10 @@
  */
 package GUI;
 
+import BE.Courses;
 import BE.DateOfPresent;
 import BE.Student;
+import BLL.BLLManagerCourses;
 import BLL.BLLManagerStudent;
 import DAL.MockData;
 import java.io.IOException;
@@ -58,6 +60,7 @@ public class MainWindowController implements Initializable
 
     public MainWindowController() {
     }
+    BLLManagerCourses bllcourses= new BLLManagerCourses();
     private Label label;
     private TextField txtCPR;
     private TableView<Student> tblviewStudens;
@@ -86,6 +89,8 @@ public class MainWindowController implements Initializable
     public void initialize(URL url, ResourceBundle rb) 
     {
         MockData md = new MockData();
+        
+
         try 
         {
             md.add(model);

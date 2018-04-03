@@ -113,7 +113,7 @@ public class MockData
 //        stud11.setStudPic("/Image/confused.jpg");
 //        stud.add(stud11);
         addAttence(stud);
-        addCourses(stud);
+//        addCourses(stud);
     }
 
     public void addAttence(Model model) throws ParseException 
