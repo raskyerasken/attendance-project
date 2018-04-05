@@ -77,7 +77,7 @@ public class CalculateAttendenceProcent {
                         )
                 {
                     
-                if(stud.getStudentID()==dateOfPresent.getStudentID())
+                if(stud.getStudentID()==dateOfPresent.getStudentID()){
                     attence.remove(dateOfPresent);
                 countDaysPresent++;  
                 break;
