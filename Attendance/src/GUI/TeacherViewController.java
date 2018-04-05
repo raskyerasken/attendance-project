@@ -106,7 +106,7 @@ public class TeacherViewController implements Initializable {
                     setStyle("");
                 } else {
                     Student person = getTableView().getItems().get(getIndex());
-                    for (PresentDate dateOfPresent : model.getAttenceDay()) {
+                    for (PresentDate dateOfPresent : model.getAttendanceDay()) {
 
                         if (dateOfPresent.getStudentID() == person.getStudentID()) {
                             int datePresent= (int) (dateOfPresent.getDate().getTime()/ (1000 * 60 * 60 * 24));
@@ -157,7 +157,7 @@ public class TeacherViewController implements Initializable {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        tblStudents.setItems(model.getAttence());
+        tblStudents.setItems(model.getAttendance());
              tblStudents.getItems().sort((o1, o2) -> {
             return o1.getName().compareTo(o2.getName()); //To change body of generated lambdas, choose Tools | Templates.
         });

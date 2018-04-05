@@ -10,6 +10,7 @@ import BE.Student;
 import DAL.DataBaseStudent;
 import DAL.MockData;
 import GUI.Model;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
@@ -27,7 +28,7 @@ public class BLLManagerStudent
     PresentDate presentDate = new PresentDate();
     MockData mockData=new MockData();    
     
-    public void add(Model model) throws ParseException 
+    public void add(Model model) throws ParseException, SQLServerException 
     {
         mockData.add(model);
     }

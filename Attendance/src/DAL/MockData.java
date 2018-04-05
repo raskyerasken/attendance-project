@@ -104,7 +104,7 @@ public class MockData
 //        stud10.setAttendance(23.8);
 //        stud10.setStudPic("/Image/surprised.png");
 //        stud.add(stud10);
-//        addAttence(stud);
+//        addAttendance(stud);
 //
 //        Student stud11 = new Student();
 //        stud11.setStudentID(10);
@@ -125,7 +125,7 @@ public class MockData
         DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
         java.sql.Date sqlDate = new java.sql.Date(formatter.parse("2018-03-20").getTime());
         date.setDate(sqlDate);
-        model.addAttence(date);
+        model.addAttendance(date);
         
         PresentDate date2 = new PresentDate();
         date2.setCourse("SDE");
@@ -133,7 +133,7 @@ public class MockData
         DateFormat formatter2= new SimpleDateFormat("yy-MM-dd");
         java.sql.Date  sqlDate2 = new java.sql.Date(formatter2.parse("2018-03-23").getTime());
         date2.setDate(sqlDate2);
-        model.addAttence(date2);
+        model.addAttendance(date2);
         
         PresentDate date3 = new PresentDate();
         date3.setCourse("SDO");
@@ -141,7 +141,7 @@ public class MockData
         DateFormat formatter3= new SimpleDateFormat("yy-MM-dd");
         java.sql.Date  sqlDate3 = new java.sql.Date(formatter3.parse("2018-03-19").getTime());
         date3.setDate(sqlDate3);
-        model.addAttence(date3);
+        model.addAttendance(date3);
         
         PresentDate date4 = new PresentDate();
         date4.setCourse("SDO");
@@ -149,7 +149,7 @@ public class MockData
         DateFormat formatter4= new SimpleDateFormat("yy-MM-dd");
         java.sql.Date  sqlDate4 = new java.sql.Date(formatter4.parse("2018-03-22").getTime());
         date4.setDate(sqlDate4);
-        model.addAttence(date4);
+        model.addAttendance(date4);
     }
 
     private void addCourses(Model stud) {

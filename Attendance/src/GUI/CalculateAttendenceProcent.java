@@ -20,10 +20,11 @@ import javafx.collections.ObservableList;
  *
  * @author jacob
  */
-public class CalculateAttendenceProcent {
+public class CalculateAttendenceProcent 
+{
     Model model;
       
-     private final ObservableList<Student> students
+    private final ObservableList<Student> students
             = FXCollections.observableArrayList();
     Date toDayDate; 
       java.util.Date utilDate = new java.util.Date();
@@ -54,22 +55,18 @@ public class CalculateAttendenceProcent {
      return (double)((((d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24))+1)/7)*5+(d2.getDay()-d1.getDay())%6+currentday;
     
      }
-      private final ObservableList<DateOfPresent> attence
+      private final ObservableList<PresentDate> attendance
             = FXCollections.observableArrayList();
         void setAttendenceProcent(Date d1,Date d2)
-    {attence.clear();
+    {attendance.clear();
 
         students.clear();
-       attence.addAll(model.getAttenceDay());
-        for (Student stud : model.getAttence()) {
+       attendance.addAll(model.getAttendanceDay());
+        for (Student stud : model.getAttendance()) {
             
             double countDaysPresent=0;
-<<<<<<< HEAD
-            for (PresentDate dateOfPresent : model.getAttenceDay()) {
-                
-                if(dateOfPresent.getDate().after(d1)&&dateOfPresent.getDate().before(d2))
-=======
-            for (DateOfPresent dateOfPresent : attence) {
+            for (PresentDate dateOfPresent : attendance) 
+            {
               
                 if((dateOfPresent.getDate().after(d1)
                         &&
@@ -78,13 +75,11 @@ public class CalculateAttendenceProcent {
                         (dateOfPresent.getDate().getDate()==d2.getDate()
                         &&dateOfPresent.getDate().getMonth()==d2.getMonth()
                         &&dateOfPresent.getDate().getYear()==d2.getYear())
-                        
                         )
->>>>>>> fa66a75858cacc0e56a89433cb3d0cc085e5a976
                 {
                     
                 if(stud.getStudentID()==dateOfPresent.getStudentID()){
-                    attence.remove(dateOfPresent);
+                    attendance.remove(dateOfPresent);
                 countDaysPresent++;  
                 break;
                 }
@@ -106,7 +101,7 @@ public class CalculateAttendenceProcent {
         int dat=0;
            int other=0;
             int[] count={0,0,0,0,0};
-            for (PresentDate dateOfPresent : model.getAttenceDay()) {
+            for (PresentDate dateOfPresent : model.getAttendanceDay()) {
                 count[dateOfPresent.getDate().getDay()-1]++;
             }
             for (int i : count) {

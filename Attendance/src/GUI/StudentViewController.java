@@ -50,7 +50,7 @@ public class StudentViewController implements Initializable
         this.model= model; 
         studentName.setId("OurLabel");
         studentName.setText(SelectStudent.getName()+" " +SelectStudent.getFamilyName());
-        for (PresentDate dateOfPresent : model.getAttenceDay()) 
+        for (PresentDate dateOfPresent : model.getAttendanceDay()) 
         {
             if(dateOfPresent.getStudentID()== SelectStudent.getStudentID() )
                     tblviewAttendence.getItems().add(dateOfPresent);

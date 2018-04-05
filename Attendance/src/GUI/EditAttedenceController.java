@@ -7,6 +7,7 @@ package GUI;
 
 import BE.PresentDate;
 import BE.Student;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -53,7 +54,7 @@ Student studd= new Student();
 
     void setModel(Model model) {
     this.model= model;
-        for (Student student1 : model.getAttence()) {
+        for (Student student1 : model.getAttendance()) {
            student.getItems().add(student1.getName()+" "+student1.getFamilyName());
         }
     
@@ -67,10 +68,10 @@ Student studd= new Student();
     }
 
     @FXML
-    private void saveAttence(ActionEvent event) throws ParseException {
+    private void saveAttence(ActionEvent event) throws ParseException, SQLServerException {
         getStudent();
-        model.addAttence(dop);
-        System.out.println(model.getAttence());
+        model.addAttendance(dop);
+        System.out.println(model.getAttendance());
         if(newAttendence)
         {
         model.delete(index);

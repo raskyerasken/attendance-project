@@ -11,6 +11,7 @@ import BE.Student;
 import BLL.BLLManagerCourses;
 import BLL.BLLManagerStudent;
 import DAL.MockData;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -97,6 +98,8 @@ public class MainWindowController implements Initializable
         catch (ParseException ex) 
         {
             Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLServerException ex) {
+            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
         }
         try { 
             changeStudentPic();
@@ -155,7 +158,7 @@ public class MainWindowController implements Initializable
                         java.util.Date utilDate = new java.util.Date();
                         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
                         date.setDate(sqlDate);
-                        model.addAttence(date);
+                        model.addAttendance(date);
                         b.setId("buttonForStudentPictureSelected");
                         
                         
@@ -172,6 +175,8 @@ public class MainWindowController implements Initializable
                     
                     catch (IOException ex) 
                     {
+                        Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (SQLServerException ex) {
                         Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
                     } 
                 }
@@ -225,7 +230,7 @@ public class MainWindowController implements Initializable
     }
 
     @FXML
-    private void btnCPR(ActionEvent event) 
+    private void btnCPR(ActionEvent event) throws SQLServerException 
     {
         
         if (!tblviewStudens.getSelectionModel().isEmpty()) 
@@ -237,7 +242,7 @@ public class MainWindowController implements Initializable
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
             dop.setDate(sqlDate);
             dop.setCourse("SDE");
-            model.addAttence(dop);
+            model.addAttendance(dop);
         }
         
         else 
