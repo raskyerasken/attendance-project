@@ -6,7 +6,7 @@
 package GUI;
 
 import BE.Courses;
-import BE.DateOfPresent;
+import BE.PresentDate;
 import BE.Student;
 import BLL.BLLManagerCourses;
 import BLL.BLLManagerStudent;
@@ -89,8 +89,6 @@ public class MainWindowController implements Initializable
     public void initialize(URL url, ResourceBundle rb) 
     {
         MockData md = new MockData();
-        
-
         try 
         {
             md.add(model);
@@ -135,6 +133,8 @@ public class MainWindowController implements Initializable
             b.setGraphic(imageView);
             b.setId("buttonForStudentPicture");
             
+            
+            
             Label lbl = new Label();
             lbl.setText(student.getName() + " " + student.getFamilyName()); 
             lbl.setId("OurLabel");
@@ -149,15 +149,15 @@ public class MainWindowController implements Initializable
                     {
                         Student student = (Student)((Button)event.getSource()).getUserData();
                         System.out.println("Student: " + student.getName());
-                        DateOfPresent date = new DateOfPresent();
+                        PresentDate date = new PresentDate();
                         date.setCourse("The Fun Class");
                         date.setStudentID(student.getStudentID());
                         java.util.Date utilDate = new java.util.Date();
                         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
                         date.setDate(sqlDate);
                         model.addAttence(date);
-                        
                         b.setId("buttonForStudentPictureSelected");
+                        
                         
                         //Loads the StudentView window and saves the info to student
                         Stage newStage = new Stage();
@@ -231,7 +231,7 @@ public class MainWindowController implements Initializable
         if (!tblviewStudens.getSelectionModel().isEmpty()) 
         {
             Student stud = tblviewStudens.getSelectionModel().getSelectedItem();
-            DateOfPresent dop= new DateOfPresent();
+            PresentDate dop= new PresentDate();
             dop.setStudentID(stud.getStudentID());
             java.util.Date utilDate = new java.util.Date();
             java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());

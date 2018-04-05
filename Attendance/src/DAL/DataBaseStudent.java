@@ -21,14 +21,15 @@ import java.util.logging.Logger;
  *
  * @author jacob
  */
-public class DataBaseStudent {
-     private ConnectionManagerMyTunes cm = new ConnectionManagerMyTunes();
+public class DataBaseStudent 
+{
+     private ConnectionManagerAttendance cm = new ConnectionManagerAttendance();
 
    public void add (Student student) throws SQLException
     {
-                 try (Connection con = cm.getConnection())  {
-
-        String sql 
+        try (Connection con = cm.getConnection())  
+        {
+            String sql 
                 = "INSERT INTO Student"
                 + "(Name,  StudPicture, LastName) "
                 + "VALUES(?,?,?)";
@@ -48,7 +49,8 @@ public class DataBaseStudent {
                 student.setStudentID(rs.getInt(1));
            }
                  }
-    catch (SQLException ex) {
+    catch (SQLException ex) 
+    {
         Logger.getLogger(DataBaseStudent.class.getName()).log(Level.SEVERE, null, ex);
     }     
   }

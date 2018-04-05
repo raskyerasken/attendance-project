@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import BE.DateOfPresent;
+import BE.PresentDate;
 import BE.Student;
 import java.net.URL;
 import java.text.DateFormat;
@@ -28,7 +28,7 @@ import javafx.stage.Stage;
 public class EditAttedenceController implements Initializable {
 Model model;
 Student studd= new Student();
-    DateOfPresent dop= new DateOfPresent();
+    PresentDate dop= new PresentDate();
     private TextField lblName;
     private TextField lblLastName;
     @FXML
@@ -59,7 +59,7 @@ Student studd= new Student();
     
     }
 
-    void setStudent(DateOfPresent selectedItem, int index) {
+    void setStudent(PresentDate selectedItem, int index) {
         student.getSelectionModel().select(selectedItem.getStudentID());
         lblDate.setText(""+selectedItem.getDate());
         newAttendence= true;

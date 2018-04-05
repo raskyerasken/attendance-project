@@ -5,6 +5,7 @@
  */
 package BLL;
 
+import BE.PresentDate;
 import BE.Student;
 import DAL.DataBaseStudent;
 import DAL.MockData;
@@ -12,26 +13,32 @@ import GUI.Model;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.util.List;
+import javafx.beans.Observable;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
  * @author jacob
  */
-public class BLLManagerStudent {
+public class BLLManagerStudent 
+{
     DataBaseStudent DALStudent = new DataBaseStudent();
-    MockData mockData=new MockData();
-    public void add(Model model) throws ParseException {
+    PresentDate presentDate = new PresentDate();
+    MockData mockData=new MockData();    
+    
+    public void add(Model model) throws ParseException 
+    {
         mockData.add(model);
      }
 
-    public void addStudent(Student student) throws SQLException {
-    DALStudent.add(student);
+    public void addStudent(Student student) throws SQLException 
+    {
+        DALStudent.add(student);
     }
 
-    public List<Student> getAllStudent() {
-  return DALStudent.getAllStudent();
-           }
-
-   
-    
+    public List<Student> getAllStudent() 
+    {
+        return DALStudent.getAllStudent();
+    }
 }

@@ -23,31 +23,39 @@ import javafx.collections.ObservableList;
  *
  * @author jacob
  */
-public class DataBaseCourses {
+public class DataBaseCourses 
+{
 
-     private ConnectionManagerMyTunes cm = new ConnectionManagerMyTunes();
-    public void addCourse(Courses course) {
-        try (Connection con = cm.getConnection())  {
-
-        String sql 
+    private ConnectionManagerAttendance cm = new ConnectionManagerAttendance();
+    public void addCourse(Courses course) 
+    {
+        try (Connection con = cm.getConnection())  
+        {
+            String sql 
                 = "INSERT INTO Courses"
                 + "(CourseName,  StudentId) "
                 + "VALUES(?,?)";
-           PreparedStatement pstmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-           pstmt.setString(1, course.getCourse());
+            PreparedStatement pstmt = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            pstmt.setString(1, course.getCourse());
             pstmt.setInt(2, course.getStudentID());
            
-            
             int affected = pstmt.executeUpdate();
-            if (affected<1){
-                    throw new SQLException("Song could not be added");}
+            if (affected<1)
+            {
+                throw new SQLException("Song could not be added");
             }
-    catch (SQLException ex) {
-        Logger.getLogger(DataBaseStudent.class.getName()).log(Level.SEVERE, null, ex);
-    }      }
+        }
+        catch (SQLException ex) 
+        {
+             Logger.getLogger(DataBaseStudent.class.getName()).log(Level.SEVERE, null, ex);
+        }      
+    }
+    
+    
 
-    public ObservableList<Courses> getALlClasses() {
-   ObservableList<Courses> allCourses
+    public ObservableList<Courses> getALlClasses() 
+    {
+        ObservableList<Courses> allCourses
                 = FXCollections.observableArrayList();
 
         try (Connection con = cm.getConnection()) 

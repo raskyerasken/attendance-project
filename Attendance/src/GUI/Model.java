@@ -6,10 +6,12 @@
 package GUI;
 
 import BE.Courses;
-import BE.DateOfPresent;
+import BE.PresentDate;
 import BE.Student;
 import BLL.BLLManagerCourses;
+import BLL.BLLManagerDate;
 import BLL.BLLManagerStudent;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,43 +22,47 @@ import javafx.collections.ObservableList;
  */
 public class Model 
 {
-   BLLManagerCourses bllCourses = new BLLManagerCourses();
- BLLManagerStudent bllStudent= new  BLLManagerStudent();
+    BLLManagerCourses bllCourses = new BLLManagerCourses();
+    BLLManagerStudent bllStudent= new  BLLManagerStudent();
+    BLLManagerDate presentDate = new BLLManagerDate();
+    
     private final ObservableList<Student> students
             = FXCollections.observableArrayList();
 
-    private final ObservableList<DateOfPresent> attence
+    private final ObservableList<PresentDate> attendance
             = FXCollections.observableArrayList();
     
      private final ObservableList<Courses> courses
             = FXCollections.observableArrayList();
+     
        private final ObservableList<Student> StudentInCourses
             = FXCollections.observableArrayList();
+       
     public void add(Student studd) 
     {
         students.add(studd);
     }
-   
-   
-
+    
     ObservableList<Student> getAttence() 
     {
-     return students;
-     
+        return students;
     }
-    ObservableList<DateOfPresent> getAttenceDay() 
+    
+    ObservableList<PresentDate> getAttenceDay() 
     {
-        return attence;
+        attendance.addAll(presentDate.getDate());
+        return attendance;
     }
 
     public void delete(int index) 
     {
-       attence.remove(index);
+       attendance.remove(index);
     }
 
-    public  void addAttence(DateOfPresent dop) 
+    public  void addAttence(PresentDate pd) throws SQLServerException 
     {
-        attence.add(dop);
+        presentDate.addDate(pd);
+        attendance.add(pd);
     }
 
     void addAll(ObservableList<Student> student) 
@@ -66,24 +72,28 @@ public class Model
         students.setAll(student);
     }
 
-    public void addStudentInCourses(Courses course) {
+    public void addStudentInCourses(Courses course) 
+    {
         courses.add(course);
     }
+    
     public ObservableList<Courses>  getClasses()
     {
-    return  bllCourses.getAllClasses(); 
-        
+        return  bllCourses.getAllClasses();  
     }
 
-    ObservableList<Student> getStudentInClass(Courses selectedItem) {
+    ObservableList<Student> getStudentInClass(Courses selectedItem) 
+    {
         StudentInCourses.clear();
-        for (Courses course : courses) {
+        for (Courses course : courses) 
+        {
             if(course.getCourse()==selectedItem.getCourse())
             {
-                for (Student student : students) {
+                for (Student student : students) 
+                {
                     if(student.getStudentID()==course.getStudentID())
                     {
-                    StudentInCourses.add(student);
+                        StudentInCourses.add(student);
                     }
                     
                 }
@@ -93,9 +103,11 @@ public class Model
         }
         return StudentInCourses;
     }
-
-    List<Student> getAllStudent() {
-       students.addAll(bllStudent.getAllStudent());
-    return students;
-            }
+    
+    
+    List<Student> getAllStudent() 
+    {
+        students.addAll(bllStudent.getAllStudent());
+        return students;
+    }
 }
