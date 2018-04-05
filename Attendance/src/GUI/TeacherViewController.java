@@ -162,16 +162,12 @@ public class TeacherViewController implements Initializable {
         } catch (ParseException ex) {
             Logger.getLogger(TeacherViewController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-<<<<<<< HEAD
+        
+        
+             
         tblStudents.setItems(model.getAttendance());
-             tblStudents.getItems().sort((o1, o2) -> {
-            return o1.getName().compareTo(o2.getName()); //To change body of generated lambdas, choose Tools | Templates.
-        });
-=======
-        tblStudents.setItems(model.getAttence());
            sortTableViewByName();
->>>>>>> 922e3d72eb819faa06f8c9522419b88cbbab7f1b
+           
              classPicker.getItems().clear();
         for (Courses classe : model.getClasses()) {
             int first = 0; 
