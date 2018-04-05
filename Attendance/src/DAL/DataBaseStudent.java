@@ -83,4 +83,17 @@ public class DataBaseStudent
         }
         return allStudent;
     }
+
+    public void removeStudent(Student hiddenStudent) {
+       try (Connection con = cm.getConnection()) 
+        {
+            String sql = "DELETE FROM Student WHERE StudentId=?";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, hiddenStudent.getStudentID());
+            pstmt.execute();
+        }
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(DataBaseStudent.class.getName()).log(Level.SEVERE, null, ex);
+        } }
 }

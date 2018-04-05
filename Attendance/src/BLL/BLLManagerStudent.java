@@ -37,8 +37,21 @@ public class BLLManagerStudent
         DALStudent.add(student);
     }
 
+<<<<<<< HEAD
     public List<Student> getAllStudent() 
     {
         return DALStudent.getAllStudent();
     }
+=======
+    public List<Student> getAllStudent() {
+  return DALStudent.getAllStudent();
+           }
+
+    public void removeStudent(Student hiddenStudent) {
+    DALStudent.removeStudent(hiddenStudent);
+    }
+
+   
+    
+>>>>>>> fa66a75858cacc0e56a89433cb3d0cc085e5a976
 }

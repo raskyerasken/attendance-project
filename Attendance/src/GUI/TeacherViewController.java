@@ -25,6 +25,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -239,6 +240,26 @@ public class TeacherViewController implements Initializable {
     
         tblStudents.setItems(
                 model.getStudentInClass((Courses) classPicker.getSelectionModel().getSelectedItem()));
+    }
+
+    @FXML
+    private void hideStudent(ActionEvent event) {
+        if(tblStudents.getSelectionModel().getSelectedItem()!=null)
+        {
+           model.hideStudent(tblStudents.getSelectionModel().getSelectedItem());
+        }
+        else
+        {
+        showErrorDialog("select student",null,"select Student");
+        }
+    }
+     private void showErrorDialog(String title, String header, String message)
+    {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
 }

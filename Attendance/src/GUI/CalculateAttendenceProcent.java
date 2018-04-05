@@ -54,22 +54,39 @@ public class CalculateAttendenceProcent {
      return (double)((((d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24))+1)/7)*5+(d2.getDay()-d1.getDay())%6+currentday;
     
      }
-      
+      private final ObservableList<DateOfPresent> attence
+            = FXCollections.observableArrayList();
         void setAttendenceProcent(Date d1,Date d2)
-    {
+    {attence.clear();
+
         students.clear();
-       
+       attence.addAll(model.getAttenceDay());
         for (Student stud : model.getAttence()) {
             
             double countDaysPresent=0;
+<<<<<<< HEAD
             for (PresentDate dateOfPresent : model.getAttenceDay()) {
                 
                 if(dateOfPresent.getDate().after(d1)&&dateOfPresent.getDate().before(d2))
+=======
+            for (DateOfPresent dateOfPresent : attence) {
+              
+                if((dateOfPresent.getDate().after(d1)
+                        &&
+                   dateOfPresent.getDate().before(d2))
+                        ||
+                        (dateOfPresent.getDate().getDate()==d2.getDate()
+                        &&dateOfPresent.getDate().getMonth()==d2.getMonth()
+                        &&dateOfPresent.getDate().getYear()==d2.getYear())
+                        
+                        )
+>>>>>>> fa66a75858cacc0e56a89433cb3d0cc085e5a976
                 {
                     
-                if(stud.getStudentID()==dateOfPresent.getStudentID())
-                {
-                countDaysPresent++;                                                    
+                if(stud.getStudentID()==dateOfPresent.getStudentID()){
+                    attence.remove(dateOfPresent);
+                countDaysPresent++;  
+                break;
                 }
                 }
             }
