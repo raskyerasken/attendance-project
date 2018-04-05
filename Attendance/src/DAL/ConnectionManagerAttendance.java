@@ -15,17 +15,17 @@ import java.sql.Connection;
  *
  * @author kasper
 // */
-public class ConnectionManagerMyTunes 
+public class ConnectionManagerAttendance 
 {
     private final SQLServerDataSource ds = new SQLServerDataSource();
-    public ConnectionManagerMyTunes() 
+    public ConnectionManagerAttendance() 
     {
         ds.setDatabaseName("CS2017B_13_Attendance");
         ds.setUser("CS2017B_13_java");
         ds.setPassword("javajava");
         ds.setPortNumber(1433);
         ds.setServerName("10.176.111.31");
- }
+    }
     
     public Connection getConnection() throws SQLServerException
     {

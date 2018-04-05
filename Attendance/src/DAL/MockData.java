@@ -6,9 +6,10 @@
 package DAL;
 
 import BE.Courses;
-import BE.DateOfPresent;
+import BE.PresentDate;
 import BE.Student;
 import GUI.Model;
+import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,7 +22,7 @@ public class MockData
 {
 
     
-    public void add(Model stud) throws ParseException 
+    public void add(Model stud) throws ParseException, SQLServerException 
     {
 //        Student stud1 = new Student();
 //        stud1.setStudentID(1);
@@ -116,9 +117,9 @@ public class MockData
 //        addCourses(stud);
     }
 
-    public void addAttence(Model model) throws ParseException 
+    public void addAttence(Model model) throws ParseException, SQLServerException 
     {
-        DateOfPresent date = new DateOfPresent();
+        PresentDate date = new PresentDate();
         date.setCourse("SDE");
         date.setStudentID(1);
         DateFormat formatter= new SimpleDateFormat("yy-MM-dd");
@@ -126,7 +127,7 @@ public class MockData
         date.setDate(sqlDate);
         model.addAttence(date);
         
-        DateOfPresent date2 = new DateOfPresent();
+        PresentDate date2 = new PresentDate();
         date2.setCourse("SDE");
         date2.setStudentID(5);
         DateFormat formatter2= new SimpleDateFormat("yy-MM-dd");
@@ -134,7 +135,7 @@ public class MockData
         date2.setDate(sqlDate2);
         model.addAttence(date2);
         
-        DateOfPresent date3 = new DateOfPresent();
+        PresentDate date3 = new PresentDate();
         date3.setCourse("SDO");
         date3.setStudentID(1);
         DateFormat formatter3= new SimpleDateFormat("yy-MM-dd");
@@ -142,7 +143,7 @@ public class MockData
         date3.setDate(sqlDate3);
         model.addAttence(date3);
         
-        DateOfPresent date4 = new DateOfPresent();
+        PresentDate date4 = new PresentDate();
         date4.setCourse("SDO");
         date4.setStudentID(1);
         DateFormat formatter4= new SimpleDateFormat("yy-MM-dd");

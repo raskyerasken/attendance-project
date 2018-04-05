@@ -20,12 +20,10 @@ import javafx.scene.image.Image;
  */
 public class Student 
 {
-    
-    
     private final StringProperty studPic = new SimpleStringProperty();
     private final DoubleProperty Attendance = new SimpleDoubleProperty();
-     private final StringProperty familyName = new SimpleStringProperty();
-     private final StringProperty name = new SimpleStringProperty();
+    private final StringProperty familyName = new SimpleStringProperty();
+    private final StringProperty name = new SimpleStringProperty();
     private final IntegerProperty StudentID = new SimpleIntegerProperty();
 
     public int getStudentID() {

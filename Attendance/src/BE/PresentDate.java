@@ -15,56 +15,49 @@ import javafx.beans.property.StringProperty;
  *
  * @author jacob
  */
-public class DateOfPresent {
-
-    
+public class PresentDate 
+{
     private Date date;
     private final StringProperty course = new SimpleStringProperty();
     private final IntegerProperty StudentID = new SimpleIntegerProperty();
 
-    public int getStudentID() {
+    public int getStudentID() 
+    {
         return StudentID.get();
     }
 
-    public void setStudentID(int value) {
+    public void setStudentID(int value) 
+    {
         StudentID.set(value);
     }
 
-    public IntegerProperty StudentIDProperty() {
+    public IntegerProperty StudentIDProperty() 
+    {
         return StudentID;
     }
     
-    /**
-     * Get the value of date
-     *
-     * @return the value of date
-     */
-    public Date getDate() {
+    public Date getDate() 
+    {
         return date;
     }
-
-    /**
-     * Set the value of date
-     *
-     * @param date new value of date
-     */
-    public void setDate(Date date) {
+    
+    public void setDate(Date date) 
+    {
         this.date = date;
     }
-
     
-
-   
-
-    public String getCourse() {
+    public String getCourse() 
+    {
         return course.get();
     }
 
-    public void setCourse(String value) {
+    public void setCourse(String value) 
+    {
         course.set(value);
     }
 
-    public StringProperty courseProperty() {
+    public StringProperty courseProperty() 
+    {
         return course;
     }
     

@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import BE.DateOfPresent;
+import BE.PresentDate;
 import BE.Student;
 import java.io.IOException;
 import java.net.URL;
@@ -36,11 +36,11 @@ public class StudentViewController implements Initializable
 
 
     @FXML
-    private TableView<DateOfPresent> tblviewAttendence;
+    private TableView<PresentDate> tblviewAttendence;
     @FXML
-    private TableColumn<DateOfPresent, Date> colDate;
+    private TableColumn<PresentDate, Date> colDate;
     @FXML
-    private TableColumn<DateOfPresent, String> colClass;
+    private TableColumn<PresentDate, String> colClass;
     @FXML
     private Label studentName;
 
@@ -50,7 +50,7 @@ public class StudentViewController implements Initializable
         this.model= model; 
         studentName.setId("OurLabel");
         studentName.setText(SelectStudent.getName()+" " +SelectStudent.getFamilyName());
-        for (DateOfPresent dateOfPresent : model.getAttenceDay()) 
+        for (PresentDate dateOfPresent : model.getAttenceDay()) 
         {
             if(dateOfPresent.getStudentID()== SelectStudent.getStudentID() )
                     tblviewAttendence.getItems().add(dateOfPresent);

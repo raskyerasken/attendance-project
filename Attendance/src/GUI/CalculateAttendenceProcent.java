@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import BE.DateOfPresent;
+import BE.PresentDate;
 import BE.Student;
 import java.text.DateFormat;
 import java.text.ParseException;
@@ -64,6 +64,11 @@ public class CalculateAttendenceProcent {
         for (Student stud : model.getAttence()) {
             
             double countDaysPresent=0;
+<<<<<<< HEAD
+            for (PresentDate dateOfPresent : model.getAttenceDay()) {
+                
+                if(dateOfPresent.getDate().after(d1)&&dateOfPresent.getDate().before(d2))
+=======
             for (DateOfPresent dateOfPresent : attence) {
               
                 if((dateOfPresent.getDate().after(d1)
@@ -75,6 +80,7 @@ public class CalculateAttendenceProcent {
                         &&dateOfPresent.getDate().getYear()==d2.getYear())
                         
                         )
+>>>>>>> fa66a75858cacc0e56a89433cb3d0cc085e5a976
                 {
                     
                 if(stud.getStudentID()==dateOfPresent.getStudentID()){
@@ -100,7 +106,7 @@ public class CalculateAttendenceProcent {
         int dat=0;
            int other=0;
             int[] count={0,0,0,0,0};
-            for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
+            for (PresentDate dateOfPresent : model.getAttenceDay()) {
                 count[dateOfPresent.getDate().getDay()-1]++;
             }
             for (int i : count) {

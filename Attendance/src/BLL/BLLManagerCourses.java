@@ -14,14 +14,17 @@ import javafx.collections.ObservableList;
  *
  * @author jacob
  */
-public class BLLManagerCourses {
+public class BLLManagerCourses 
+{
     DataBaseCourses DALCourse= new DataBaseCourses(); 
-    public void addCourse(Courses course) {
-  DALCourse.addCourse(course);
+    public void addCourse(Courses course) 
+    {
+        DALCourse.addCourse(course);
     }
 
-    public ObservableList<Courses> getAllClasses() {
-    return DALCourse.getALlClasses();
+    public ObservableList<Courses> getAllClasses() 
+    {
+        return DALCourse.getALlClasses();
     }
     
 }

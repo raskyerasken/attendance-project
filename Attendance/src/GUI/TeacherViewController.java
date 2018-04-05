@@ -6,7 +6,7 @@
 package GUI;
 
 import BE.Courses;
-import BE.DateOfPresent;
+import BE.PresentDate;
 import BE.Student;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
@@ -112,7 +112,7 @@ public class TeacherViewController implements Initializable {
                     setStyle("");
                 } else {
                     Student person = getTableView().getItems().get(getIndex());
-                    for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
+                    for (PresentDate dateOfPresent : model.getAttenceDay()) {
 
                         if (dateOfPresent.getStudentID() == person.getStudentID()) {
                             int datePresent= (int) (dateOfPresent.getDate().getTime()/ (1000 * 60 * 60 * 24));
@@ -208,7 +208,7 @@ public class TeacherViewController implements Initializable {
         controller.setModel(model);
         SelectionModel select = tblStudents.getSelectionModel();
         if (!select.isEmpty()) {
-            controller.setStudent((DateOfPresent) select.getSelectedItem(), select.getSelectedIndex());
+            controller.setStudent((PresentDate) select.getSelectedItem(), select.getSelectedIndex());
         } else {
             controller.noStudent();
         }
