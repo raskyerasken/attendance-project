@@ -95,6 +95,7 @@ public class TeacherViewController implements Initializable {
 
         colAttence.setCellValueFactory(
                 new PropertyValueFactory("Attendance"));
+        
 
         tblStudents.setRowFactory((param) -> new TableRow<Student>() {
 

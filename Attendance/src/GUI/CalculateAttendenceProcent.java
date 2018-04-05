@@ -38,19 +38,20 @@ public class CalculateAttendenceProcent {
         
      
     }
-      public int schoolDaysBetween(Date d1, Date d2)
+      public double schoolDaysBetween(Date d1, Date d2)
     {
-       
+       int currentday=1;
      if(d1.getDay()==0)
      {
          d1.setDate(d1.getDate()+1);
-       
+       currentday=0;
      }
      else if(d1.getDay()==6)
      {
          d1.setDate(d1.getDate()+2);
+         currentday=0;
      }
-     return (int)((((d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24))+1)/7)*5+d1.getDay()%6;
+     return (double)((((d2.getTime() - d1.getTime()) / (1000 * 60 * 60 * 24))+1)/7)*5+(d2.getDay()-d1.getDay())%6+currentday;
     
      }
       
@@ -60,18 +61,23 @@ public class CalculateAttendenceProcent {
        
         for (Student stud : model.getAttence()) {
             
-            float countDaysPresent=0;
+            double countDaysPresent=0;
             for (DateOfPresent dateOfPresent : model.getAttenceDay()) {
                 
-                if(!dateOfPresent.getDate().before(d1) && 
-                        !dateOfPresent.getDate().after(d2)||
-                        (dateOfPresent.getDate().getTime()/ (1000 * 60 * 60 * 24))==(sqlDate.getTime()/ (1000 * 60 * 60 * 24)))
+                if(dateOfPresent.getDate().after(d1)&&dateOfPresent.getDate().before(d2))
+                {
+                    
                 if(stud.getStudentID()==dateOfPresent.getStudentID())
                 {
-                countDaysPresent++;
+                countDaysPresent++;                                                    
+                }
                 }
             }
-            stud.setAttendance((double)(countDaysPresent/schoolDaysBetween(d1,d2))*100);
+            double studAttendProcent=(countDaysPresent/schoolDaysBetween(d1,d2)*100);
+           
+            String stringFormat=String.format("%.2f",studAttendProcent).replace(",", ".");
+            double formatProcent = Double.parseDouble(stringFormat);
+            stud.setAttendance(formatProcent);
             students.add(stud);
         }
         model.addAll(students);
