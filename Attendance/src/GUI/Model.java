@@ -9,6 +9,7 @@ import BE.Courses;
 import BE.DateOfPresent;
 import BE.Student;
 import BLL.BLLManagerCourses;
+import BLL.BLLManagerHiddenStudent;
 import BLL.BLLManagerStudent;
 import java.util.List;
 import javafx.collections.FXCollections;
@@ -22,6 +23,7 @@ public class Model
 {
    BLLManagerCourses bllCourses = new BLLManagerCourses();
  BLLManagerStudent bllStudent= new  BLLManagerStudent();
+ BLLManagerHiddenStudent bllHiddenStudent= new  BLLManagerHiddenStudent();
     private final  ObservableList<Student> students
             = FXCollections.observableArrayList();
 
@@ -98,4 +100,10 @@ public class Model
        students.addAll(bllStudent.getAllStudent());
     return students;
             }
+
+    void hideStudent(Student hiddenStudent) {
+    students.remove(hiddenStudent);
+    bllHiddenStudent.addHiddenStudent(hiddenStudent);
+    bllStudent.removeStudent(hiddenStudent);
+    }
 }

@@ -58,7 +58,7 @@ public class CalculateAttendenceProcent {
             = FXCollections.observableArrayList();
         void setAttendenceProcent(Date d1,Date d2)
     {attence.clear();
-    
+
         students.clear();
        attence.addAll(model.getAttenceDay());
         for (Student stud : model.getAttence()) {
@@ -78,7 +78,6 @@ public class CalculateAttendenceProcent {
                 {
                     
                 if(stud.getStudentID()==dateOfPresent.getStudentID())
-                {  System.out.println(dateOfPresent.getDate()+"\t"+d1+"\t"+d2);
                     attence.remove(dateOfPresent);
                 countDaysPresent++;  
                 break;

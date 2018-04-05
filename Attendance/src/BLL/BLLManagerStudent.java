@@ -32,6 +32,10 @@ public class BLLManagerStudent {
   return DALStudent.getAllStudent();
            }
 
+    public void removeStudent(Student hiddenStudent) {
+    DALStudent.removeStudent(hiddenStudent);
+    }
+
    
     
 }
