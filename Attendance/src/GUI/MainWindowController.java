@@ -196,6 +196,8 @@ public class MainWindowController implements Initializable
         });
     }
     
+
+    
     private void textChangeCPR() 
     {
         

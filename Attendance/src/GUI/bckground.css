@@ -31,7 +31,6 @@ and open the template in the editor.
 #buttonForStudentPicture
 {
     font-weight: bold;
-    -fx-background-radius: 10em; 
     -fx-min-width: 20px;
     -fx-min-height: 20px;
     -fx-max-width: 20px;
@@ -41,7 +40,6 @@ and open the template in the editor.
 #buttonForStudentPicture:hover
 {
     font-weight: bold;
-    -fx-background-radius: 5000em; 
     -fx-min-width: 200px;
     -fx-min-height: 200px;
     -fx-max-width: 200px;
@@ -52,7 +50,6 @@ and open the template in the editor.
 {
     -fx-background-color: green;
     font-weight: bold;
-    -fx-background-radius: 5000em; 
     -fx-min-width: 200px;
     -fx-min-height: 200px;
     -fx-max-width: 200px;
@@ -63,7 +60,6 @@ and open the template in the editor.
 {
     -fx-background-color: background;
     font-weight: bold;
-    -fx-background-radius: 5000em; 
     -fx-min-width: 200px;
     -fx-min-height: 200px;
     -fx-max-width: 200px;

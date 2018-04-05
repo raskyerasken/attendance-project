@@ -26,9 +26,10 @@ import javafx.stage.Stage;
  *
  * @author jacob
  */
-public class EditAttedenceController implements Initializable {
-Model model;
-Student studd= new Student();
+public class EditAttedanceController implements Initializable 
+{
+    Model model;
+    Student studd= new Student();
     PresentDate dop= new PresentDate();
     private TextField lblName;
     private TextField lblLastName;
@@ -40,27 +41,27 @@ Student studd= new Student();
     private ComboBox<String> student;
     @FXML
     private TextField txtClass;
-    /**
-     * Initializes the controller class.
-     */
+    
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb) 
+    {
         java.util.Date utilDate = new java.util.Date();
         java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
         lblDate.setText(""+sqlDate);
-        // TODO
-        
     }    
 
-    void setModel(Model model) {
-    this.model= model;
-        for (Student student1 : model.getAttendance()) {
+    void setModel(Model model) 
+    {
+        this.model= model;
+        for (Student student1 : model.getAttendance()) 
+        {
            student.getItems().add(student1.getName()+" "+student1.getFamilyName());
         }
     
     }
 
-    void setStudent(PresentDate selectedItem, int index) {
+    void setStudent(PresentDate selectedItem, int index) 
+    {
         student.getSelectionModel().select(selectedItem.getStudentID());
         lblDate.setText(""+selectedItem.getDate());
         newAttendence= true;
@@ -68,20 +69,21 @@ Student studd= new Student();
     }
 
     @FXML
-    private void saveAttence(ActionEvent event) throws ParseException, SQLServerException {
+    private void saveAttence(ActionEvent event) throws ParseException, SQLServerException 
+    {
         getStudent();
+        PresentDate date = new PresentDate();
         model.addAttendance(dop);
-        System.out.println(model.getAttendance());
         if(newAttendence)
         {
-        model.delete(index);
+            model.delete(index);
         }
-         Stage stage = (Stage) student.getScene().getWindow();
+        Stage stage = (Stage) student.getScene().getWindow();
                         stage.close();
- }
-   void getStudent() throws ParseException
+    }
+    
+    void getStudent() throws ParseException
     {
-       
         String str_date=lblDate.getText();
         DateFormat formatter ; 
         Date date ; 
@@ -90,22 +92,22 @@ Student studd= new Student();
         java.sql.Date sqlDate = new java.sql.Date(date.getTime());
         dop.setDate(sqlDate);
         dop.setCourse(txtClass.getText());
-        
     }
 
     @FXML
-    private void deleteAttendence(ActionEvent event) throws ParseException {
-      if(newAttendence)
+    private void deleteAttendence(ActionEvent event) throws ParseException 
+    {
+        if(newAttendence)
         {
-        model.delete(index);
+            model.delete(index);
         }
-      Stage stage = (Stage) student.getScene().getWindow();
+        Stage stage = (Stage) student.getScene().getWindow();
                         stage.close();
     }
 
-    void noStudent() {
-    newAttendence=false;
-    
-            }
+    void noStudent() 
+    {
+        newAttendence=false;
+    }
     
 }

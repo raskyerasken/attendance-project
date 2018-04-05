@@ -207,7 +207,7 @@ public class TeacherViewController implements Initializable {
         Stage newStage = new Stage();
         FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("EditAttedence.fxml"));
         Parent root = fxLoader.load();
-        EditAttedenceController controller = fxLoader.getController();
+        EditAttedanceController controller = fxLoader.getController();
         controller.setModel(model);
         SelectionModel select = tblStudents.getSelectionModel();
         if (!select.isEmpty()) {

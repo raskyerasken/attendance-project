@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="199.0" prefWidth="304.0" stylesheets="@bckground.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EditAttedenceController">
+<AnchorPane id="AnchorPane" prefHeight="199.0" prefWidth="304.0" stylesheets="@bckground.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EditAttedanceController">
    <children>
       <TextField fx:id="lblDate" layoutX="124.0" layoutY="85.0" promptText="yyyy-mm-dd" AnchorPane.bottomAnchor="51.0" AnchorPane.rightAnchor="31.0" />
       <Label layoutX="106.0" stylesheets="@bckground.css" text="Attence" textFill="WHITE" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="0.0">

@@ -124,15 +124,16 @@ public class Model
         bllStudent.removeStudent(hiddenStudent);
     }
 
-    ObservableList<Student> getHiddenstudent() {
+    ObservableList<Student> getHiddenstudent() 
+    {
         hiddenStudent.addAll(bllHiddenStudent.getHiddenStudent());
-    return hiddenStudent;
-            }
+        return hiddenStudent;
+    }
 
-    void unHideStudent(Student unHideStudent) throws SQLException {
+    void unHideStudent(Student unHideStudent) throws SQLException 
+    {
         hiddenStudent.remove(unHideStudent);
         bllHiddenStudent.unHide(unHideStudent);
         bllStudent.addStudent(unHideStudent);
-    
     }
 }

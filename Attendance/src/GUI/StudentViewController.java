@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.SelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -68,7 +69,31 @@ public class StudentViewController implements Initializable
                 new PropertyValueFactory("date"));
         colClass.setCellValueFactory(
                 new PropertyValueFactory("course"));
-    }    
+    }   
+    
+    @FXML
+    void editAttendance() throws IOException 
+    {
+        Stage newStage = new Stage();
+        FXMLLoader fxLoader = new FXMLLoader(getClass().getResource("EditAttedance.fxml"));
+        Parent root = fxLoader.load();
+        EditAttedanceController controller = fxLoader.getController();
+        controller.setModel(model);
+        SelectionModel select = tblviewAttendence.getSelectionModel();
+        if (!select.isEmpty()) 
+        {
+            controller.setStudent((PresentDate) select.getSelectedItem(), select.getSelectedIndex());
+        } 
+        
+        else 
+        {
+            controller.noStudent();
+        }
+        Scene scene = new Scene(root);
+        newStage.setScene(scene);
+        newStage.setResizable(false);
+        newStage.show();
+    }
 
     @FXML
     private void mainWindow(ActionEvent event) throws IOException 
