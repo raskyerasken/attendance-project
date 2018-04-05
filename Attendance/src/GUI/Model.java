@@ -22,15 +22,15 @@ public class Model
 {
    BLLManagerCourses bllCourses = new BLLManagerCourses();
  BLLManagerStudent bllStudent= new  BLLManagerStudent();
-    private final ObservableList<Student> students
+    private final  ObservableList<Student> students
             = FXCollections.observableArrayList();
 
-    private final ObservableList<DateOfPresent> attence
+    private final  ObservableList<DateOfPresent> attence
             = FXCollections.observableArrayList();
     
-     private final ObservableList<Courses> courses
+     private final  ObservableList<Courses> courses
             = FXCollections.observableArrayList();
-       private final ObservableList<Student> StudentInCourses
+       private final  ObservableList<Student> StudentInCourses
             = FXCollections.observableArrayList();
     public void add(Student studd) 
     {

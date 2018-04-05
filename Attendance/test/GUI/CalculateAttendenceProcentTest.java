@@ -54,13 +54,29 @@ public class CalculateAttendenceProcentTest {
         String end = "2018-04-12";
         java.sql.Date endsDate = new java.sql.Date(formatter.parse(end).getTime());
        Model model = new Model();
-        Date d1 = null;
-        Date d2 = null;
         CalculateAttendenceProcent instance = new  CalculateAttendenceProcent(model); 
         double expResult = 44;
         double result = instance.schoolDaysBetween(startsDate, endsDate);
         
-        assertEquals(expResult, result);
+        assertEquals(expResult, result,0);
+        
+        String start2 = "2018-04-12";
+        java.sql.Date startsDate2 = new java.sql.Date(formatter.parse(start2).getTime());
+        String end2 = "2018-04-12";
+        java.sql.Date endsDate2 = new java.sql.Date(formatter.parse(end2).getTime());
+        double expResult2 = 1;
+        double result2 = instance.schoolDaysBetween(startsDate2, endsDate2);
+        
+        assertEquals(expResult2, result2,0);
+        
+        String start3 = "2018-04-14";
+        java.sql.Date startsDate3 = new java.sql.Date(formatter.parse(start3).getTime());
+        String end3 = "2018-04-15";
+        java.sql.Date endsDate3 = new java.sql.Date(formatter.parse(end3).getTime());
+        double expResult3 = 0;
+        double result3 = instance.schoolDaysBetween(startsDate3, endsDate3);
+        
+        assertEquals(expResult2, result2,0);
     }
 
     /**
