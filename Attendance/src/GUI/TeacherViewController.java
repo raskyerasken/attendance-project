@@ -8,9 +8,11 @@ package GUI;
 import BE.Courses;
 import BE.DateOfPresent;
 import BE.Student;
+import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,6 +21,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,6 +50,7 @@ import javafx.stage.Stage;
  */
 public class TeacherViewController implements Initializable {
 
+    boolean showHiddenStudent=false; 
     @FXML
     private AnchorPane lol;
     @FXML
@@ -75,6 +79,8 @@ public class TeacherViewController implements Initializable {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
     DateFormat formattersql = new SimpleDateFormat("yy-MM-dd");
     CalculateAttendenceProcent cal;
+    @FXML
+    private JFXButton showStudent;
 
     /**
      * Initializes the controller class.
@@ -158,9 +164,7 @@ public class TeacherViewController implements Initializable {
         }
 
         tblStudents.setItems(model.getAttence());
-             tblStudents.getItems().sort((o1, o2) -> {
-            return o1.getName().compareTo(o2.getName()); //To change body of generated lambdas, choose Tools | Templates.
-        });
+           sortTableViewByName();
              classPicker.getItems().clear();
         for (Courses classe : model.getClasses()) {
             int first = 0; 
@@ -244,7 +248,8 @@ public class TeacherViewController implements Initializable {
 
     @FXML
     private void hideStudent(ActionEvent event) {
-        if(tblStudents.getSelectionModel().getSelectedItem()!=null)
+        if(tblStudents.getSelectionModel().getSelectedItem()!=null
+                && "Show hidden student".equals(showStudent.getText()))
         {
            model.hideStudent(tblStudents.getSelectionModel().getSelectedItem());
         }
@@ -261,5 +266,45 @@ public class TeacherViewController implements Initializable {
         alert.setContentText(message);
         alert.showAndWait();
     }
+
+    @FXML
+    private void changeShowAttendence(ActionEvent event) {
+        if(!showHiddenStudent){
+        tblStudents.getItems().clear();
+        tblStudents.setItems(model.getHiddenstudent());
+        showHiddenStudent=true;
+        showStudent.setText("Show student");
+        sortTableViewByName();
+        
+        }
+        else
+        {
+            tblStudents.getItems().clear();
+        tblStudents.setItems((ObservableList<Student>) model.getAllStudent());
+        showHiddenStudent=false;
+        showStudent.setText("Show hidden student");
+        sortTableViewByName();
+            
+        }
+               
+    }
+
+    @FXML
+    private void unHideStudent(ActionEvent event) throws SQLException {
+       if(tblStudents.getSelectionModel().getSelectedItem()!=null
+               && "Show student".equals(showStudent.getText()))
+        {
+           model.unHideStudent(tblStudents.getSelectionModel().getSelectedItem());
+        }
+        else
+        {
+        showErrorDialog("select student",null,"select Student");
+        }
+    }
+
+    private void sortTableViewByName() {
+      tblStudents.getItems().sort((o1, o2) -> {
+            return o1.getName().compareTo(o2.getName()); //To change body of generated lambdas, choose Tools | Templates.
+        });}
 
 }

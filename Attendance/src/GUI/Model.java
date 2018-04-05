@@ -11,6 +11,7 @@ import BE.Student;
 import BLL.BLLManagerCourses;
 import BLL.BLLManagerHiddenStudent;
 import BLL.BLLManagerStudent;
+import java.sql.SQLException;
 import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,7 +27,8 @@ public class Model
  BLLManagerHiddenStudent bllHiddenStudent= new  BLLManagerHiddenStudent();
     private final  ObservableList<Student> students
             = FXCollections.observableArrayList();
-
+ private final  ObservableList<Student> hiddenStudent
+            = FXCollections.observableArrayList();
     private final  ObservableList<DateOfPresent> attence
             = FXCollections.observableArrayList();
     
@@ -105,5 +107,17 @@ public class Model
     students.remove(hiddenStudent);
     bllHiddenStudent.addHiddenStudent(hiddenStudent);
     bllStudent.removeStudent(hiddenStudent);
+    }
+
+    ObservableList<Student> getHiddenstudent() {
+        hiddenStudent.addAll(bllHiddenStudent.getHiddenStudent());
+    return hiddenStudent;
+            }
+
+    void unHideStudent(Student unHideStudent) throws SQLException {
+        hiddenStudent.remove(unHideStudent);
+        bllHiddenStudent.unHide(unHideStudent);
+        bllStudent.addStudent(unHideStudent);
+    
     }
 }

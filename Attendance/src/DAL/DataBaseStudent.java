@@ -85,7 +85,7 @@ public class DataBaseStudent {
     public void removeStudent(Student hiddenStudent) {
        try (Connection con = cm.getConnection()) 
         {
-            String sql = "DELETE FROM Student WHERE StudentId=?";
+            String sql = "DELETE FROM Student WHERE name=?";
             PreparedStatement pstmt = con.prepareStatement(sql);
             pstmt.setInt(1, hiddenStudent.getStudentID());
             pstmt.execute();
