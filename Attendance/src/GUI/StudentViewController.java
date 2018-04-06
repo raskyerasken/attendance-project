@@ -41,8 +41,6 @@ public class StudentViewController implements Initializable
     @FXML
     private TableColumn<PresentDate, Date> colDate;
     @FXML
-    private TableColumn<PresentDate, String> colClass;
-    @FXML
     private Label studentName;
     Student student = new Student(); 
 
@@ -66,10 +64,7 @@ public class StudentViewController implements Initializable
         
         colDate.setCellValueFactory(
                 new PropertyValueFactory("date"));
-        colClass.setCellValueFactory(
-                new PropertyValueFactory("course"));
-    }   
-    
+    }
     @FXML
     void editAttendance() throws IOException 
     {

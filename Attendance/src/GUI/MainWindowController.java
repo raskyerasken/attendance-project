@@ -9,6 +9,7 @@ import BE.PresentDate;
 import BE.Student;
 import BLL.BLLManagerCourses;
 import BLL.BLLManagerStudent;
+import DAL.DataBasePresentDate;
 import DAL.MockData;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.io.IOException;
@@ -76,7 +77,7 @@ public class MainWindowController implements Initializable
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) 
-    {
+    { 
 //        MockData md = new MockData();
 //        try 
 //        {

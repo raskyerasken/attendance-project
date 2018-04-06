@@ -6,6 +6,7 @@
 package DAL;
 
 import BE.PresentDate;
+import BE.Student;
 import com.microsoft.sqlserver.jdbc.SQLServerException;
 import java.sql.Connection;
 import java.sql.Date;
@@ -68,7 +69,8 @@ public class DataBasePresentDate
                 PresentDate presentDate = new PresentDate();
                 presentDate.setDate(rs.getDate("Date"));
                 presentDate.setStudentID(rs.getInt("StudentId"));
-                allDates.add(presentDate);
+                if(!allDates.contains(presentDate)){
+                allDates.add(presentDate);}
             }
         } 
         
@@ -79,4 +81,21 @@ public class DataBasePresentDate
       
         return (ObservableList<PresentDate>) allDates;
     }
+    
+
+    public void removeall() {
+      try (Connection con = cm.getConnection()) 
+        {
+            String sql = "DELETE FROM PresentDate WHERE StudentID=?";
+            for (int i = 0; i < 13; i++) {
+                
+           
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            pstmt.setInt(1, i);
+            pstmt.execute(); }
+        }
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(DataBaseStudent.class.getName()).log(Level.SEVERE, null, ex);
+        } }
 }

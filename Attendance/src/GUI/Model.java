@@ -57,18 +57,20 @@ public class Model
     }
     
     ObservableList<PresentDate> getAttendanceDay() 
-    {
+    {attendance.clear();
         attendance.addAll(presentDate.getDate());
+       
         return attendance;
     }
       ObservableList<PresentDate> getAttendanceDayByStudent(Student stud) 
     {
-       
-        for (PresentDate presentDate1 : getAttendanceDay()) {
-            System.out.println(presentDate1.toString());
-            if(presentDate1.getStudentID()==stud.getStudentID()){
-                
-            attendanceByStudent.add(presentDate1);}
+       getAttendanceDay();
+        for (PresentDate presentDate1 : attendance) {
+            
+            if(presentDate1.getStudentID()==stud.getStudentID())
+            {
+            attendanceByStudent.add(presentDate1);
+            }
         }
         return attendanceByStudent;
     }
