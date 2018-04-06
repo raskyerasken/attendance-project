@@ -27,6 +27,7 @@ public class Model
     BLLManagerCourses bllCourses = new BLLManagerCourses();
     BLLManagerStudent bllStudent= new  BLLManagerStudent();
     BLLManagerDate presentDate = new BLLManagerDate();
+    boolean allreadyPresent = false;
     BLLManagerHiddenStudent bllHiddenStudent
              = new  BLLManagerHiddenStudent();
  
@@ -64,6 +65,7 @@ public class Model
     }
       ObservableList<PresentDate> getAttendanceDayByStudent(Student stud) 
     {
+        attendanceByStudent.clear();
        getAttendanceDay();
         for (PresentDate presentDate1 : attendance) {
             
@@ -81,11 +83,29 @@ public class Model
     }
 
     public  void addAttendance(PresentDate pd) throws SQLServerException 
-    {
-        presentDate.addDate(pd);
-        attendance.add(pd);
-    }
-
+    { 
+        allreadyPresent=false;
+        getAttendanceDay();
+        for (PresentDate presentDate1 : attendance) {
+            if(presentDate1.getStudentID()==pd.getStudentID())
+            {
+            if(presentDate1.getDate().getDate()==pd.getDate().getDate()
+                        &&presentDate1.getDate().getMonth()==pd.getDate().getMonth()
+                        &&presentDate1.getDate().getYear()==pd.getDate().getYear())
+            {
+            allreadyPresent=true;
+            }
+            }
+                
+                
+        }
+        
+        if(!allreadyPresent){
+          presentDate.addDate(pd);
+        attendance.add(pd);}
+        
+        } 
+       
     void addAll(ObservableList<Student> student) 
     {
         students.clear();
