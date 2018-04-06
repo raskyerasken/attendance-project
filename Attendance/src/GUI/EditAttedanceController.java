@@ -71,13 +71,14 @@ public class EditAttedanceController implements Initializable
     @FXML
     private void saveAttence(ActionEvent event) throws ParseException, SQLServerException 
     {
-        getStudent();
-        PresentDate date = new PresentDate();
+         String str_date=lblDate.getText();
+        DateFormat formatter ; 
+        Date date ; 
+        formatter = new SimpleDateFormat("yy-MM-dd");
+        date = formatter.parse(str_date);
+        java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+        dop.setDate(sqlDate);
         model.addAttendance(dop);
-        if(newAttendence)
-        {
-            model.delete(index);
-        }
         Stage stage = (Stage) student.getScene().getWindow();
                         stage.close();
     }
@@ -108,6 +109,11 @@ public class EditAttedanceController implements Initializable
     void noStudent() 
     {
         newAttendence=false;
+    }
+
+    void setPresentDate(PresentDate pd) {
+    dop=pd;
+    
     }
     
 }

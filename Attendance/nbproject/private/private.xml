@@ -4,21 +4,25 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/GUI/Model.java</file>
-            <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/BE/DateOfPresent.java</file>
+            <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/Image/Anni.jpg</file>
+            <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/GUI/bckground.css</file>
             <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/DAL/DataBaseStudent.java</file>
-            <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/GUI/EditAttedenceController.java</file>
             <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/GUI/TeacherViewController.java</file>
+            <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/GUI/EditAttedanceController.java</file>
             <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/BLL/BLLManagerStudent.java</file>
+            <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/BLL/BLLManagerHiddenStudent.java</file>
             <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/GUI/StudentViewController.java</file>
             <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/BE/Student.java</file>
             <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/GUI/MainWindow.fxml</file>
-            <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/DAL/ConnectionManagerMyTunes.java</file>
+            <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/DAL/DataBaseHiddenStudent.java</file>
             <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/GUI/MainWindowController.java</file>
             <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/DAL/MockData.java</file>
+            <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/BLL/BLLManagerDate.java</file>
             <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/DAL/DataBaseCourses.java</file>
             <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/BLL/BLLManagerCourses.java</file>
             <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/BE/Courses.java</file>
             <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/src/GUI/CalculateAttendenceProcent.java</file>
+            <file>file:/C:/Users/jacob/Desktop/shit/attendance-project/Attendance/test/GUI/CalculateAttendenceProcentTest.java</file>
         </group>
     </open-files>
 </project-private>

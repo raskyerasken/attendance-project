@@ -44,18 +44,17 @@ public class StudentViewController implements Initializable
     private TableColumn<PresentDate, String> colClass;
     @FXML
     private Label studentName;
-
+    Student student = new Student(); 
 
     void setModel(Model model, Student SelectStudent) 
     {
+        student=SelectStudent;
         this.model= model; 
         studentName.setId("OurLabel");
         studentName.setText(SelectStudent.getName()+" " +SelectStudent.getFamilyName());
-        for (PresentDate dateOfPresent : model.getAttendanceDay()) 
-        {
-            if(dateOfPresent.getStudentID()== SelectStudent.getStudentID() )
-                    tblviewAttendence.getItems().add(dateOfPresent);
-        }
+       
+                    tblviewAttendence.setItems(model.getAttendanceDayByStudent(student));
+        
     }
   
     /**
@@ -79,6 +78,10 @@ public class StudentViewController implements Initializable
         Parent root = fxLoader.load();
         EditAttedanceController controller = fxLoader.getController();
         controller.setModel(model);
+        PresentDate pd= new  PresentDate();
+        pd.setStudentID(student.getStudentID());
+        pd.setCourse("CS2017_b");
+        controller.setPresentDate(pd);
         SelectionModel select = tblviewAttendence.getSelectionModel();
         if (!select.isEmpty()) 
         {

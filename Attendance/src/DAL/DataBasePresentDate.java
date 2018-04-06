@@ -54,6 +54,7 @@ public class DataBasePresentDate
     
     public ObservableList<PresentDate> getDates()
     {
+        
         ObservableList<PresentDate> allDates 
                 = FXCollections.observableArrayList();
         
@@ -67,6 +68,7 @@ public class DataBasePresentDate
                 PresentDate presentDate = new PresentDate();
                 presentDate.setDate(rs.getDate("Date"));
                 presentDate.setStudentID(rs.getInt("StudentId"));
+                allDates.add(presentDate);
             }
         } 
         
@@ -74,7 +76,7 @@ public class DataBasePresentDate
         {
             Logger.getLogger(DataBasePresentDate.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+      
         return (ObservableList<PresentDate>) allDates;
     }
 }

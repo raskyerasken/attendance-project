@@ -77,18 +77,18 @@ public class MainWindowController implements Initializable
     @Override
     public void initialize(URL url, ResourceBundle rb) 
     {
-        MockData md = new MockData();
-        try 
-        {
-            md.add(model);
-        } 
+//        MockData md = new MockData();
+//        try 
+//        {
+//            md.add(model);
+//        } 
         
-        catch (ParseException ex) 
-        {
-            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLServerException ex) {
-            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        catch (ParseException ex) 
+//        {
+//            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (SQLServerException ex) {
+//            Logger.getLogger(MainWindowController.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         try { 
             changeStudentPic();
         } catch (SQLException ex) {

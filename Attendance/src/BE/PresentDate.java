@@ -35,6 +35,11 @@ public class PresentDate
     {
         return StudentID;
     }
+
+    @Override
+    public String toString() {
+        return "PresentDate{" + "date=" + date + ", StudentID=" + StudentID + '}';
+    }
     
     public Date getDate() 
     {

@@ -35,7 +35,8 @@ public class Model
 
     private final ObservableList<PresentDate> attendance
             = FXCollections.observableArrayList();
-    
+    private final ObservableList<PresentDate> attendanceByStudent
+            = FXCollections.observableArrayList();
     private final  ObservableList<Student> hiddenStudent
             = FXCollections.observableArrayList();
  
@@ -59,6 +60,17 @@ public class Model
     {
         attendance.addAll(presentDate.getDate());
         return attendance;
+    }
+      ObservableList<PresentDate> getAttendanceDayByStudent(Student stud) 
+    {
+       
+        for (PresentDate presentDate1 : getAttendanceDay()) {
+            System.out.println(presentDate1.toString());
+            if(presentDate1.getStudentID()==stud.getStudentID()){
+                
+            attendanceByStudent.add(presentDate1);}
+        }
+        return attendanceByStudent;
     }
 
     public void delete(int index) 
