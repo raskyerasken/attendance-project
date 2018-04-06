@@ -78,15 +78,15 @@ public class StudentViewController implements Initializable
         pd.setCourse("CS2017_b");
         controller.setPresentDate(pd);
         SelectionModel select = tblviewAttendence.getSelectionModel();
-        if (!select.isEmpty()) 
-        {
-            controller.setStudent((PresentDate) select.getSelectedItem(), select.getSelectedIndex());
-        } 
-        
-        else 
-        {
-            controller.noStudent();
-        }
+//        if (!select.isEmpty()) 
+//        {
+//            controller.setStudent((PresentDate) select.getSelectedItem(), select.getSelectedIndex());
+//        } 
+//        
+//        else 
+//        {
+//            controller.noStudent();
+//        }
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.setResizable(false);

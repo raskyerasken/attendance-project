@@ -210,18 +210,19 @@ public class TeacherViewController implements Initializable {
         EditAttedanceController controller = fxLoader.getController();
         controller.setModel(model);
         SelectionModel select = tblStudents.getSelectionModel();
-        if (!select.isEmpty()) {
-            controller.setStudent((PresentDate) select.getSelectedItem(), select.getSelectedIndex());
-        } else {
-            controller.noStudent();
-        }
+//        if (!select.isEmpty()) {
+//            controller.setStudent((PresentDate) select.getSelectedItem(), select.getSelectedIndex());
+//        } else {
+//            controller.noStudent();
+//        }
         Scene scene = new Scene(root);
         newStage.setScene(scene);
         newStage.show();
     }
 
     @FXML
-    private void StartDate(ActionEvent event) throws ParseException {
+    private void StartDate(ActionEvent event) throws ParseException 
+    {
         DateFormat formatter = new SimpleDateFormat("yy-MM-dd");
         String start = startDate.getValue().format(DateTimeFormatter.ISO_DATE);
         java.sql.Date startsDate = new java.sql.Date(formatter.parse(start).getTime());
